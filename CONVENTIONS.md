@@ -94,11 +94,10 @@ layers. `tools/map/export_surface.js` is a second pass for the painted
 terrain of every block, which WorldPainter keeps apart from the biome.
 
 `build_canvas.py --export <prefix>` turns that into the canvas. Water is the
-subtle part: the game has one water plane, so where WorldPainter holds water
-above the ground and above the sea, a lake or a river, the ground is lowered
-until the same depth of water covers it at sea level, which is what draws the
-rivers; ground below the sea with no water over it is a dry basin and is
-lifted clear. Real bathymetry is kept within a dozen province pixels of the
+subtle part: the game has one water plane, so a lake held above the sea is
+lowered until the same depth of water covers it at that plane. A river is not,
+for the reason given under Rivers below. Ground below the sea with no water
+over it is a dry basin and is lifted clear. Real bathymetry is kept within a dozen province pixels of the
 coast and blended to one flat floor beyond, because a sea floor of one block
 noise makes every sea tile a relief tile and the packed heightmap can address
 only 64512 of them.
@@ -107,10 +106,57 @@ The ground comes from `terrain_materials.ground_maps`, shared by the material
 maps and the colour map so the two cannot disagree: the painted surface
 first, the biome where the surface is only grass or dirt, and height and
 slope where neither spoke. Vurkia is painted as basalt deltas and takes dark
-rock and ash. `build_trees.py` replaces all eighteen of the base game's tree
-generator files, which otherwise lay Europe's forests across this terrain,
-with trees from the world's own tree layers, the species chosen by the
-layer's name.
+rock and ash.
+
+`build_terrain.py` then blends the joins. Every pixel carries its own ground
+in the first slot and the ground of whatever lies around it in the second,
+weighted by how much of the neighbourhood that other ground holds, worked out
+on a quarter grid and blurred. On a border the two cover about half each, so
+both sides draw the same mixture and the seam disappears, and a little noise
+makes the join wander instead of running straight. The third slot carries bare
+rock on steep ground, snow on high ground, and otherwise a second texture for
+the ground itself. Weights always add to 255, as vanilla's do. The colour map
+is softened over about the same width, so that the colour seen from a distance
+never draws a harder edge than the texture beneath it.
+
+### Regions
+
+`tools/map/regions.py` names the lands. Nothing in the WorldPainter world
+records them, so each region is a seed point read off the published world map,
+grown into the landmass that holds it, with a box for an archipelago. Olzhar,
+Mekanis and Senkaria share one landmass and are told apart by what they are
+painted with: mesa and red desert for Mekanis, sand for Senkaria, the rest for
+Olzhar. The mesa mask is closed over the canyons cut through it, whose floors
+are painted as grass, so that the whole tableland reads as red rock rather
+than showing green threads.
+
+### Rivers
+
+The game draws rivers from `map_data/rivers.png`, not from the heightmap, so a
+river channel cut down to sea level becomes an inlet of the sea instead. The
+canvas therefore leaves river ground where it stands, lifting a bed clear of
+the water plane only where it lay under it by less than eight blocks and only
+inside the finished world, because east of block 48448 WorldPainter calls the
+shallow water over the unfinished ground river as well, and a whole sea of it
+came up as land the first time. `build_rivers.py` then turns the river biome
+into lines: the painted water is thinned to a single
+thread, the threads are made into a tree rooted where the water reaches the
+sea, tributaries under thirty pixels are dropped, and what is left is painted
+with vanilla's own palette, green where a river rises, blue along its course
+with the shade giving its width, and red on the last pixel of a tributary
+where it meets a larger river.
+
+### Trees
+
+`build_trees.py` replaces all eighteen of the base game's tree generator files,
+which otherwise lay Europe's forests across this terrain, with trees from the
+world's own tree layers, the species chosen by the layer's name. Two scales of
+noise thin them into woods with clearings between, since an even wash of trees
+reads as a lawn. A region may override both species and density, and Alexander
+named these on 19 September 2026: pine for Norkinia and Aeloen, sparse
+temperate for Northern Kallonia with thick pine in Bouropheia in its far north
+west, and jungle for Watol, which is rainforest and has nothing closer in the
+base game.
 
 `tools/map/build_canvas.py` builds it, and `tools/map/rebuild_full.cmd` runs
 everything downstream in order: refine, pack, quadtree, masks, colour and
@@ -314,19 +360,49 @@ before twenty run at the ordinary rate.
 Paradox gave Alexander written permission to use Imperator: Rome's assets in
 this mod. The two games share the same mesh, asset and animation pipeline, so
 a set ports by copying its folder and renaming one shader effect: Imperator's
-`standard_snow` is CK3's `standard_winter`. The decal effect `decal_world` the
-buildings use for their ground footprints exists in CK3 under the same name.
+`standard_snow` is CK3's `standard_winter`. That rename is mandatory on every
+ported `.asset`, because CK3 has no `standard_snow` and a mesh whose shader
+does not resolve does not draw. The other effects Imperator's buildings ask
+for do exist in CK3 under the same names: `standard`, `standard_alpha_blend`,
+and the decal effect `decal_world` the buildings use for their ground
+footprints. Textures resolve by bare file name across the whole `gfx` tree in
+both games, which is why a set's textures are copied in beside its meshes
+rather than referenced where they sit.
 
-The first set ported is the Hellenistic city, in
-`gfx/models/buildings/imperator/hellenistic_city`, four tiers of three, five,
-seven and eight variants, placed on the four city levels in
-`common/buildings/00_city_buildings.txt`. That file is vanilla's carried across
-whole with one asset block added a level, so it must be diffed against vanilla
-after a game update. A culture takes the set with
-`building_gfx = { patriam_building_gfx byzantine_building_gfx }`, the second
-entry covering the holdings the port does not reach yet. Thenithrian wears it
-first, as the test. Not yet checked in game: the scale of the meshes against
-CK3's own, and the terrain mask decal.
+Four sets are ported, all under `gfx/models/buildings/imperator`.
+
+| Folder | Set | Meshes | Worn by |
+| --- | --- | --- | --- |
+| `hellenistic_city` | Greek city | 3, 5, 7 and 8 variants over four tiers, plus a centre | `patriam_building_gfx` |
+| `roman_city` | Roman city | 5, 7, 5 and 6 variants over four tiers, plus a centre | `patriam_roman_building_gfx` |
+| `temples` | Temple of Jupiter | one mesh, all four temple levels | `patriam_roman_building_gfx` |
+| `temples` | Temples of Zeus and Artemis | two meshes, all four temple levels | `patriam_building_gfx` |
+
+Thenithrian takes the Roman face with
+`building_gfx = { patriam_roman_building_gfx byzantine_building_gfx }`, and
+Late Drunathaenic takes the Greek one with
+`building_gfx = { patriam_building_gfx byzantine_building_gfx }`. The second
+entry in each pair covers the holdings the port does not reach yet.
+
+`common/buildings/00_city_buildings.txt` and
+`common/buildings/00_temple_buildings.txt` are both vanilla's files carried
+across whole, with asset blocks added at every level, so both must be diffed
+against vanilla after a game update.
+
+Two things Imperator ships that had to be corrected or dropped:
+
+* Imperator's own `western` assets point their diffuse and properties maps at
+  the steppe set, which is felt and lattice rather than stone and tile. The
+  matching Roman maps sit unused in the same folder under `building_01_*`, so
+  the ported assets point there instead.
+* Every particle these entities fire, the braziers of Artemis, the steaming
+  pool of Jupiter, and the light shaft of Zeus, lives in Imperator alone. The
+  states that fire them are stripped, and the Zeus light effect mesh is left
+  behind with them.
+
+Not yet checked in game: the scale of the meshes against CK3's own, the
+terrain mask decal, and how the temples sit on a holding footprint they were
+never cut for.
 
 ## Naming conventions
 

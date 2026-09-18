@@ -6,7 +6,7 @@ k_kingdom_of_thenithria = {
 	6300.1.1 = { holder = 6002 }
 	6354.12.31 = { holder = 6001 }
 }
-c_kingdom_of_thenithria_01 = {
+c_kingdom_of_thenithria_14 = {
 	6300.1.1 = { holder = 6002 }
 	6354.12.31 = { holder = 6001 }
 }

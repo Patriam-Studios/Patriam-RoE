@@ -45,11 +45,13 @@ from scipy import ndimage
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import height_scale as hs
+import terrain_materials as tm
 
 Image.MAX_IMAGE_PIXELS = None
 MOD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 MD = os.path.join(MOD, "map_data")
 SRC = "D:/Patriam-CK3-map"
+GAME = r"C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game"
 OUT = os.path.join(SRC, "full")
 WRITE = "--write" in sys.argv
 
@@ -137,15 +139,41 @@ def blocks_from_old_sources():
     return blocks
 
 
+def river_band(prefix, EW, EH):
+    """Every block the world paints as river, at the export's own size. These
+    are drawn as rivers by build_rivers.py rather than cut into the ground."""
+    table = tm.load_biome_table(prefix + "_biomes.txt")
+    want = [i for i, (share, name) in table.items() if "river" in name.lower()]
+    bio = np.array(Image.open(prefix + "_biome.png")).astype(np.int32) - 1
+    assert bio.shape == (EH, EW), "biome raster is not the size of the height raster"
+    m = np.isin(bio, want)
+    del bio
+    # Only the finished world has rivers. East of it the shallow water over the
+    # unfinished ground is called river as well, and a whole sea of it would
+    # have come up as land.
+    m[:, INNER_BLOCKS // 2:] = False
+    say("river biome in the finished world: %.2f%% of the export, kept as land for build_rivers.py"
+        % (m.mean() * 100))
+    return m
+
+
 def blocks_from_export(prefix):
     """The canvas heightmap from the whole world export, two blocks a pixel with
     sixty four steps to the block, so nothing arrives rounded into terraces.
 
     Water: WorldPainter keeps a water level for every block. Where it stands
-    above the ground and above the sea, that is a lake or a river, and the game
-    has one water plane, so the ground there is lowered until the same depth of
-    water covers it at sea level. Ground below the sea with no water over it is
-    a dry basin and is lifted just clear of the sea so it stays land."""
+    above the ground and above the sea it is either a lake or a river.
+
+    A lake is lowered until the same depth of water covers it at the one water
+    plane the game has. A river is left where it is, only lifted clear of the
+    water plane if its bed lay below it, because the game draws rivers from
+    map_data/rivers.png as meshes laid on the ground: cutting the channel down
+    to sea level, as this did at first, turns every river into an inlet of the
+    sea. build_rivers.py draws them from the same river biome.
+
+    Ground below the sea with no water over it is a dry basin, the floor of a
+    canyon in the mesa of Mekanis among others, and is lifted just clear of the
+    sea so that it stays land."""
     say("loading the export")
     h = np.array(Image.open(prefix + "_height.png"))
     wl = np.array(Image.open(prefix + "_water.png"))
@@ -202,20 +230,37 @@ def blocks_from_export(prefix):
 
     # the canvas, a band at a time; bands overlap so the resampling filter
     # never sees an edge that is not the edge of the world
+    river_px = river_band(prefix, EW, EH)
     blocks = np.empty((HH, HW), dtype=np.float32)
     SB, TB, SO, TO = EH // 8, HH // 8, 135, 104     # source and target band and overlap rows, exact ratios
-    stats = {"lake": 0, "basin": 0}
+    stats = {"lake": 0, "basin": 0, "river": 0}
     for b in range(8):
         s0, s1 = b * SB, (b + 1) * SB
         a0, a1 = max(0, s0 - SO), min(EH, s1 + SO)
         gb = h[a0:a1].astype(np.float32) / 64.0 + np.float32(hs.MIN_BLOCK)
         wb = wl[a0:a1].astype(np.float32) / 64.0 + np.float32(hs.MIN_BLOCK)
         wet = wb > gb
-        lake = wet & (wb > hs.SEA_BLOCK)
+        riv = river_px[a0:a1]
+        # a river keeps its bed and only comes up if the bed lay under the water
+        # plane, since the game lays the river mesh on the ground
+        # Only a genuine river bed comes up. WorldPainter calls a great deal of
+        # the shallow water out east river as well, and lifting a sea floor a
+        # dozen blocks down would have laid a film of land across the ocean.
+        lifted = riv & (gb <= hs.SEA_BLOCK) & (gb > np.float32(hs.SEA_BLOCK - 8.0))
+        gb[lifted] = np.float32(hs.SEA_BLOCK + 0.35)
+        lake = wet & (wb > hs.SEA_BLOCK) & ~riv
         gb[lake] = np.maximum(np.float32(hs.SEA_BLOCK) - (wb[lake] - gb[lake]), np.float32(hs.MIN_BLOCK))
-        basin = ~wet & (gb <= hs.SEA_BLOCK)
-        gb[basin] = np.float32(hs.SEA_BLOCK + 0.3)
+        # Ground at the very bottom with no water over it is not a basin: it is a
+        # part of the world with no tile at all, which the export writes as the
+        # floor of the height range. Lifting that made specks of land in the void.
+        basin = ~wet & ~riv & (gb <= hs.SEA_BLOCK) & (gb > np.float32(hs.MIN_BLOCK + 0.5))
+        # the deeper the floor the lower it sits, so that a canyon in the mesa
+        # does not come out as one flat pan
+        gb[basin] = np.float32(hs.SEA_BLOCK + 0.3) + 0.7 * (1.0 - np.clip(
+            (np.float32(hs.SEA_BLOCK) - gb[basin]) / 20.0, 0.0, 1.0))
         stats["lake"] += int(lake[s0 - a0:s1 - a0].sum()); stats["basin"] += int(basin[s0 - a0:s1 - a0].sum())
+        stats["river"] += int(lifted[s0 - a0:s1 - a0].sum())
+        del riv, lifted
         off = a0 % q                                   # the mask row a band starts part way through
         m = np.repeat(np.repeat(sink[a0 // q:-(-a1 // q)], q, axis=0), q, axis=1)[off:off + a1 - a0, :EW]
         gb[m] = 52.0
@@ -227,8 +272,10 @@ def blocks_from_export(prefix):
         del gb, up
         say("band %d of 8" % (b + 1))
     del h, wl
-    say("lakes and rivers lowered to the sea plane: %.2f%% of the export; dry basins lifted: %.2f%%" % (
-        stats["lake"] * 100.0 / (EW * EH), stats["basin"] * 100.0 / (EW * EH)))
+    say("lakes lowered to the sea plane: %.2f%% of the export; dry basins lifted: %.2f%%; "
+        "river beds raised clear of the water: %.2f%%" % (
+            stats["lake"] * 100.0 / (EW * EH), stats["basin"] * 100.0 / (EW * EH),
+            stats["river"] * 100.0 / (EW * EH)))
 
     # The deep sea. Real bathymetry is kept near the coast, where it shows
     # through the water, and blended to one flat floor beyond it, because a
@@ -400,16 +447,14 @@ with open(os.path.join(MD, "definition.csv"), "w", newline="", encoding="utf-8")
         f.write("%d;%d;%d;%d;%s;x;\n" % (i, r, g, b, name_for(i)))
 say("wrote definition.csv")
 
+# rivers.png is drawn by build_rivers.py, which needs the finished heightmap,
+# so all that is written here is a map with no rivers on it at all.
 riv = np.where(landp, 255, 254).astype(np.uint8)
 rim = Image.fromarray(riv, mode="P")
-pal = [0] * 768
-pal[254 * 3:254 * 3 + 3] = [255, 0, 128]
-pal[255 * 3:255 * 3 + 3] = [255, 255, 255]
-pal[3 * 3:3 * 3 + 3] = [0, 225, 255]
-rim.putpalette(pal)
+rim.putpalette(Image.open(os.path.join(GAME, "map_data", "rivers.png")).getpalette())
 rim.save(os.path.join(MD, "rivers.png"), optimize=True)
 del riv, rim
-say("wrote rivers.png")
+say("wrote rivers.png, without rivers; build_rivers.py draws them")
 
 # province terrain: the baronies keep the types they had, the wastes are mountains
 old_terrain = io.open(os.path.join(MOD, "common", "province_terrain", "00_province_terrain.txt"), encoding="utf-8-sig").read().splitlines()

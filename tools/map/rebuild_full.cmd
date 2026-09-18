@@ -14,7 +14,7 @@ set PW=16384
 set PH=6656
 
 echo === 1. refine the raw canvas heightmap into game heights
-python "%HERE%refine_heightmap.py" --from-export "%FULL%\canvas_blocks.png" --sigma 1.5 "%FULL%\heightmap.png" || goto :fail
+python "%HERE%refine_heightmap.py" --from-export "%FULL%\canvas_blocks.png" --sigma 0.7 "%FULL%\heightmap.png" || goto :fail
 copy /Y "%FULL%\heightmap.png" "%MOD%\map_data\heightmap.png" >nul || goto :fail
 
 echo === 2. pack the heightmap
@@ -22,6 +22,9 @@ python "%HERE%pack_heightmap.py" "%MOD%\map_data\heightmap.png" "%MOD%\map_data"
 
 echo === 3. terrain quadtree
 python "%HERE%build_nodes.py" "%MOD%\map_data\heightmap.png" "%MOD%\map_data" || goto :fail
+
+echo === 3b. rivers from the river biome
+python "%HERE%build_rivers.py" "%FULL%\full" "%MOD%\map_data" --write || goto :fail
 
 echo === 4. material masks sized to the canvas
 python "%HERE%build_masks.py" %PW% %PH% || goto :fail

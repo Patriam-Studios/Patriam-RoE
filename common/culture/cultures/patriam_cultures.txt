@@ -25,9 +25,9 @@ thenithrian = {
 	name_list = name_list_thenithrian
 
 	coa_gfx = { byzantine_group_coa_gfx }
-	# The Hellenistic cities of Imperator: Rome for the towns, vanilla's Byzantine
-	# set for everything the port does not cover yet.
-	building_gfx = { patriam_building_gfx byzantine_building_gfx }
+	# The Roman cities and the temple of Jupiter from Imperator: Rome, vanilla's
+	# Byzantine set for everything the port does not cover yet.
+	building_gfx = { patriam_roman_building_gfx byzantine_building_gfx }
 	clothing_gfx = { byzantine_clothing_gfx }
 	unit_gfx = { eastern_unit_gfx }
 
@@ -55,7 +55,9 @@ late_drunathaenic = {
 	name_list = name_list_late_drunathaenic
 
 	coa_gfx = { byzantine_group_coa_gfx }
-	building_gfx = { byzantine_building_gfx }
+	# The Hellenistic cities and the Greek temples from Imperator: Rome, vanilla's
+	# Byzantine set for everything the port does not cover yet.
+	building_gfx = { patriam_building_gfx byzantine_building_gfx }
 	clothing_gfx = { byzantine_clothing_gfx }
 	unit_gfx = { eastern_unit_gfx }
 

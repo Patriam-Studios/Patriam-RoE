@@ -66,6 +66,14 @@ SURFACE_RULES = [
     (r"farm|field|crop|wheat", ("farmland_01", "plains_01")),
 ]
 
+# A whole region can insist on its own ground whatever is painted under it.
+# Mekanis is a mesa of red terracotta rock cut by deep canyons, and the floors of
+# those canyons are painted as grass, which left green threads running through
+# the red. The whole tableland reads as desert rock instead.
+REGION_GROUND = {
+    "mekanis": ("mountain_02_desert_c", "desert_rocky"),
+}
+
 # Slope and height override the biome where the land itself is steep or high,
 # so cliffs read as rock and summits as snow whatever was painted there.
 STEEP_ROCK = "mountain_02_b"
@@ -144,6 +152,18 @@ def ground_maps(prefix, size, idx, report=True):
         if report:
             print("the painted surface decided %.1f%% of the map" % (spoke * 100.0 / (W * H)))
         del surf
+    if prefix and os.path.exists(prefix + "_surface.png"):
+        import regions                                  # imported here, since regions reads the rules above
+        rmap, rnames = regions.region_map(prefix, (W, H))
+        for name, ground in REGION_GROUND.items():
+            m = rmap == rnames.index(name) + 1
+            primary[m] = idx[ground[0]]
+            overlay[m] = idx[ground[1]] if ground[1] else 255
+            unresolved[m] = False
+            if report:
+                print("  %-12s takes %s over %.2f%% of the map, canyon floors and all"
+                      % (name, ground, m.mean() * 100))
+        del rmap
     return primary, overlay, unresolved
 
 

@@ -113,7 +113,9 @@ def main(heightmap_path, terrain_dir, prefix=None):
         del primary, high
         print("ground tint applied to %.1f%% of the land" % (tinted * 100.0 / max(1, int(land.sum()))))
     col[~land] = SEA_TINT
-    img = Image.fromarray(np.clip(col, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(3))
+    # Softened to about the width the ground materials blend over, so that the
+    # colour at a distance does not draw a harder edge than the texture under it.
+    img = Image.fromarray(np.clip(col, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(6))
     del col
     rgba = img.convert("RGBA")
     os.makedirs(terrain_dir, exist_ok=True)

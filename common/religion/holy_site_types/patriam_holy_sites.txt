@@ -6,7 +6,7 @@
 ############################################################
 
 thenithria = { # The source flame of the city itself, kept since the City State was founded.
-	county = c_kingdom_of_thenithria_01
+	county = c_kingdom_of_thenithria_14
 
 	character_modifier = {
 		name = holy_site_thenithria_effect_name

@@ -242,7 +242,7 @@ e_southern_kallonia = {
 	}
 	k_kingdom_of_thenithria = {
 		color = { 161 118 179 }
-		capital = c_kingdom_of_thenithria_01
+		capital = c_kingdom_of_thenithria_14
 		d_kingdom_of_thenithria_01 = {
 			color = { 61 120 143 }
 			capital = c_kingdom_of_thenithria_01
@@ -286,7 +286,7 @@ e_southern_kallonia = {
 		}
 		d_kingdom_of_thenithria_03 = {
 			color = { 201 97 141 }
-			capital = c_kingdom_of_thenithria_02
+			capital = c_kingdom_of_thenithria_14
 			c_kingdom_of_thenithria_02 = {
 				color = { 166 51 119 }
 				b_kingdom_of_thenithria_0505 = { province = 505 }

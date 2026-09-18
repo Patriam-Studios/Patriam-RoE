@@ -1251,14 +1251,14 @@
     "counties": [
      {
       "key": "c_kingdom_of_thenithria_01",
-      "name": "Thenithria",
-      "meaning": "the seat of the realm, and the city that names it",
+      "name": "Atsiraeni Bairaen",
+      "meaning": "the market of the strait",
       "baronies": [
        {
         "key": "b_kingdom_of_thenithria_0508",
         "province": 508,
-        "name": "Thenithria",
-        "meaning": "the seat of the realm, and the city that names it",
+        "name": "Atsiraeni Bairaen",
+        "meaning": "the market of the strait",
         "terrain": "plains",
         "coastal": true
        },
@@ -1726,8 +1726,8 @@
      },
      {
       "key": "c_kingdom_of_thenithria_14",
-      "name": "Kaeraenis Gralin",
-      "meaning": "the strong quay",
+      "name": "Thenithria",
+      "meaning": "the seat of the realm, and the city that names it",
       "baronies": [
        {
         "key": "b_kingdom_of_thenithria_0659",
@@ -1740,8 +1740,8 @@
        {
         "key": "b_kingdom_of_thenithria_0660",
         "province": 660,
-        "name": "Atsiraeni Bairaen",
-        "meaning": "the market of the strait",
+        "name": "Thenithria",
+        "meaning": "the seat of the realm, and the city that names it",
         "terrain": "plains",
         "coastal": true
        },

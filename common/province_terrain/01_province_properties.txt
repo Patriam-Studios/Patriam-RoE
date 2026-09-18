@@ -7379,3 +7379,1242 @@
 2458 ={
 	winter_severity_bias = 0.0
 }
+2459 ={
+	winter_severity_bias = 0.0
+}
+2460 ={
+	winter_severity_bias = 0.0
+}
+2461 ={
+	winter_severity_bias = 0.0
+}
+2462 ={
+	winter_severity_bias = 0.0
+}
+2463 ={
+	winter_severity_bias = 0.0
+}
+2464 ={
+	winter_severity_bias = 0.0
+}
+2465 ={
+	winter_severity_bias = 0.0
+}
+2466 ={
+	winter_severity_bias = 0.0
+}
+2467 ={
+	winter_severity_bias = 0.0
+}
+2468 ={
+	winter_severity_bias = 0.0
+}
+2469 ={
+	winter_severity_bias = 0.0
+}
+2470 ={
+	winter_severity_bias = 0.0
+}
+2471 ={
+	winter_severity_bias = 0.0
+}
+2472 ={
+	winter_severity_bias = 0.0
+}
+2473 ={
+	winter_severity_bias = 0.0
+}
+2474 ={
+	winter_severity_bias = 0.0
+}
+2475 ={
+	winter_severity_bias = 0.0
+}
+2476 ={
+	winter_severity_bias = 0.0
+}
+2477 ={
+	winter_severity_bias = 0.0
+}
+2478 ={
+	winter_severity_bias = 0.0
+}
+2479 ={
+	winter_severity_bias = 0.0
+}
+2480 ={
+	winter_severity_bias = 0.0
+}
+2481 ={
+	winter_severity_bias = 0.0
+}
+2482 ={
+	winter_severity_bias = 0.0
+}
+2483 ={
+	winter_severity_bias = 0.0
+}
+2484 ={
+	winter_severity_bias = 0.0
+}
+2485 ={
+	winter_severity_bias = 0.0
+}
+2486 ={
+	winter_severity_bias = 0.0
+}
+2487 ={
+	winter_severity_bias = 0.0
+}
+2488 ={
+	winter_severity_bias = 0.0
+}
+2489 ={
+	winter_severity_bias = 0.0
+}
+2490 ={
+	winter_severity_bias = 0.0
+}
+2491 ={
+	winter_severity_bias = 0.0
+}
+2492 ={
+	winter_severity_bias = 0.0
+}
+2493 ={
+	winter_severity_bias = 0.0
+}
+2494 ={
+	winter_severity_bias = 0.0
+}
+2495 ={
+	winter_severity_bias = 0.0
+}
+2496 ={
+	winter_severity_bias = 0.0
+}
+2497 ={
+	winter_severity_bias = 0.0
+}
+2498 ={
+	winter_severity_bias = 0.0
+}
+2499 ={
+	winter_severity_bias = 0.0
+}
+2500 ={
+	winter_severity_bias = 0.0
+}
+2501 ={
+	winter_severity_bias = 0.0
+}
+2502 ={
+	winter_severity_bias = 0.0
+}
+2503 ={
+	winter_severity_bias = 0.0
+}
+2504 ={
+	winter_severity_bias = 0.0
+}
+2505 ={
+	winter_severity_bias = 0.0
+}
+2506 ={
+	winter_severity_bias = 0.0
+}
+2507 ={
+	winter_severity_bias = 0.0
+}
+2508 ={
+	winter_severity_bias = 0.0
+}
+2509 ={
+	winter_severity_bias = 0.0
+}
+2510 ={
+	winter_severity_bias = 0.0
+}
+2511 ={
+	winter_severity_bias = 0.0
+}
+2512 ={
+	winter_severity_bias = 0.0
+}
+2513 ={
+	winter_severity_bias = 0.0
+}
+2514 ={
+	winter_severity_bias = 0.0
+}
+2515 ={
+	winter_severity_bias = 0.0
+}
+2516 ={
+	winter_severity_bias = 0.0
+}
+2517 ={
+	winter_severity_bias = 0.0
+}
+2518 ={
+	winter_severity_bias = 0.0
+}
+2519 ={
+	winter_severity_bias = 0.0
+}
+2520 ={
+	winter_severity_bias = 0.0
+}
+2521 ={
+	winter_severity_bias = 0.0
+}
+2522 ={
+	winter_severity_bias = 0.0
+}
+2523 ={
+	winter_severity_bias = 0.0
+}
+2524 ={
+	winter_severity_bias = 0.0
+}
+2525 ={
+	winter_severity_bias = 0.0
+}
+2526 ={
+	winter_severity_bias = 0.0
+}
+2527 ={
+	winter_severity_bias = 0.0
+}
+2528 ={
+	winter_severity_bias = 0.0
+}
+2529 ={
+	winter_severity_bias = 0.0
+}
+2530 ={
+	winter_severity_bias = 0.0
+}
+2531 ={
+	winter_severity_bias = 0.0
+}
+2532 ={
+	winter_severity_bias = 0.0
+}
+2533 ={
+	winter_severity_bias = 0.0
+}
+2534 ={
+	winter_severity_bias = 0.0
+}
+2535 ={
+	winter_severity_bias = 0.0
+}
+2536 ={
+	winter_severity_bias = 0.0
+}
+2537 ={
+	winter_severity_bias = 0.0
+}
+2538 ={
+	winter_severity_bias = 0.0
+}
+2539 ={
+	winter_severity_bias = 0.0
+}
+2540 ={
+	winter_severity_bias = 0.0
+}
+2541 ={
+	winter_severity_bias = 0.0
+}
+2542 ={
+	winter_severity_bias = 0.0
+}
+2543 ={
+	winter_severity_bias = 0.0
+}
+2544 ={
+	winter_severity_bias = 0.0
+}
+2545 ={
+	winter_severity_bias = 0.0
+}
+2546 ={
+	winter_severity_bias = 0.0
+}
+2547 ={
+	winter_severity_bias = 0.0
+}
+2548 ={
+	winter_severity_bias = 0.0
+}
+2549 ={
+	winter_severity_bias = 0.0
+}
+2550 ={
+	winter_severity_bias = 0.0
+}
+2551 ={
+	winter_severity_bias = 0.0
+}
+2552 ={
+	winter_severity_bias = 0.0
+}
+2553 ={
+	winter_severity_bias = 0.0
+}
+2554 ={
+	winter_severity_bias = 0.0
+}
+2555 ={
+	winter_severity_bias = 0.0
+}
+2556 ={
+	winter_severity_bias = 0.0
+}
+2557 ={
+	winter_severity_bias = 0.0
+}
+2558 ={
+	winter_severity_bias = 0.0
+}
+2559 ={
+	winter_severity_bias = 0.0
+}
+2560 ={
+	winter_severity_bias = 0.0
+}
+2561 ={
+	winter_severity_bias = 0.0
+}
+2562 ={
+	winter_severity_bias = 0.0
+}
+2563 ={
+	winter_severity_bias = 0.0
+}
+2564 ={
+	winter_severity_bias = 0.0
+}
+2565 ={
+	winter_severity_bias = 0.0
+}
+2566 ={
+	winter_severity_bias = 0.0
+}
+2567 ={
+	winter_severity_bias = 0.0
+}
+2568 ={
+	winter_severity_bias = 0.0
+}
+2569 ={
+	winter_severity_bias = 0.0
+}
+2570 ={
+	winter_severity_bias = 0.0
+}
+2571 ={
+	winter_severity_bias = 0.0
+}
+2572 ={
+	winter_severity_bias = 0.0
+}
+2573 ={
+	winter_severity_bias = 0.0
+}
+2574 ={
+	winter_severity_bias = 0.0
+}
+2575 ={
+	winter_severity_bias = 0.0
+}
+2576 ={
+	winter_severity_bias = 0.0
+}
+2577 ={
+	winter_severity_bias = 0.0
+}
+2578 ={
+	winter_severity_bias = 0.0
+}
+2579 ={
+	winter_severity_bias = 0.0
+}
+2580 ={
+	winter_severity_bias = 0.0
+}
+2581 ={
+	winter_severity_bias = 0.0
+}
+2582 ={
+	winter_severity_bias = 0.0
+}
+2583 ={
+	winter_severity_bias = 0.0
+}
+2584 ={
+	winter_severity_bias = 0.0
+}
+2585 ={
+	winter_severity_bias = 0.0
+}
+2586 ={
+	winter_severity_bias = 0.0
+}
+2587 ={
+	winter_severity_bias = 0.0
+}
+2588 ={
+	winter_severity_bias = 0.0
+}
+2589 ={
+	winter_severity_bias = 0.0
+}
+2590 ={
+	winter_severity_bias = 0.0
+}
+2591 ={
+	winter_severity_bias = 0.0
+}
+2592 ={
+	winter_severity_bias = 0.0
+}
+2593 ={
+	winter_severity_bias = 0.0
+}
+2594 ={
+	winter_severity_bias = 0.0
+}
+2595 ={
+	winter_severity_bias = 0.0
+}
+2596 ={
+	winter_severity_bias = 0.0
+}
+2597 ={
+	winter_severity_bias = 0.0
+}
+2598 ={
+	winter_severity_bias = 0.0
+}
+2599 ={
+	winter_severity_bias = 0.0
+}
+2600 ={
+	winter_severity_bias = 0.0
+}
+2601 ={
+	winter_severity_bias = 0.0
+}
+2602 ={
+	winter_severity_bias = 0.0
+}
+2603 ={
+	winter_severity_bias = 0.0
+}
+2604 ={
+	winter_severity_bias = 0.0
+}
+2605 ={
+	winter_severity_bias = 0.0
+}
+2606 ={
+	winter_severity_bias = 0.0
+}
+2607 ={
+	winter_severity_bias = 0.0
+}
+2608 ={
+	winter_severity_bias = 0.0
+}
+2609 ={
+	winter_severity_bias = 0.0
+}
+2610 ={
+	winter_severity_bias = 0.0
+}
+2611 ={
+	winter_severity_bias = 0.0
+}
+2612 ={
+	winter_severity_bias = 0.0
+}
+2613 ={
+	winter_severity_bias = 0.0
+}
+2614 ={
+	winter_severity_bias = 0.0
+}
+2615 ={
+	winter_severity_bias = 0.0
+}
+2616 ={
+	winter_severity_bias = 0.0
+}
+2617 ={
+	winter_severity_bias = 0.0
+}
+2618 ={
+	winter_severity_bias = 0.0
+}
+2619 ={
+	winter_severity_bias = 0.0
+}
+2620 ={
+	winter_severity_bias = 0.0
+}
+2621 ={
+	winter_severity_bias = 0.0
+}
+2622 ={
+	winter_severity_bias = 0.0
+}
+2623 ={
+	winter_severity_bias = 0.0
+}
+2624 ={
+	winter_severity_bias = 0.0
+}
+2625 ={
+	winter_severity_bias = 0.0
+}
+2626 ={
+	winter_severity_bias = 0.0
+}
+2627 ={
+	winter_severity_bias = 0.0
+}
+2628 ={
+	winter_severity_bias = 0.0
+}
+2629 ={
+	winter_severity_bias = 0.0
+}
+2630 ={
+	winter_severity_bias = 0.0
+}
+2631 ={
+	winter_severity_bias = 0.0
+}
+2632 ={
+	winter_severity_bias = 0.0
+}
+2633 ={
+	winter_severity_bias = 0.0
+}
+2634 ={
+	winter_severity_bias = 0.0
+}
+2635 ={
+	winter_severity_bias = 0.0
+}
+2636 ={
+	winter_severity_bias = 0.0
+}
+2637 ={
+	winter_severity_bias = 0.0
+}
+2638 ={
+	winter_severity_bias = 0.0
+}
+2639 ={
+	winter_severity_bias = 0.0
+}
+2640 ={
+	winter_severity_bias = 0.0
+}
+2641 ={
+	winter_severity_bias = 0.0
+}
+2642 ={
+	winter_severity_bias = 0.0
+}
+2643 ={
+	winter_severity_bias = 0.0
+}
+2644 ={
+	winter_severity_bias = 0.0
+}
+2645 ={
+	winter_severity_bias = 0.0
+}
+2646 ={
+	winter_severity_bias = 0.0
+}
+2647 ={
+	winter_severity_bias = 0.0
+}
+2648 ={
+	winter_severity_bias = 0.0
+}
+2649 ={
+	winter_severity_bias = 0.0
+}
+2650 ={
+	winter_severity_bias = 0.0
+}
+2651 ={
+	winter_severity_bias = 0.0
+}
+2652 ={
+	winter_severity_bias = 0.0
+}
+2653 ={
+	winter_severity_bias = 0.0
+}
+2654 ={
+	winter_severity_bias = 0.0
+}
+2655 ={
+	winter_severity_bias = 0.0
+}
+2656 ={
+	winter_severity_bias = 0.0
+}
+2657 ={
+	winter_severity_bias = 0.0
+}
+2658 ={
+	winter_severity_bias = 0.0
+}
+2659 ={
+	winter_severity_bias = 0.0
+}
+2660 ={
+	winter_severity_bias = 0.0
+}
+2661 ={
+	winter_severity_bias = 0.0
+}
+2662 ={
+	winter_severity_bias = 0.0
+}
+2663 ={
+	winter_severity_bias = 0.0
+}
+2664 ={
+	winter_severity_bias = 0.0
+}
+2665 ={
+	winter_severity_bias = 0.0
+}
+2666 ={
+	winter_severity_bias = 0.0
+}
+2667 ={
+	winter_severity_bias = 0.0
+}
+2668 ={
+	winter_severity_bias = 0.0
+}
+2669 ={
+	winter_severity_bias = 0.0
+}
+2670 ={
+	winter_severity_bias = 0.0
+}
+2671 ={
+	winter_severity_bias = 0.0
+}
+2672 ={
+	winter_severity_bias = 0.0
+}
+2673 ={
+	winter_severity_bias = 0.0
+}
+2674 ={
+	winter_severity_bias = 0.0
+}
+2675 ={
+	winter_severity_bias = 0.0
+}
+2676 ={
+	winter_severity_bias = 0.0
+}
+2677 ={
+	winter_severity_bias = 0.0
+}
+2678 ={
+	winter_severity_bias = 0.0
+}
+2679 ={
+	winter_severity_bias = 0.0
+}
+2680 ={
+	winter_severity_bias = 0.0
+}
+2681 ={
+	winter_severity_bias = 0.0
+}
+2682 ={
+	winter_severity_bias = 0.0
+}
+2683 ={
+	winter_severity_bias = 0.0
+}
+2684 ={
+	winter_severity_bias = 0.0
+}
+2685 ={
+	winter_severity_bias = 0.0
+}
+2686 ={
+	winter_severity_bias = 0.0
+}
+2687 ={
+	winter_severity_bias = 0.0
+}
+2688 ={
+	winter_severity_bias = 0.0
+}
+2689 ={
+	winter_severity_bias = 0.0
+}
+2690 ={
+	winter_severity_bias = 0.0
+}
+2691 ={
+	winter_severity_bias = 0.0
+}
+2692 ={
+	winter_severity_bias = 0.0
+}
+2693 ={
+	winter_severity_bias = 0.0
+}
+2694 ={
+	winter_severity_bias = 0.0
+}
+2695 ={
+	winter_severity_bias = 0.0
+}
+2696 ={
+	winter_severity_bias = 0.0
+}
+2697 ={
+	winter_severity_bias = 0.0
+}
+2698 ={
+	winter_severity_bias = 0.0
+}
+2699 ={
+	winter_severity_bias = 0.0
+}
+2700 ={
+	winter_severity_bias = 0.0
+}
+2701 ={
+	winter_severity_bias = 0.0
+}
+2702 ={
+	winter_severity_bias = 0.0
+}
+2703 ={
+	winter_severity_bias = 0.0
+}
+2704 ={
+	winter_severity_bias = 0.0
+}
+2705 ={
+	winter_severity_bias = 0.0
+}
+2706 ={
+	winter_severity_bias = 0.0
+}
+2707 ={
+	winter_severity_bias = 0.0
+}
+2708 ={
+	winter_severity_bias = 0.0
+}
+2709 ={
+	winter_severity_bias = 0.0
+}
+2710 ={
+	winter_severity_bias = 0.0
+}
+2711 ={
+	winter_severity_bias = 0.0
+}
+2712 ={
+	winter_severity_bias = 0.0
+}
+2713 ={
+	winter_severity_bias = 0.0
+}
+2714 ={
+	winter_severity_bias = 0.0
+}
+2715 ={
+	winter_severity_bias = 0.0
+}
+2716 ={
+	winter_severity_bias = 0.0
+}
+2717 ={
+	winter_severity_bias = 0.0
+}
+2718 ={
+	winter_severity_bias = 0.0
+}
+2719 ={
+	winter_severity_bias = 0.0
+}
+2720 ={
+	winter_severity_bias = 0.0
+}
+2721 ={
+	winter_severity_bias = 0.0
+}
+2722 ={
+	winter_severity_bias = 0.0
+}
+2723 ={
+	winter_severity_bias = 0.0
+}
+2724 ={
+	winter_severity_bias = 0.0
+}
+2725 ={
+	winter_severity_bias = 0.0
+}
+2726 ={
+	winter_severity_bias = 0.0
+}
+2727 ={
+	winter_severity_bias = 0.0
+}
+2728 ={
+	winter_severity_bias = 0.0
+}
+2729 ={
+	winter_severity_bias = 0.0
+}
+2730 ={
+	winter_severity_bias = 0.0
+}
+2731 ={
+	winter_severity_bias = 0.0
+}
+2732 ={
+	winter_severity_bias = 0.0
+}
+2733 ={
+	winter_severity_bias = 0.0
+}
+2734 ={
+	winter_severity_bias = 0.0
+}
+2735 ={
+	winter_severity_bias = 0.0
+}
+2736 ={
+	winter_severity_bias = 0.0
+}
+2737 ={
+	winter_severity_bias = 0.0
+}
+2738 ={
+	winter_severity_bias = 0.0
+}
+2739 ={
+	winter_severity_bias = 0.0
+}
+2740 ={
+	winter_severity_bias = 0.0
+}
+2741 ={
+	winter_severity_bias = 0.0
+}
+2742 ={
+	winter_severity_bias = 0.0
+}
+2743 ={
+	winter_severity_bias = 0.0
+}
+2744 ={
+	winter_severity_bias = 0.0
+}
+2745 ={
+	winter_severity_bias = 0.0
+}
+2746 ={
+	winter_severity_bias = 0.0
+}
+2747 ={
+	winter_severity_bias = 0.0
+}
+2748 ={
+	winter_severity_bias = 0.0
+}
+2749 ={
+	winter_severity_bias = 0.0
+}
+2750 ={
+	winter_severity_bias = 0.0
+}
+2751 ={
+	winter_severity_bias = 0.0
+}
+2752 ={
+	winter_severity_bias = 0.0
+}
+2753 ={
+	winter_severity_bias = 0.0
+}
+2754 ={
+	winter_severity_bias = 0.0
+}
+2755 ={
+	winter_severity_bias = 0.0
+}
+2756 ={
+	winter_severity_bias = 0.0
+}
+2757 ={
+	winter_severity_bias = 0.0
+}
+2758 ={
+	winter_severity_bias = 0.0
+}
+2759 ={
+	winter_severity_bias = 0.0
+}
+2760 ={
+	winter_severity_bias = 0.0
+}
+2761 ={
+	winter_severity_bias = 0.0
+}
+2762 ={
+	winter_severity_bias = 0.0
+}
+2763 ={
+	winter_severity_bias = 0.0
+}
+2764 ={
+	winter_severity_bias = 0.0
+}
+2765 ={
+	winter_severity_bias = 0.0
+}
+2766 ={
+	winter_severity_bias = 0.0
+}
+2767 ={
+	winter_severity_bias = 0.0
+}
+2768 ={
+	winter_severity_bias = 0.0
+}
+2769 ={
+	winter_severity_bias = 0.0
+}
+2770 ={
+	winter_severity_bias = 0.0
+}
+2771 ={
+	winter_severity_bias = 0.0
+}
+2772 ={
+	winter_severity_bias = 0.0
+}
+2773 ={
+	winter_severity_bias = 0.0
+}
+2774 ={
+	winter_severity_bias = 0.0
+}
+2775 ={
+	winter_severity_bias = 0.0
+}
+2776 ={
+	winter_severity_bias = 0.0
+}
+2777 ={
+	winter_severity_bias = 0.0
+}
+2778 ={
+	winter_severity_bias = 0.0
+}
+2779 ={
+	winter_severity_bias = 0.0
+}
+2780 ={
+	winter_severity_bias = 0.0
+}
+2781 ={
+	winter_severity_bias = 0.0
+}
+2782 ={
+	winter_severity_bias = 0.0
+}
+2783 ={
+	winter_severity_bias = 0.0
+}
+2784 ={
+	winter_severity_bias = 0.0
+}
+2785 ={
+	winter_severity_bias = 0.0
+}
+2786 ={
+	winter_severity_bias = 0.0
+}
+2787 ={
+	winter_severity_bias = 0.0
+}
+2788 ={
+	winter_severity_bias = 0.0
+}
+2789 ={
+	winter_severity_bias = 0.0
+}
+2790 ={
+	winter_severity_bias = 0.0
+}
+2791 ={
+	winter_severity_bias = 0.0
+}
+2792 ={
+	winter_severity_bias = 0.0
+}
+2793 ={
+	winter_severity_bias = 0.0
+}
+2794 ={
+	winter_severity_bias = 0.0
+}
+2795 ={
+	winter_severity_bias = 0.0
+}
+2796 ={
+	winter_severity_bias = 0.0
+}
+2797 ={
+	winter_severity_bias = 0.0
+}
+2798 ={
+	winter_severity_bias = 0.0
+}
+2799 ={
+	winter_severity_bias = 0.0
+}
+2800 ={
+	winter_severity_bias = 0.0
+}
+2801 ={
+	winter_severity_bias = 0.0
+}
+2802 ={
+	winter_severity_bias = 0.0
+}
+2803 ={
+	winter_severity_bias = 0.0
+}
+2804 ={
+	winter_severity_bias = 0.0
+}
+2805 ={
+	winter_severity_bias = 0.0
+}
+2806 ={
+	winter_severity_bias = 0.0
+}
+2807 ={
+	winter_severity_bias = 0.0
+}
+2808 ={
+	winter_severity_bias = 0.0
+}
+2809 ={
+	winter_severity_bias = 0.0
+}
+2810 ={
+	winter_severity_bias = 0.0
+}
+2811 ={
+	winter_severity_bias = 0.0
+}
+2812 ={
+	winter_severity_bias = 0.0
+}
+2813 ={
+	winter_severity_bias = 0.0
+}
+2814 ={
+	winter_severity_bias = 0.0
+}
+2815 ={
+	winter_severity_bias = 0.0
+}
+2816 ={
+	winter_severity_bias = 0.0
+}
+2817 ={
+	winter_severity_bias = 0.0
+}
+2818 ={
+	winter_severity_bias = 0.0
+}
+2819 ={
+	winter_severity_bias = 0.0
+}
+2820 ={
+	winter_severity_bias = 0.0
+}
+2821 ={
+	winter_severity_bias = 0.0
+}
+2822 ={
+	winter_severity_bias = 0.0
+}
+2823 ={
+	winter_severity_bias = 0.0
+}
+2824 ={
+	winter_severity_bias = 0.0
+}
+2825 ={
+	winter_severity_bias = 0.0
+}
+2826 ={
+	winter_severity_bias = 0.0
+}
+2827 ={
+	winter_severity_bias = 0.0
+}
+2828 ={
+	winter_severity_bias = 0.0
+}
+2829 ={
+	winter_severity_bias = 0.0
+}
+2830 ={
+	winter_severity_bias = 0.0
+}
+2831 ={
+	winter_severity_bias = 0.0
+}
+2832 ={
+	winter_severity_bias = 0.0
+}
+2833 ={
+	winter_severity_bias = 0.0
+}
+2834 ={
+	winter_severity_bias = 0.0
+}
+2835 ={
+	winter_severity_bias = 0.0
+}
+2836 ={
+	winter_severity_bias = 0.0
+}
+2837 ={
+	winter_severity_bias = 0.0
+}
+2838 ={
+	winter_severity_bias = 0.0
+}
+2839 ={
+	winter_severity_bias = 0.0
+}
+2840 ={
+	winter_severity_bias = 0.0
+}
+2841 ={
+	winter_severity_bias = 0.0
+}
+2842 ={
+	winter_severity_bias = 0.0
+}
+2843 ={
+	winter_severity_bias = 0.0
+}
+2844 ={
+	winter_severity_bias = 0.0
+}
+2845 ={
+	winter_severity_bias = 0.0
+}
+2846 ={
+	winter_severity_bias = 0.0
+}
+2847 ={
+	winter_severity_bias = 0.0
+}
+2848 ={
+	winter_severity_bias = 0.0
+}
+2849 ={
+	winter_severity_bias = 0.0
+}
+2850 ={
+	winter_severity_bias = 0.0
+}
+2851 ={
+	winter_severity_bias = 0.0
+}
+2852 ={
+	winter_severity_bias = 0.0
+}
+2853 ={
+	winter_severity_bias = 0.0
+}
+2854 ={
+	winter_severity_bias = 0.0
+}
+2855 ={
+	winter_severity_bias = 0.0
+}
+2856 ={
+	winter_severity_bias = 0.0
+}
+2857 ={
+	winter_severity_bias = 0.0
+}
+2858 ={
+	winter_severity_bias = 0.0
+}
+2859 ={
+	winter_severity_bias = 0.0
+}
+2860 ={
+	winter_severity_bias = 0.0
+}
+2861 ={
+	winter_severity_bias = 0.0
+}
+2862 ={
+	winter_severity_bias = 0.0
+}
+2863 ={
+	winter_severity_bias = 0.0
+}
+2864 ={
+	winter_severity_bias = 0.0
+}
+2865 ={
+	winter_severity_bias = 0.0
+}
+2866 ={
+	winter_severity_bias = 0.0
+}
+2867 ={
+	winter_severity_bias = 0.0
+}
+2868 ={
+	winter_severity_bias = 0.0
+}
+2869 ={
+	winter_severity_bias = 0.0
+}
+2870 ={
+	winter_severity_bias = 0.0
+}
+2871 ={
+	winter_severity_bias = 0.0
+}

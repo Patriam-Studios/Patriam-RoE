@@ -1,8 +1,9 @@
 ﻿# Patriam: Rise of Empires. Vanilla's city holdings, carried across whole so
-# that each level can offer one more set of models: the Hellenistic cities of
-# Imperator: Rome, used with Paradox's written permission, for cultures whose
-# building_gfx is patriam_building_gfx. Everything else in this file is
-# vanilla's and should be diffed against it after a game update.
+# that each level can offer two more sets of models, both from Imperator: Rome
+# and both used with Paradox's written permission: the Hellenistic cities for
+# cultures whose building_gfx is patriam_building_gfx, and the Roman cities for
+# cultures whose building_gfx is patriam_roman_building_gfx. Everything else in
+# this file is vanilla's and should be diffed against it after a game update.
 
 @holding_illustration_western = "gfx/interface/illustrations/holding_types/city_western.dds"
 @holding_illustration_india = "gfx/interface/illustrations/holding_types/city_india.dds"
@@ -32,6 +33,21 @@ city_01 = {
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
 			graphical_cultures = { patriam_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the Roman cities of Imperator: Rome ###
+		asset = {
+			type = pdxmesh
+			names = {
+				"western_01_01_mesh"
+				"western_01_02_mesh"
+				"western_01_03_mesh"
+				"western_01_04_mesh"
+				"western_01_05_mesh"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
+			graphical_cultures = { patriam_roman_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### FP1 Norse ###
@@ -638,6 +654,23 @@ city_02 = {
 			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
+		### Patriam: the Roman cities of Imperator: Rome ###
+		asset = {
+			type = pdxmesh
+			names = {
+				"western_02_01_mesh"
+				"western_02_02_mesh"
+				"western_02_03_mesh"
+				"western_02_04_mesh"
+				"western_02_05_mesh"
+				"western_02_06_mesh"
+				"western_02_07_mesh"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
+			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
 		### FP1 Norse ###
 		asset = {
 			type = pdxmesh
@@ -1220,6 +1253,21 @@ city_03 = {
 			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
+		### Patriam: the Roman cities of Imperator: Rome ###
+		asset = {
+			type = pdxmesh
+			names = {
+				"western_03_01_mesh"
+				"western_03_02_mesh"
+				"western_03_03_mesh"
+				"western_03_04_mesh"
+				"western_03_05_mesh"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
+			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
 		### FP1 Norse ###
 		asset = {
 			type = pdxmesh
@@ -1785,6 +1833,22 @@ city_04 = {
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 3 } }
 			graphical_cultures = { patriam_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the Roman cities of Imperator: Rome ###
+		asset = {
+			type = pdxmesh
+			names = {
+				"western_04_01_mesh"
+				"western_04_02_mesh"
+				"western_04_03_mesh"
+				"western_04_04_mesh"
+				"western_04_05_mesh"
+				"western_04_06_mesh"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 3 } }
+			graphical_cultures = { patriam_roman_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### FP1 Norse ###

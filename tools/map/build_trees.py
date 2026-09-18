@@ -11,9 +11,11 @@ The export records, for every sampled block, the strongest tree layer there
 rules below, checked top to bottom. "Rocks" is a custom object layer and not a
 forest, so it plants nothing.
 
-Density follows the painted strength. The total is held near the base game's
-own, a little over half a million trees, since every tree is an instance the
-game draws.
+Density follows the painted strength, thinned by two scales of noise so that
+the trees gather into woods with clearings and thin ground between them rather
+than lying as an even wash. A region may override both the species and the
+density: Alexander named the trees of Norkinia, Aeloen, Watol, Northern
+Kallonia and Bouropheia on 19 September 2026.
 
 usage: python build_trees.py <export prefix> [--write]
 """
@@ -32,20 +34,37 @@ Image.MAX_IMAGE_PIXELS = None
 MOD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 OUT = os.path.join(MOD, "gfx", "map", "map_object_data", "generated")
 WRITE = "--write" in sys.argv
-TARGET_TREES = 650000
+TARGET_TREES = 430000
+
+PINE = ["tree_pine_01_b_mesh", "tree_pine_single_01_a_mesh"]
+LEAF = ["tree_leaf_01_a_mesh", "tree_leaf_01_b_mesh", "tree_leaf_01_c_mesh"]
+JUNGLE = ["tree_jungle_01_d_mesh", "tree_jungle_01_c_mesh", "tree_palm_01_a_mesh"]
 
 # Which meshes a layer plants, first match wins. Several meshes share a layer's
 # trees evenly, which is how the base game varies a forest.
 RULES = [
     (r"rock", None),
-    (r"spruce|pine|aungmar|northern kallonia|windswept", ["tree_pine_01_b_mesh", "tree_pine_single_01_a_mesh"]),
+    (r"spruce|pine|aungmar|northern kallonia|windswept", PINE),
     (r"cherry", ["tree_sakura_01_mesh", "tree_sakura_02_mesh", "tree_sakura_03_mesh"]),
     (r"mangrove", ["tree_jungle_01_d_mesh", "tree_jungle_01_c_mesh"]),
     (r"senkaria", ["tree_palm_01_a_mesh"]),
     (r"ketan|mekanis", ["tree_cypress_01_a_mesh"]),
     (r"savannah", ["tree_leaf_01_single_a_mesh"]),
-    (r".*", ["tree_leaf_01_a_mesh", "tree_leaf_01_b_mesh", "tree_leaf_01_c_mesh"]),
+    (r".*", LEAF),
 ]
+
+# What a region insists on, whatever layer was painted there. Alexander named
+# these on 19 September 2026. Density is a multiplier on the painted strength.
+# Watol is rainforest, and the closest the base game has is its jungle, so its
+# jungle trees and palms stand in until something better is modelled.
+REGION_TREES = {
+    "norkinia": (PINE, 1.0),
+    "aeloen": (PINE, 1.0),
+    "watol": (JUNGLE, 1.15),
+    "northern_kallonia": (LEAF, 0.35),          # sparse temperate over most of it
+    "bouropheia": (PINE, 1.25),                 # except the far north west, which is thick pine
+}
+BOUROPHEIA = ("northern_kallonia", "nw")        # Bouropheia is the north west of Northern Kallonia
 # The file each mesh is written to, which is the vanilla file of that mesh.
 FILE_OF = {
     "tree_leaf_01_a_mesh": "tree_leaf_high_generator_1.txt",
@@ -93,6 +112,34 @@ def main(prefix):
     dens[which == 0] = 0.0
 
     rng = np.random.default_rng(6355)
+
+    # A forest is not an even wash of trees. Two scales of noise decide where it
+    # thickens into a wood, where it thins to trees dotted about, and where it
+    # gives out altogether, so that the eye reads clumps rather than a lawn.
+    clump = np.zeros_like(dens)
+    for cell, amp in ((160, 0.62), (44, 0.38)):
+        small = rng.random((max(2, PH // cell + 2), max(2, PW // cell + 2))).astype(np.float32)
+        clump += amp * np.array(Image.fromarray(small).resize((PW, PH), Image.BICUBIC), dtype=np.float32)
+    clump = np.clip(clump, 0.0, 1.0)
+    clump = np.clip((clump - 0.34) * 2.6, 0.0, 1.6)      # bare ground under the low third
+    dens *= clump
+    del clump
+
+    # what each region insists on, which overrides the painted layer
+    import regions as rg
+    rmap, rnames = rg.region_map(prefix, (PW, PH))
+    region_of = np.zeros((PH, PW), np.uint8)
+    region_names = []
+    for name in REGION_TREES:
+        if name == "bouropheia":
+            m = rg.sub_mask(rmap, rnames, BOUROPHEIA[0], BOUROPHEIA[1])
+        else:
+            m = rmap == rnames.index(name) + 1
+        region_names.append(name)
+        region_of[m] = len(region_names)
+        dens[m] *= REGION_TREES[name][1]
+    del rmap
+
     # expected trees a province pixel at full strength, set so the total lands near the target
     weight = np.zeros_like(dens)
     for li, name in enumerate(layers):
@@ -105,13 +152,18 @@ def main(prefix):
     print("forest weight %.0f province pixels, %.3f trees a pixel at full strength" % (total_weight, per_px))
 
     by_mesh = {}
-    for li, name in enumerate(layers):
-        meshes = meshes_for(name)
-        m = which == li + 1
+    # one number a pixel: which layer painted it, or which region has taken it over
+    plan = which.copy()
+    jobs = [(name, meshes_for(name), "layer") for name in layers]
+    for ri, name in enumerate(region_names):
+        plan[region_of == ri + 1] = len(layers) + ri + 1
+        jobs.append((name, REGION_TREES[name][0], "region"))
+    del region_of
+    for ji, (name, meshes, kind) in enumerate(jobs):
         if not meshes:
             print("  %-28s plants nothing" % name)
             continue
-        ys, xs = np.nonzero(m & (weight > 0))
+        ys, xs = np.nonzero((plan == ji + 1) & (weight > 0))
         if len(ys) == 0:
             print("  %-28s no land under it" % name)
             continue
@@ -125,7 +177,7 @@ def main(prefix):
         for mi, mesh in enumerate(meshes):
             sel = pick == mi
             by_mesh.setdefault(mesh, []).append(np.stack([x[sel], z[sel]], axis=1))
-        print("  %-28s %7d trees as %s" % (name, len(xs), ", ".join(meshes)))
+        print("  %-20s %-7s %7d trees as %s" % (name, kind, len(xs), ", ".join(meshes)))
 
     if not WRITE:
         print("dry run; total %d trees" % sum(sum(len(a) for a in v) for v in by_mesh.values()))

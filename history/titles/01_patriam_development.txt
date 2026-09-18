@@ -322,8 +322,8 @@ c_kingdom_of_akaria_04 = { # Atsiraeni Aelothir. Kingdom of Akaria, kingdom
 c_kingdom_of_akaria_05 = { # Kaeraenitsi Aethiros. Kingdom of Akaria, kingdom
 	6355.1.1 = { change_development_level = 12 }
 }
-c_kingdom_of_thenithria_01 = { # Thenithria. Kingdom of Thenithria, kingdom
-	6355.1.1 = { change_development_level = 16 }
+c_kingdom_of_thenithria_01 = { # Atsiraeni Bairaen. Kingdom of Thenithria, kingdom
+	6355.1.1 = { change_development_level = 8 }
 }
 c_kingdom_of_thenithria_02 = { # Daeraeni Imaerathir. Kingdom of Thenithria, kingdom
 	6355.1.1 = { change_development_level = 9 }
@@ -361,8 +361,8 @@ c_kingdom_of_thenithria_12 = { # Aehyraen. Kingdom of Thenithria, kingdom
 c_kingdom_of_thenithria_13 = { # Kratheni Gralithros. Kingdom of Thenithria, kingdom
 	6355.1.1 = { change_development_level = 4 }
 }
-c_kingdom_of_thenithria_14 = { # Kaeraenis Gralin. Kingdom of Thenithria, kingdom
-	6355.1.1 = { change_development_level = 11 }
+c_kingdom_of_thenithria_14 = { # Thenithria. Kingdom of Thenithria, kingdom
+	6355.1.1 = { change_development_level = 20 }
 }
 c_kingdom_of_thenithria_15 = { # Aethuraen. Kingdom of Thenithria, kingdom
 	6355.1.1 = { change_development_level = 8 }
