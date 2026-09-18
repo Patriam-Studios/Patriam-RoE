@@ -11,3 +11,17 @@
 *.tga   binary
 *.bmp   binary
 *.heightmap binary
+
+# The generated map binaries, kept in Git LFS. They are too large for git
+# itself: the two ground maps alone are four hundred megabytes each. Rebuild
+# them with tools/map/rebuild_full.cmd rather than editing them.
+map_data/heightmap.png           filter=lfs diff=lfs merge=lfs -text
+map_data/packed_heightmap.png    filter=lfs diff=lfs merge=lfs -text
+map_data/indirection_heightmap.png filter=lfs diff=lfs merge=lfs -text
+map_data/nodes.dat               filter=lfs diff=lfs merge=lfs -text
+gfx/map/terrain/*.tga            filter=lfs diff=lfs merge=lfs -text
+gfx/map/terrain/*.dds            filter=lfs diff=lfs merge=lfs -text
+gfx/map/terrain/flat_maps/*.dds  filter=lfs diff=lfs merge=lfs -text
+gfx/map/terrain/masks/*.png      filter=lfs diff=lfs merge=lfs -text
+gfx/map/terrain/masks_gen/*.png  filter=lfs diff=lfs merge=lfs -text
+gfx/map/map_object_data/generated/*.txt filter=lfs diff=lfs merge=lfs -text
