@@ -1,0 +1,23 @@
+﻿bm_patriam_rise_of_empires = {
+	start_date = 6355.1.1
+	is_playable = yes
+	group = bm_group_patriam
+
+	weight = { value = 100 }
+
+	character = {
+		name = "bookmark_patriam_hythaerion"
+		dynasty = dynasty_kasparidii
+		dynasty_splendor_level = 2
+		type = male
+		birth = 6338.1.1
+		title = k_kingdom_of_thenithria
+		government = feudal_government
+		culture = thenithrian
+		religion = myraethanen
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
+		history_id = 6001
+		position = { 400 400 }
+		animation = personality_bold
+	}
+}

@@ -1,0 +1,12 @@
+﻿############################################################
+# Patriam: Rise of Empires. Colours for the cultures and the faith.
+# Thenithria carries red and gold, so its culture takes the red.
+############################################################
+
+colors = {
+	patriam_thenithrian = { 0.62 0.16 0.16 }
+	patriam_late_drunathaenic = { 0.78 0.62 0.24 }
+	patriam_kaegonic = { 0.22 0.42 0.28 }
+	patriam_akarian = { 0.46 0.28 0.56 }
+	patriam_myraethanen = { 0.90 0.48 0.14 }
+}

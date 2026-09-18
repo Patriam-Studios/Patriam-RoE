@@ -1,0 +1,209 @@
+﻿############################################################
+# Patriam: Rise of Empires. Name lists.
+#
+# The Myrenvaldi names follow the rules of the tongue: a man's name closes
+# on a consonant, a woman's on a vowel, and none runs past three syllables.
+# Every canon name is seeded first. The Kaegonic and Akarian lists are
+# PROVISIONAL and thin, since neither tongue has been built yet.
+############################################################
+
+name_list_thenithrian = {
+	# Thenithria itself. Myrenvaldi, the purest surviving Drunathaen.
+
+	male_names = {
+		Hythaerion Kasparion Anathaen Jaenaryn Taengyn Araelon Aetos Tharaen
+		Aerys Aerif Hyrion Kyraen Araeon Ithion Amnaeron Thraenon
+		Myliros Araethos Irithos Araelos Namaeron Bairaes Hylaearon Imaeros
+		Kalaegran Kaenor Myrkaenos Gaenthos Aelothos Aegos Daeanaes Taenaeros
+		Tholaenaen Thaeraenos Drathaeor Kalon Kraethanaen Thuraeos Aekilaeon Taenon
+		Kraethaeraes Tholir Thuren Mnaerithys Thaeraenaen Valdithir Mnaeranen Gralin
+		Ithior Thaenanos Gaenanaen Myriaes Krathaeon Aethaerys Hylor Valdithon
+		Mnaeranys Graliron Mnaeraeron Drathanaen Thaenanor Aelirior Thaenaelaes Taeniror
+		Thuranos Hylithor Gralaenon Gralon Myraeros Krathanys
+	}
+
+	female_names = {
+		Myrene Vaena Hynera Druthara Araela Thaenena Taeniaela Aethane
+		Naethaele Hylaea Tholaena Gaenaenia Ophia Kraethira Myra Mnaeraela
+		Naethaelia Krathithia Thaeraea Ophira Kordire Gralaelia Krathiaela Myraene
+		Onaria Tholire Thaena Aekile Gralaele Hyliria Aethira Graliara
+		Mnaeraera Ophaela Thaenaene Myrena Hyle Naethaela Aethaena Daeanena
+		Kordaene Thurane Daeara Thaerana Kraethaene
+	}
+
+	dynasty_names = {
+		"dynn_patriam_Imaeranii"
+		"dynn_patriam_Valdanii"
+		"dynn_patriam_Thaeraerii"
+		"dynn_patriam_Ophii"
+		"dynn_patriam_Gralaerii"
+		"dynn_patriam_Taenanii"
+		"dynn_patriam_Daeanii"
+		"dynn_patriam_Valdaerii"
+		"dynn_patriam_Aeliraerii"
+		"dynn_patriam_Thaenii"
+		"dynn_patriam_Aekilii"
+		"dynn_patriam_Krathaerii"
+		"dynn_patriam_Drathanii"
+		"dynn_patriam_Myrii"
+		"dynn_patriam_Thuranii"
+		"dynn_patriam_Krathii"
+		"dynn_patriam_Valdii"
+		"dynn_patriam_Aeliranii"
+		"dynn_patriam_Gralii"
+		"dynn_patriam_Hylii"
+		"dynn_patriam_Atsioraerii"
+		"dynn_patriam_Krathanii"
+		"dynn_patriam_Onaraerii"
+		"dynn_patriam_Taenii"
+		"dynn_patriam_Mnaeraerii"
+		"dynn_patriam_Kaeanii"
+		"dynn_patriam_Kraethanii"
+		"dynn_patriam_Thaerii"
+		"dynn_patriam_Ithanii"
+		"dynn_patriam_Aethaerii"
+		"dynn_patriam_Iraenanii"
+		"dynn_patriam_Myraerii"
+		"dynn_patriam_Mnaeranii"
+		"dynn_patriam_Imaerii"
+		"dynn_patriam_Hylanii"
+		"dynn_patriam_Drathaerii"
+		"dynn_patriam_Taenaerii"
+		"dynn_patriam_Ithaerii"
+		"dynn_patriam_Thaenanii"
+		"dynn_patriam_Kraethii"
+	}
+
+	father_name_chance = 20
+	mother_name_chance = 5
+	pat_grf_name_chance = 30
+	mat_grf_name_chance = 20
+	pat_grm_name_chance = 20
+	mat_grm_name_chance = 30
+}
+
+name_list_late_drunathaenic = {
+	# The older Drunathaen realms, who speak the same tongue.
+
+	male_names = {
+		Aetos Tharaen Aerys Aerif Hyrion Kyraen Araeon Ithion
+		Amnaeron Thraenon Myliros Araethos Irithos Araelos Namaeron Bairaes
+		Hylaearon Imaeros Kalaegran Kaenor Myrkaenos Gaenthos Aelothos Aegos
+		Daeanaes Taenaeros Tholaenaen Thaeraenos Drathaeor Kalon Kraethanaen Thuraeos
+		Aekilaeon Taenon Kraethaeraes Tholir Thuren Mnaerithys Thaeraenaen Valdithir
+		Mnaeranen Gralin Ithior Thaenanos Gaenanaen Myriaes Krathaeon Aethaerys
+		Hylor Valdithon Mnaeranys Graliron Mnaeraeron Drathanaen Thaenanor Aelirior
+		Thaenaelaes Taeniror Thuranos Hylithor Gralaenon Gralon Myraeros Krathanys
+		Hythaerion Kasparion Anathaen Jaenaryn Taengyn Araelon
+	}
+
+	female_names = {
+		Druthara Araela Thaenena Taeniaela Aethane Naethaele Hylaea Tholaena
+		Gaenaenia Ophia Kraethira Myra Mnaeraela Naethaelia Krathithia Thaeraea
+		Ophira Kordire Gralaelia Krathiaela Myraene Onaria Tholire Thaena
+		Aekile Gralaele Hyliria Aethira Graliara Mnaeraera Ophaela Thaenaene
+		Myrena Hyle Naethaela Aethaena Daeanena Kordaene Thurane Daeara
+		Thaerana Kraethaene Myrene Vaena Hynera
+	}
+
+	dynasty_names = {
+		"dynn_patriam_Atsioraerii"
+		"dynn_patriam_Krathanii"
+		"dynn_patriam_Onaraerii"
+		"dynn_patriam_Taenii"
+		"dynn_patriam_Mnaeraerii"
+		"dynn_patriam_Kaeanii"
+		"dynn_patriam_Kraethanii"
+		"dynn_patriam_Thaerii"
+		"dynn_patriam_Ithanii"
+		"dynn_patriam_Aethaerii"
+		"dynn_patriam_Iraenanii"
+		"dynn_patriam_Myraerii"
+		"dynn_patriam_Mnaeranii"
+		"dynn_patriam_Imaerii"
+		"dynn_patriam_Hylanii"
+		"dynn_patriam_Drathaerii"
+		"dynn_patriam_Taenaerii"
+		"dynn_patriam_Ithaerii"
+		"dynn_patriam_Thaenanii"
+		"dynn_patriam_Kraethii"
+		"dynn_patriam_Naethaerii"
+		"dynn_patriam_Myraethanii"
+		"dynn_patriam_Gaenanii"
+		"dynn_patriam_Kordii"
+		"dynn_patriam_Myraethii"
+		"dynn_patriam_Aekilanii"
+		"dynn_patriam_Myraethaerii"
+		"dynn_patriam_Naethii"
+		"dynn_patriam_Onarii"
+		"dynn_patriam_Aekilaerii"
+		"dynn_patriam_Mnaerii"
+		"dynn_patriam_Iraenaerii"
+		"dynn_patriam_Ophanii"
+		"dynn_patriam_Atsioranii"
+		"dynn_patriam_Gaenii"
+		"dynn_patriam_Aelirii"
+		"dynn_patriam_Hylaerii"
+		"dynn_patriam_Aethii"
+		"dynn_patriam_Naethanii"
+		"dynn_patriam_Onaranii"
+	}
+
+	father_name_chance = 20
+	mother_name_chance = 5
+	pat_grf_name_chance = 30
+	mat_grf_name_chance = 20
+	pat_grm_name_chance = 20
+	mat_grm_name_chance = 30
+}
+
+name_list_kaegonic = {
+	# Provisional. Built from canon Kaegonic words until the tongue exists.
+
+	male_names = {
+		Oustarn Irajaen Karjk Oegith Kyryng Aeklan Hajaen Raegon
+		Raehun Arkaeon
+	}
+
+	female_names = {
+		Kaegona Oegitha Raeguna Irajaena Kyrynga
+	}
+
+	dynasty_names = {
+		"dynn_patriam_Kaegonhar"
+		"dynn_patriam_Oustarnii"
+		"dynn_patriam_Arkaeonii"
+	}
+
+	father_name_chance = 20
+	mother_name_chance = 5
+	pat_grf_name_chance = 30
+	mat_grf_name_chance = 20
+	pat_grm_name_chance = 20
+	mat_grm_name_chance = 30
+}
+
+name_list_akarian = {
+	# Provisional. Built from canon Akarian words until the tongue exists.
+
+	male_names = {
+		Antaar Akros Kaaron Akarion Antaros Kaaristo Akrastan Antakion
+	}
+
+	female_names = {
+		Akaria Kaarona Antaara Akrisa Antalia
+	}
+
+	dynasty_names = {
+		"dynn_patriam_Akarii"
+		"dynn_patriam_Kaaronii"
+		"dynn_patriam_Antaarii"
+	}
+
+	father_name_chance = 20
+	mother_name_chance = 5
+	pat_grf_name_chance = 30
+	mat_grf_name_chance = 20
+	pat_grm_name_chance = 20
+	mat_grm_name_chance = 30
+}

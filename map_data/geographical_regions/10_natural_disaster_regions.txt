@@ -1,0 +1,141 @@
+﻿# Geographical regions for Patriam: Rise of Empires.
+#
+# Vanilla regions list vanilla province ids. The folder replacement for
+# map_data does not reach this subfolder, so vanilla's regions stayed
+# loaded, and at session start the game walked custom_sahara_proper's
+# provinces, 4558 onward, straight past the end of this world's 2668.
+# These files keep their vanilla names so they override for certain.
+#
+
+# Every flood and earthquake region vanilla names, kept so references resolve,
+# each pointing at a single impassable province until Patriam has its own.
+
+global_flood_region = {
+	provinces = { 944 }
+}
+yellow_river_region = {
+	provinces = { 944 }
+}
+yangtze_river_region = {
+	provinces = { 944 }
+}
+pearl_river_region = {
+	provinces = { 944 }
+}
+tigris_river_region = {
+	provinces = { 944 }
+}
+irrawaddy_river_region = {
+	provinces = { 944 }
+}
+mekong_river_region = {
+	provinces = { 944 }
+}
+amur_river_region = {
+	provinces = { 944 }
+}
+nile_river_region = {
+	provinces = { 944 }
+}
+niger_river_region = {
+	provinces = { 944 }
+}
+po_river_region = {
+	provinces = { 944 }
+}
+rhine_river_region = {
+	provinces = { 944 }
+}
+elbe_river_region = {
+	provinces = { 944 }
+}
+rhone_river_region = {
+	provinces = { 944 }
+}
+garonne_river_region = {
+	provinces = { 944 }
+}
+seine_river_region = {
+	provinces = { 944 }
+}
+loire_river_region = {
+	provinces = { 944 }
+}
+vistula_river_region = {
+	provinces = { 944 }
+}
+danube_river_region = {
+	provinces = { 944 }
+}
+dniester_river_region = {
+	provinces = { 944 }
+}
+dnieper_river_region = {
+	provinces = { 944 }
+}
+daugava_river_region = {
+	provinces = { 944 }
+}
+lovat_river_region = {
+	provinces = { 944 }
+}
+volga_river_region = {
+	provinces = { 944 }
+}
+don_river_region = {
+	provinces = { 944 }
+}
+guadiana_river_region = {
+	provinces = { 944 }
+}
+guadalquivir_river_region = {
+	provinces = { 944 }
+}
+ganges_river_region = {
+	provinces = { 944 }
+}
+indus_river_region = {
+	provinces = { 944 }
+}
+kaveri_river_region = {
+	provinces = { 944 }
+}
+godavari_river_region = {
+	provinces = { 944 }
+}
+mahanadi_river_region = {
+	provinces = { 944 }
+}
+tapti_river_region = {
+	provinces = { 944 }
+}
+himalaya_earthquake_region = {
+	provinces = { 944 }
+}
+sichuan_myanmar_earthquake_region = {
+	provinces = { 944 }
+}
+north_china_earthquake_region = {
+	provinces = { 944 }
+}
+south_china_coastaline_earthquake_region = {
+	provinces = { 944 }
+}
+mongolia_baikal_earthquake_region = {
+	provinces = { 944 }
+}
+central_asian_earthquake_region = {
+	provinces = { 944 }
+}
+north_pacific_earthquake_region = {
+	provinces = { 944 }
+}
+world_asia_southeast_islands_weak_earthquake_region = {
+	provinces = { 944 }
+}
+world_asia_north_east_and_korea_weak_earthquake_region = {
+	provinces = { 944 }
+}
+world_asia_north_east_and_korea = {
+	provinces = { 944 }
+}

@@ -1,0 +1,19 @@
+winter = {
+	start_date=00.12.01
+	end_date=00.02.31
+}
+
+spring = {
+	start_date=00.03.01
+	end_date=00.05.31
+}
+
+summer = {
+	start_date=00.06.01
+	end_date=00.08.31
+}
+
+autumn = {
+	start_date=00.09.01
+	end_date=00.11.30
+}

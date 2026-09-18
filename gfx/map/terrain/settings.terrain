@@ -1,0 +1,10 @@
+detail_blend_range = 0.25
+# Vanilla tiles its ground textures 337.5 times across a map 9216 wide. This
+# map is 16384 wide, so the count rises in proportion and a texel stays the
+# same size on the ground as it is in the base game.
+detail_tile_factor = 600.0
+detail_tile_offset_x = 0
+detail_tile_offset_y = 0
+normal_height_scale = 0.8
+skirt_height_factor = 0.1
+normal_step_size = 1.6

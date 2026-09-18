@@ -1,0 +1,420 @@
+﻿############################################################
+# Patriam: Rise of Empires. Who holds what in 6355.
+############################################################
+
+k_kingdom_of_thenithria = {
+	6300.1.1 = { holder = 6002 }
+	6354.12.31 = { holder = 6001 }
+}
+c_kingdom_of_thenithria_01 = {
+	6300.1.1 = { holder = 6002 }
+	6354.12.31 = { holder = 6001 }
+}
+c_axia_01 = {
+	6355.1.1 = {
+		holder = 6100
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = city_state_government }
+			}
+		}
+	}
+}
+c_kaeilon = {
+	6355.1.1 = {
+		holder = 6101
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = city_state_government }
+			}
+		}
+	}
+}
+k_aerif = {
+	6355.1.1 = { holder = 6102 }
+}
+c_aerif_01 = {
+	6355.1.1 = { holder = 6102 }
+}
+k_kingdom_of_akaria = {
+	6355.1.1 = { holder = 6103 }
+}
+c_kingdom_of_akaria_01 = {
+	6355.1.1 = { holder = 6103 }
+}
+c_hyrion_01 = {
+	6355.1.1 = {
+		holder = 6104
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+d_myrene = {
+	6355.1.1 = { holder = 6105 }
+}
+c_myrene_01 = {
+	6355.1.1 = { holder = 6105 }
+}
+c_vaena = {
+	6355.1.1 = { holder = 6106 }
+}
+c_hynera = {
+	6355.1.1 = { holder = 6107 }
+}
+c_kyraen = {
+	6355.1.1 = { holder = 6108 }
+}
+c_araeon = {
+	6355.1.1 = { holder = 6109 }
+}
+d_ithion = {
+	6355.1.1 = { holder = 6110 }
+}
+c_ithion_01 = {
+	6355.1.1 = { holder = 6110 }
+}
+d_amnaeron = {
+	6355.1.1 = { holder = 6111 }
+}
+c_amnaeron_01 = {
+	6355.1.1 = { holder = 6111 }
+}
+d_thraenon = {
+	6355.1.1 = { holder = 6112 }
+}
+c_thraenon_01 = {
+	6355.1.1 = { holder = 6112 }
+}
+k_myliros = {
+	6355.1.1 = { holder = 6113 }
+}
+c_myliros_01 = {
+	6355.1.1 = { holder = 6113 }
+}
+k_araethos = {
+	6355.1.1 = { holder = 6114 }
+}
+c_araethos_01 = {
+	6355.1.1 = { holder = 6114 }
+}
+d_irithos = {
+	6355.1.1 = { holder = 6115 }
+}
+c_irithos_01 = {
+	6355.1.1 = { holder = 6115 }
+}
+d_araelos = {
+	6355.1.1 = {
+		holder = 6116
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_araelos_01 = {
+	6355.1.1 = { holder = 6116 }
+}
+c_namaeron_01 = {
+	6355.1.1 = {
+		holder = 6117
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_mylaeros_01 = {
+	6355.1.1 = {
+		holder = 6118
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+d_druthaea = {
+	6355.1.1 = {
+		holder = 6119
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_druthaea_01 = {
+	6355.1.1 = { holder = 6119 }
+}
+c_bairaes = {
+	6355.1.1 = {
+		holder = 6120
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_anaenaros = {
+	6355.1.1 = {
+		holder = 6121
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_hylaearon_01 = {
+	6355.1.1 = {
+		holder = 6122
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_ketan = {
+	6355.1.1 = {
+		holder = 6123
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = merchant_monarchy_government }
+			}
+		}
+	}
+}
+c_myrenii = {
+	6355.1.1 = {
+		holder = 6124
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+d_imaeros = {
+	6355.1.1 = {
+		holder = 6125
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_imaeros_01 = {
+	6355.1.1 = { holder = 6125 }
+}
+d_taenthaeros = {
+	6355.1.1 = {
+		holder = 6126
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_taenthaeros_01 = {
+	6355.1.1 = { holder = 6126 }
+}
+c_orarithos = {
+	6355.1.1 = {
+		holder = 6127
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+d_thionia = {
+	6355.1.1 = { holder = 6128 }
+}
+c_thionia_01 = {
+	6355.1.1 = { holder = 6128 }
+}
+c_thyrithara = {
+	6355.1.1 = {
+		holder = 6129
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+k_elaetharia = {
+	6355.1.1 = { holder = 6130 }
+}
+c_elaetharia_02 = {
+	6355.1.1 = { holder = 6130 }
+}
+c_thaeara_01 = {
+	6355.1.1 = {
+		holder = 6131
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = city_state_government }
+			}
+		}
+	}
+}
+c_ithilis = {
+	6355.1.1 = {
+		holder = 6132
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = city_state_government }
+			}
+		}
+	}
+}
+c_milaelithos = {
+	6355.1.1 = {
+		holder = 6133
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+k_aethanin = {
+	6355.1.1 = { holder = 6134 }
+}
+c_aethanin_01 = {
+	6355.1.1 = { holder = 6134 }
+}
+d_hyraena = {
+	6355.1.1 = { holder = 6135 }
+}
+c_hyraena_01 = {
+	6355.1.1 = { holder = 6135 }
+}
+d_elaelonia = {
+	6355.1.1 = { holder = 6136 }
+}
+c_elaelonia_01 = {
+	6355.1.1 = { holder = 6136 }
+}
+d_orarithos = {
+	6355.1.1 = { holder = 6137 }
+}
+c_orarithos_01 = {
+	6355.1.1 = { holder = 6137 }
+}
+c_tholaethara_01 = {
+	6355.1.1 = {
+		holder = 6138
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = house_government }
+			}
+		}
+	}
+}
+c_aegiraenor = {
+	6355.1.1 = {
+		holder = 6139
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = city_state_government }
+			}
+		}
+	}
+}
+d_hylithros = {
+	6355.1.1 = { holder = 6140 }
+}
+c_hylithros_01 = {
+	6355.1.1 = { holder = 6140 }
+}
+d_aeraeonia = {
+	6355.1.1 = { holder = 6141 }
+}
+c_aeraeonia_01 = {
+	6355.1.1 = { holder = 6141 }
+}
+k_liaeraria = {
+	6355.1.1 = { holder = 6142 }
+}
+c_liaeraria_01 = {
+	6355.1.1 = { holder = 6142 }
+}
+c_thrailia = {
+	6355.1.1 = {
+		holder = 6143
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = city_state_government }
+			}
+		}
+	}
+}
+c_aenaerithos = {
+	6355.1.1 = {
+		holder = 6144
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = city_state_government }
+			}
+		}
+	}
+}
+c_omaithros = {
+	6355.1.1 = {
+		holder = 6145
+		effect = {
+			if = {
+				limit = { exists = holder }
+				holder = { change_government = city_state_government }
+			}
+		}
+	}
+}
+d_ophaera = {
+	6355.1.1 = { holder = 6146 }
+}
+c_ophaera_01 = {
+	6355.1.1 = { holder = 6146 }
+}
+k_drathaetha = {
+	6355.1.1 = { holder = 6147 }
+}
+c_drathaetha_01 = {
+	6355.1.1 = { holder = 6147 }
+}

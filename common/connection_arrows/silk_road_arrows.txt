@@ -1,0 +1,19 @@
+﻿# Connection arrows for Patriam: Rise of Empires.
+#
+# Vanilla's version threads the Silk Road through provinces such as 10148 and
+# 12368, far above the 2668 this world has. Connection arrows are resolved
+# against the map, so that is the same fault that crashed session start when
+# holding models were placed on a province that does not exist.
+#
+# This holds one valid arrow between two of our own provinces rather than
+# nothing, because replacing province mapping with nothing crashed history
+# loading. The arrow only draws while the Silk Road situation is running, and
+# that situation does not exist in this mod, so it stays dormant.
+patriam_placeholder = {
+	is_primary = no
+	arrow_type = "silkRoadArrow"
+	provinces = {
+		1
+		2
+	}
+}

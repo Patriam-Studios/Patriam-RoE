@@ -1,0 +1,13 @@
+# Paradox script and localisation are read as bytes by the game.
+# Keep line endings and the byte order mark exactly as authored.
+*.txt   -text
+*.yml   -text
+*.mod   -text
+*.info  -text
+
+# Map and art binaries
+*.png   binary
+*.dds   binary
+*.tga   binary
+*.bmp   binary
+*.heightmap binary

@@ -1,0 +1,56 @@
+﻿############################################################
+# Patriam: Rise of Empires. The holy sites of Myraethanen.
+#
+# Thenithria holds the oldest source flame. The other four are the great fire
+# temples of Southern Kallonia, one in each of the older Drunathaen realms.
+############################################################
+
+thenithria = { # The source flame of the city itself, kept since the City State was founded.
+	county = c_kingdom_of_thenithria_01
+
+	character_modifier = {
+		name = holy_site_thenithria_effect_name
+		monthly_piety_gain_mult = 0.1
+		stewardship = 1
+	}
+}
+
+gaeniri_aethiros = { # The fire temple of the mountain, in Araethos.
+	county = c_araethos_09
+
+	character_modifier = {
+		name = holy_site_gaeniri_aethiros_effect_name
+		monthly_county_control_growth_add = 0.1
+		martial = 1
+	}
+}
+
+keraeni_aethiros = { # The fire temple of the island, in Aerif.
+	county = c_aerif_04
+
+	character_modifier = {
+		name = holy_site_keraeni_aethiros_effect_name
+		monthly_income_mult = 0.05
+		learning = 1
+	}
+}
+
+kalaeni_aethiros = { # The fire temple of the plain, in Elaetharia.
+	county = c_elaetharia_06
+
+	character_modifier = {
+		name = holy_site_kalaeni_aethiros_effect_name
+		levy_size = 0.05
+		prowess = 1
+	}
+}
+
+atsiraeni_aethiros = { # The fire temple of the strait, in the north.
+	county = c_myrene_04
+
+	character_modifier = {
+		name = holy_site_atsiraeni_aethiros_effect_name
+		monthly_piety_gain_mult = 0.05
+		diplomacy = 1
+	}
+}

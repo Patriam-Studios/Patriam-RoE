@@ -1,0 +1,224 @@
+﻿############################################################
+# Patriam: Rise of Empires. Myraethanen, the faith of Thenithria.
+#
+# Myraethanen is the host of those who keep the source fire. Fire and the sun
+# are held to be one god, Thaeraethos, so every office of the divine belongs to
+# him alone. Its priests are the aethanii, who tend a source flame in every
+# temple, burn the dead upon the aethraen, and walk the coals at the kiraethir.
+############################################################
+
+myraethanen_religion = {
+	family = rf_pagan
+
+	doctrine = pagan_hostility_doctrine
+
+	pagan_roots = yes
+
+	# The one god, and a priesthood that answers to the Crown
+	doctrine = doctrine_monotheist
+	doctrine = doctrine_no_head
+	doctrine = doctrine_gender_male_dominated
+	doctrine = doctrine_pluralism_righteous
+	doctrine = doctrine_theocracy_temporal
+
+	# Marriage
+	doctrine = doctrine_monogamy
+	doctrine = doctrine_divorce_disallowed
+	doctrine = doctrine_bastardry_legitimization
+	doctrine = doctrine_consanguinity_cousins
+
+	# Crimes
+	doctrine = doctrine_homosexuality_shunned
+	doctrine = doctrine_adultery_men_crime
+	doctrine = doctrine_adultery_women_crime
+	doctrine = doctrine_kinslaying_close_kin_crime
+	doctrine = doctrine_deviancy_shunned
+	doctrine = doctrine_witchcraft_shunned
+
+	# The aethanii
+	doctrine = doctrine_clerical_function_taxation
+	doctrine = doctrine_clerical_gender_male_only
+	doctrine = doctrine_clerical_marriage_allowed
+	doctrine = doctrine_clerical_succession_temporal_appointment
+
+	doctrine = doctrine_pilgrimage_encouraged
+	doctrine = doctrine_funeral_cremation
+	doctrine = doctrine_no_anointment
+
+	traits = {
+		virtues = { diligent just temperate }
+		sins = { lazy arbitrary gluttonous }
+	}
+
+	custom_faith_icons = {
+		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5
+		zoroastrian_custom_1 zoroastrian_custom_2 custom_faith_pentagram custom_faith_eye_of_providence
+	}
+
+	holy_order_names = {
+		{ name = "holy_order_keepers_of_the_flame" }
+		{ name = "holy_order_the_aethanii" }
+	}
+
+	localization = {
+		HighGodName = myraethanen_thaeraethos
+		HighGodName2 = myraethanen_thaeraethos_2
+		HighGodNamePossessive = myraethanen_thaeraethos_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = myraethanen_source_fire
+		HighGodNameAlternatePossessive = myraethanen_source_fire_possessive
+
+		CreatorName = myraethanen_thaeraethos
+		CreatorNamePossessive = myraethanen_thaeraethos_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		HealthGodName = myraethanen_thaeraethos
+		HealthGodNamePossessive = myraethanen_thaeraethos_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		FertilityGodName = myraethanen_thaeraethos
+		FertilityGodNamePossessive = myraethanen_thaeraethos_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+
+		WealthGodName = myraethanen_thaeraethos
+		WealthGodNamePossessive = myraethanen_thaeraethos_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		HouseholdGodName = myraethanen_hearth_flame
+		HouseholdGodNamePossessive = myraethanen_hearth_flame_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_IT
+		HouseholdGodHerHis = CHARACTER_HERHIS_ITS
+		HouseholdGodHerHim = CHARACTER_HERHIM_IT
+
+		FateGodName = myraethanen_thaeraethos
+		FateGodNamePossessive = myraethanen_thaeraethos_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		KnowledgeGodName = myraethanen_thaeraethos
+		KnowledgeGodNamePossessive = myraethanen_thaeraethos_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		WarGodName = myraethanen_thaeraethos
+		WarGodNamePossessive = myraethanen_thaeraethos_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		TricksterGodName = myraethanen_thaeraethos
+		TricksterGodNamePossessive = myraethanen_thaeraethos_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		NightGodName = myraethanen_the_dark
+		NightGodNamePossessive = myraethanen_the_dark_possessive
+		NightGodSheHe = CHARACTER_SHEHE_IT
+		NightGodHerHis = CHARACTER_HERHIS_ITS
+		NightGodHerHim = CHARACTER_HERHIM_IT
+
+		WaterGodName = myraethanen_thaeraethos
+		WaterGodNamePossessive = myraethanen_thaeraethos_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		PantheonTerm = myraethanen_thaeraethos
+		PantheonTerm2 = myraethanen_thaeraethos_2
+		PantheonTerm3 = myraethanen_thaeraethos_2
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = { myraethanen_thaeraethos myraethanen_source_fire myraethanen_hearth_flame }
+		DevilName = myraethanen_the_dark
+		DevilNamePossessive = myraethanen_the_dark_possessive
+		DevilSheHe = CHARACTER_SHEHE_IT
+		DevilHerHis = CHARACTER_HERHIS_ITS
+		DevilHerselfHimself = CHARACTER_ITSELF
+		EvilGodNames = { myraethanen_the_dark myraethanen_the_cold }
+		HouseOfWorship = myraethanen_aethiros
+		HouseOfWorship2 = myraethanen_aethiros_2
+		HouseOfWorship3 = myraethanen_aethiros_3
+		HouseOfWorshipPlural = myraethanen_aethiros_plural
+		ReligiousSymbol = myraethanen_symbol
+		ReligiousSymbol2 = myraethanen_symbol_2
+		ReligiousSymbol3 = myraethanen_symbol_3
+		ReligiousText = myraethanen_text
+		ReligiousText2 = myraethanen_text_2
+		ReligiousText3 = myraethanen_text_3
+		ReligiousHeadName = myraethanen_religious_head
+		ReligiousHeadTitleName = myraethanen_religious_head_title
+		DevoteeMale = myraethanen_devotee
+		DevoteeMalePlural = myraethanen_devotee_plural
+		DevoteeFemale = myraethanen_devotee
+		DevoteeFemalePlural = myraethanen_devotee_plural
+		DevoteeNeuter = myraethanen_devotee
+		DevoteeNeuterPlural = myraethanen_devotee_plural
+		PriestMale = myraethanen_priest
+		PriestMalePlural = myraethanen_priest_plural
+		PriestFemale = myraethanen_priest
+		PriestFemalePlural = myraethanen_priest_plural
+		PriestNeuter = myraethanen_priest
+		PriestNeuterPlural = myraethanen_priest_plural
+		AltPriestTermPlural = myraethanen_priest_plural
+		BishopMale = myraethanen_high_priest
+		BishopMalePlural = myraethanen_high_priest_plural
+		BishopFemale = myraethanen_high_priest
+		BishopFemalePlural = myraethanen_high_priest_plural
+		BishopNeuter = myraethanen_high_priest
+		BishopNeuterPlural = myraethanen_high_priest_plural
+		DivineRealm = myraethanen_divine_realm
+		DivineRealm2 = myraethanen_divine_realm_2
+		DivineRealm3 = myraethanen_divine_realm_3
+		PositiveAfterLife = myraethanen_afterlife
+		PositiveAfterLife2 = myraethanen_afterlife_2
+		PositiveAfterLife3 = myraethanen_afterlife_3
+		NegativeAfterLife = myraethanen_bad_afterlife
+		NegativeAfterLife2 = myraethanen_bad_afterlife_2
+		NegativeAfterLife3 = myraethanen_bad_afterlife_3
+		DeathDeityName = myraethanen_the_dark
+		DeathDeityNamePossessive = myraethanen_the_dark_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_IT
+		DeathDeityHerHis = CHARACTER_HERHIS_ITS
+		DeathDeityHerHim = CHARACTER_HERHIM_IT
+		WitchGodName = myraethanen_the_dark
+		WitchGodNamePossessive = myraethanen_the_dark_possessive
+		WitchGodHerHis = CHARACTER_HERHIS_ITS
+		WitchGodSheHe = CHARACTER_SHEHE_IT
+		WitchGodHerHim = CHARACTER_HERHIM_IT
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+
+		GHWName = ghw_great_holy_war
+		GHWNamePlural = ghw_great_holy_wars
+	}
+
+	faiths = {
+		myraethanen = {
+			color = patriam_myraethanen
+			icon = zoroastrian
+			graphical_faith = "pagan_gfx"
+
+			holy_site = thenithria
+			holy_site = gaeniri_aethiros
+			holy_site = keraeni_aethiros
+			holy_site = kalaeni_aethiros
+			holy_site = atsiraeni_aethiros
+
+			doctrine = tenet_ritual_celebrations
+			doctrine = tenet_astrology
+			doctrine = tenet_legalism
+		}
+	}
+}

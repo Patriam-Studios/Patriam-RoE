@@ -1,0 +1,3 @@
+# Island regions, meaning no land path to the mainland.
+# The game uses these to shorten path finding.
+# Filled in once the counties of the offshore islands are named.

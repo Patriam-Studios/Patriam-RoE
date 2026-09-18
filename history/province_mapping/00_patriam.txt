@@ -1,0 +1,8 @@
+﻿# Province mapping for Patriam: Rise of Empires.
+#
+# Vanilla's mapping points vanilla provinces at other vanilla provinces, with
+# ids far above anything this world has. Replacing the folder with nothing at
+# all crashed history loading, most likely because the game never allocates
+# its mapping table when there is no entry to put in it. A province mapped to
+# itself is a valid entry that vanilla also uses, and it touches nothing.
+1 = 1

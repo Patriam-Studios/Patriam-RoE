@@ -1,0 +1,7 @@
+﻿l_english:
+
+ # Patriam counts from the arrival of the Drunathaen, not from any year of ours.
+ GAME_DATE_STRING_ERA_CE:0 " ADA"
+ GAME_DATE_STRING_ERA_BCE:0 " BDA"
+ HOUSE_LIST_FOUNDATION:0 "Founded in [DynastyHouse.GetFoundYear] ADA"
+ RULER_DESIGNER_BIRTH_YEAR:0 "Born: [RulerDesignerWindow.GetBirthYear] ADA"

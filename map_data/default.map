@@ -1,0 +1,19 @@
+definitions = "definition.csv"
+provinces = "provinces.png"
+rivers = "rivers.png"
+topology = "heightmap.heightmap"
+adjacencies = "adjacencies.csv"
+island_region = "island_region.txt"
+seasons = "seasons.txt"
+
+#############
+# SEA ZONES
+#############
+sea_zones = RANGE { 1534 2458 }
+
+#####################
+# IMPASSABLE TERRAIN
+#####################
+# Every landmass that is not Southern Kallonia yet, and the Great Mountain Ring.
+# These become real provinces as each region is provinced in turn.
+impassable_mountains = RANGE { 944 1533 }

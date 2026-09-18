@@ -1,0 +1,121 @@
+﻿############################################################
+# Patriam: Rise of Empires. The cultures of Southern Kallonia in 6355.
+#
+# Four cultures, exactly as the political map records them: Thenithrian in the
+# Kingdom of Thenithria, Late Drunathaenic across the other forty seven realms,
+# Kaegonic in Kaeilon, and Akarian on the easternmost coast of Senkaria.
+############################################################
+
+thenithrian = {
+	color = patriam_thenithrian
+
+	ethos = ethos_bureaucratic
+	heritage = heritage_drunathaen
+	language = language_myrenvaldi
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+
+	traditions = {
+		tradition_legalistic
+		tradition_formation_fighting
+		tradition_city_keepers
+		tradition_fervent_temple_builders
+	}
+
+	name_list = name_list_thenithrian
+
+	coa_gfx = { byzantine_group_coa_gfx }
+	# The Hellenistic cities of Imperator: Rome for the towns, vanilla's Byzantine
+	# set for everything the port does not cover yet.
+	building_gfx = { patriam_building_gfx byzantine_building_gfx }
+	clothing_gfx = { byzantine_clothing_gfx }
+	unit_gfx = { eastern_unit_gfx }
+
+	ethnicities = {
+		100 = mediterranean_byzantine
+	}
+}
+
+late_drunathaenic = {
+	color = patriam_late_drunathaenic
+
+	ethos = ethos_stoic
+	heritage = heritage_drunathaen
+	language = language_myrenvaldi
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+
+	traditions = {
+		tradition_hereditary_hierarchy
+		tradition_stalwart_defenders
+		tradition_esteemed_hospitality
+		tradition_agrarian
+	}
+
+	name_list = name_list_late_drunathaenic
+
+	coa_gfx = { byzantine_group_coa_gfx }
+	building_gfx = { byzantine_building_gfx }
+	clothing_gfx = { byzantine_clothing_gfx }
+	unit_gfx = { eastern_unit_gfx }
+
+	ethnicities = {
+		100 = mediterranean_byzantine
+	}
+}
+
+kaegonic = {
+	color = patriam_kaegonic
+
+	ethos = ethos_communal
+	heritage = heritage_kaegonic
+	language = language_kaegonic
+	martial_custom = martial_custom_equal
+	head_determination = head_determination_domain
+
+	traditions = {
+		tradition_mountain_homes
+		tradition_highland_warriors
+		tradition_hill_dwellers
+		tradition_pastoralists
+	}
+
+	name_list = name_list_kaegonic
+
+	coa_gfx = { byzantine_group_coa_gfx }
+	building_gfx = { byzantine_building_gfx }
+	clothing_gfx = { byzantine_clothing_gfx }
+	unit_gfx = { eastern_unit_gfx }
+
+	ethnicities = {
+		100 = mediterranean_byzantine
+	}
+}
+
+akarian = {
+	color = patriam_akarian
+
+	ethos = ethos_courtly
+	heritage = heritage_senkarian
+	language = language_akarian
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+
+	traditions = {
+		tradition_maritime_mercantilism
+		tradition_seafaring
+		tradition_legalistic
+		tradition_warrior_culture
+	}
+
+	name_list = name_list_akarian
+
+	coa_gfx = { byzantine_group_coa_gfx }
+	building_gfx = { byzantine_building_gfx }
+	clothing_gfx = { byzantine_clothing_gfx }
+	unit_gfx = { eastern_unit_gfx }
+
+	ethnicities = {
+		100 = mediterranean_byzantine
+	}
+}

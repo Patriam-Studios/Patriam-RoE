@@ -1,0 +1,69 @@
+﻿############################################################
+# Patriam: Rise of Empires. Cultural pillars.
+#
+# Three heritages and three languages, enough to carry the four cultures
+# Southern Kallonia holds in 6355. Myrenvaldi is the tongue of Thenithria and
+# the purest surviving form of Drunathaen, so both Drunathaen descended
+# cultures speak it. Kaegonic and Akarian have no written tongue yet and their
+# pillars stand ready for one.
+############################################################
+
+heritage_drunathaen = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_drunathaen
+		}
+	}
+	audio_parameter = mena
+}
+
+heritage_kaegonic = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_kaegonic
+		}
+	}
+	audio_parameter = european
+}
+
+heritage_senkarian = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_senkarian
+		}
+	}
+	audio_parameter = mena
+}
+
+language_myrenvaldi = {
+	type = language
+	color = patriam_thenithrian
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_myrenvaldi
+		}
+	}
+}
+
+language_kaegonic = {
+	type = language
+	color = patriam_kaegonic
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_kaegonic
+		}
+	}
+}
+
+language_akarian = {
+	type = language
+	color = patriam_akarian
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_akarian
+		}
+	}
+}

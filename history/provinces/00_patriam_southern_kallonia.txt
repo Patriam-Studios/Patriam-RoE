@@ -1,0 +1,4722 @@
+﻿############################################################
+# Patriam: Rise of Empires. Province history for Southern Kallonia.
+#
+# Culture follows the political map. Every province holds to Myraethanen.
+# A barony left empty is a slot for a lord to build on.
+############################################################
+
+1 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+2 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+3 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+4 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+5 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+6 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+7 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+8 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+9 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+10 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+11 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+12 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+13 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+14 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+15 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+16 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+17 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+18 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+19 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+20 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+21 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+22 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+23 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+24 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+25 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+26 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+27 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+28 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+29 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+30 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+31 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+32 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+33 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+34 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+35 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+36 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+37 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+38 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+39 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+40 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+41 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+42 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+43 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+44 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+45 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+46 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+47 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+48 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+49 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+50 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+51 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+52 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+53 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+54 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+55 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+56 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+57 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+58 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+59 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+60 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+61 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+62 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+63 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+64 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+65 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+66 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+67 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+68 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+69 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+70 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+71 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+72 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+73 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+74 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+75 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+76 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+77 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+78 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+79 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+80 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+81 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+82 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+83 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+84 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+85 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+86 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+87 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+88 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+89 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+90 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+91 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+92 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+93 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+94 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+95 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+96 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+97 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+98 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+99 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+100 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+101 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+102 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+103 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+104 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+105 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+106 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+107 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+108 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+109 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+110 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+111 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+112 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+113 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+114 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+115 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+116 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+117 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+118 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+119 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+120 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+121 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+122 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+123 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+124 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+125 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+126 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+127 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+128 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+129 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+130 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+131 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+132 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+133 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+134 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+135 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+136 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+137 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+138 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+139 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+140 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+141 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+142 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+143 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+144 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+145 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+146 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+147 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+148 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+149 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+150 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+151 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+152 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+153 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+154 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+155 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+156 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+157 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+158 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+159 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+160 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+161 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+162 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+163 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+164 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+165 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+166 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+167 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+168 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+169 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+170 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+171 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+172 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+173 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+174 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+175 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+176 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+177 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+178 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+179 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+180 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+181 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+182 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+183 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+184 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+185 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+186 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+187 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+188 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+189 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+190 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+191 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+192 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+193 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+194 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+195 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+196 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+197 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+198 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+199 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+200 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+201 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+202 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+203 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+204 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+205 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+206 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+207 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+208 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+209 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+210 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+211 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+212 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+213 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+214 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+215 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+216 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+217 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+218 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+219 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+220 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+221 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+222 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+223 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+224 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+225 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+226 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+227 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+228 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+229 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+230 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+231 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+232 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+233 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+234 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+235 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+236 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+237 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+238 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+239 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+240 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+241 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+242 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+243 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+244 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+245 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+246 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+247 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+248 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+249 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+250 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+251 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+252 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+253 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+254 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+255 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+256 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+257 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+258 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+259 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+260 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+261 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+262 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+263 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+264 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+265 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+266 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+267 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+268 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+269 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+270 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+271 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+272 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+273 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+274 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+275 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+276 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+277 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+278 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+279 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+280 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+281 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+282 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+283 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+284 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+285 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+286 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+287 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+288 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+289 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+290 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+291 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+292 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+293 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+294 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+295 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+296 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+297 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+298 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+299 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+300 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+301 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+302 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+303 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+304 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+305 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+306 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+307 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+308 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+309 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+310 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+311 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+312 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+313 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+314 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+315 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+316 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+317 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+318 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+319 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+320 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+321 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+322 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+323 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+324 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+325 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+326 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+327 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+328 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+329 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+330 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+331 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+332 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+333 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+334 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+335 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+336 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+337 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+338 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+339 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+340 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+341 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+342 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+343 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+344 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+345 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+346 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+347 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+348 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+349 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+350 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+351 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+352 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+353 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+354 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+355 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+356 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+357 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+358 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+359 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+360 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+361 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+362 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+363 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+364 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+365 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+366 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+367 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+368 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+369 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+370 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+371 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+372 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+373 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+374 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+375 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+376 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+377 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+378 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+379 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+380 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+381 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+382 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+383 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+384 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+385 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+386 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+387 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+388 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+389 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+390 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+391 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+392 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+393 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+394 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+395 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+396 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+397 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+398 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+399 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+400 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+401 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+402 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+403 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+404 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+405 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+406 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+407 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+408 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+409 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+410 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+411 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+412 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+413 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+414 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+415 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+416 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+417 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+418 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+419 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+420 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+421 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+422 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+423 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+424 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+425 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+426 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+427 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+428 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+429 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+430 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+431 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+432 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+433 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+434 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+435 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+436 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+437 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+438 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+439 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+440 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+441 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+442 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+443 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+444 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+445 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+446 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+447 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+448 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+449 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+450 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+451 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+452 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+453 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+454 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+455 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+456 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+457 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+458 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+459 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+460 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+461 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+462 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+463 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+464 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+465 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+466 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+467 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+468 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+469 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+470 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+471 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+472 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+473 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+474 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+475 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+476 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+477 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+478 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+479 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+480 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+481 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+482 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+483 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+484 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+485 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+486 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+487 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+488 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+489 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+490 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+491 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+492 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+493 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+494 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+495 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+496 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+497 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+498 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+499 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+500 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+501 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+502 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+503 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+504 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+505 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+506 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+507 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+508 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+509 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+510 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+511 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+512 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+513 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+514 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+515 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+516 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+517 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+518 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+519 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+520 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+521 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+522 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+523 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+524 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+525 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+526 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+527 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+528 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+529 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+530 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+531 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+532 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+533 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+534 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+535 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+536 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+537 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+538 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+539 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+540 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+541 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+542 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+543 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+544 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+545 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+546 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+547 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+548 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+549 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+550 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+551 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+552 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+553 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+554 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+555 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+556 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+557 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+558 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+559 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+560 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+561 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+562 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+563 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+564 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+565 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+566 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+567 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+568 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+569 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+570 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+571 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+572 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+573 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+574 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+575 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+576 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+577 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+578 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+579 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+580 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+581 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+582 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+583 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+584 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+585 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+586 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+587 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+588 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+589 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+590 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+591 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+592 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+593 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+594 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+595 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+596 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+597 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+598 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+599 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+600 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+601 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+602 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+603 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+604 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+605 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+606 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+607 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+608 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+609 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+610 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+611 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+612 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+613 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+614 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+615 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+616 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+617 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+618 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+619 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+620 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+621 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+622 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+623 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+624 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+625 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+626 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+627 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+628 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+629 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+630 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+631 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+632 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+633 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+634 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+635 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+636 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+637 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+638 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+639 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+640 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+641 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+642 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+643 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+644 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+645 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+646 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+647 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+648 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+649 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+650 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+651 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+652 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+653 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+654 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+655 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+656 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+657 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+658 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+659 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+660 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+661 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+662 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+663 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+664 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = castle_holding
+}
+665 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+666 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+667 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+668 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+669 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+670 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+671 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+672 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+673 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+674 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+675 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+676 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+677 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+678 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+679 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+680 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+681 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+682 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+683 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+684 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = church_holding
+}
+685 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+686 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+687 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+688 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+689 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+690 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+691 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+692 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+693 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+694 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+695 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+696 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+697 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+698 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+699 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = city_holding
+}
+700 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+701 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+702 = {
+	culture = thenithrian
+	religion = myraethanen
+	holding = none
+}
+703 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+704 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+705 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+706 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+707 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+708 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+709 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+710 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+711 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+712 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+713 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+714 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+715 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+716 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+717 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+718 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+719 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+720 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+721 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+722 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+723 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+724 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+725 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+726 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+727 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+728 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+729 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+730 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+731 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+732 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+733 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+734 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+735 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+736 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+737 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+738 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+739 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+740 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+741 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+742 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+743 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+744 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+745 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+746 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+747 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+748 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+749 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+750 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+751 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+752 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+753 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+754 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+755 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+756 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+757 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+758 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+759 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+760 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+761 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+762 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+763 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+764 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+765 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+766 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+767 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+768 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+769 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+770 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+771 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+772 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+773 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+774 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+775 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+776 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+777 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+778 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+779 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+780 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+781 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+782 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+783 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+784 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+785 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+786 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+787 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+788 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+789 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+790 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+791 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+792 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+793 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+794 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+795 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+796 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+797 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+798 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+799 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+800 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+801 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+802 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+803 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+804 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+805 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+806 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+807 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+808 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+809 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+810 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+811 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+812 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+813 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+814 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+815 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+816 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+817 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+818 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+819 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+820 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+821 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+822 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+823 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+824 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+825 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+826 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+827 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+828 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+829 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+830 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+831 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+832 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+833 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+834 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+835 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+836 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+837 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+838 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+839 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+840 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+841 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+842 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+843 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+844 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+845 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+846 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+847 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+848 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+849 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+850 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+851 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+852 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+853 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+854 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+855 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+856 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+857 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+858 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+859 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+860 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+861 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+862 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+863 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+864 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+865 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+866 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+867 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+868 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+869 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+870 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+871 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+872 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+873 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+874 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+875 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+876 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+877 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+878 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+879 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+880 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+881 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+882 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+883 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+884 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+885 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+886 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+887 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+888 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+889 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+890 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+891 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+892 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+893 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+894 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+895 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+896 = {
+	culture = akarian
+	religion = myraethanen
+	holding = castle_holding
+}
+897 = {
+	culture = akarian
+	religion = myraethanen
+	holding = castle_holding
+}
+898 = {
+	culture = akarian
+	religion = myraethanen
+	holding = castle_holding
+}
+899 = {
+	culture = akarian
+	religion = myraethanen
+	holding = city_holding
+}
+900 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+901 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+902 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+903 = {
+	culture = akarian
+	religion = myraethanen
+	holding = castle_holding
+}
+904 = {
+	culture = akarian
+	religion = myraethanen
+	holding = church_holding
+}
+905 = {
+	culture = akarian
+	religion = myraethanen
+	holding = church_holding
+}
+906 = {
+	culture = akarian
+	religion = myraethanen
+	holding = city_holding
+}
+907 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+908 = {
+	culture = akarian
+	religion = myraethanen
+	holding = city_holding
+}
+909 = {
+	culture = akarian
+	religion = myraethanen
+	holding = city_holding
+}
+910 = {
+	culture = akarian
+	religion = myraethanen
+	holding = city_holding
+}
+911 = {
+	culture = akarian
+	religion = myraethanen
+	holding = castle_holding
+}
+912 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+913 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+914 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+915 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+916 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+917 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+918 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = church_holding
+}
+919 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+920 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+921 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+922 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+923 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = none
+}
+924 = {
+	culture = akarian
+	religion = myraethanen
+	holding = city_holding
+}
+925 = {
+	culture = akarian
+	religion = myraethanen
+	holding = castle_holding
+}
+926 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+927 = {
+	culture = akarian
+	religion = myraethanen
+	holding = church_holding
+}
+928 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+929 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+930 = {
+	culture = akarian
+	religion = myraethanen
+	holding = city_holding
+}
+931 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+932 = {
+	culture = akarian
+	religion = myraethanen
+	holding = none
+}
+933 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+934 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+935 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+936 = {
+	culture = kaegonic
+	religion = myraethanen
+	holding = castle_holding
+}
+937 = {
+	culture = kaegonic
+	religion = myraethanen
+	holding = castle_holding
+}
+938 = {
+	culture = kaegonic
+	religion = myraethanen
+	holding = church_holding
+}
+939 = {
+	culture = kaegonic
+	religion = myraethanen
+	holding = city_holding
+}
+940 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}
+941 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = city_holding
+}
+942 = {
+	culture = akarian
+	religion = myraethanen
+	holding = city_holding
+}
+943 = {
+	culture = late_drunathaenic
+	religion = myraethanen
+	holding = castle_holding
+}

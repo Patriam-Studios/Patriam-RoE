@@ -1,0 +1,193 @@
+﻿############################################################
+# Patriam: Rise of Empires
+# The Ketanite War, the only formal war Ketan has ever fought.
+#
+# Canon order: the demand for submission, the refusal of the Milagi, the
+# sinking of the Ketanite Navy, the siege and the arithmetic that ended it,
+# then the parade up the tiers and the knee of Ikon Milagi.
+#
+# Hythaerion never lost a battle, so no branch here permits a defeat. The
+# player chooses the manner of the victory, never the fact of it.
+#
+# Five events proving the chain end to end: branching on a choice, flags
+# carried between events, delayed triggers, text that varies with the path
+# taken, and rewards on completion.
+#
+# None of this references geography, so all of it survives the arrival of
+# the Patriam map untouched.
+############################################################
+
+namespace = patriam_ketan
+
+############################################################
+# 0001 The Emissaries to Ketan
+############################################################
+patriam_ketan.0001 = {
+	type = character_event
+	title = patriam_ketan.0001.t
+	desc = patriam_ketan.0001.desc
+	theme = diplomacy
+	override_background = { reference = council_chamber }
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = patriam_ketan.0001.a
+		add_prestige = 50
+		trigger_event = { id = patriam_ketan.0002 days = 40 }
+	}
+
+	option = {
+		name = patriam_ketan.0001.b
+		add_character_flag = { flag = patriam_ketan_tribute }
+		trigger_event = { id = patriam_ketan.0002 days = 40 }
+	}
+
+	option = {
+		name = patriam_ketan.0001.c
+		add_character_flag = { flag = patriam_ketan_threat }
+		add_dread = 10
+		trigger_event = { id = patriam_ketan.0002 days = 40 }
+	}
+}
+
+############################################################
+# 0002 The Answer of the Milagi
+############################################################
+patriam_ketan.0002 = {
+	type = character_event
+	title = patriam_ketan.0002.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = patriam_ketan_threat }
+				desc = patriam_ketan.0002.desc.threat
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = patriam_ketan_tribute }
+				desc = patriam_ketan.0002.desc.tribute
+			}
+			desc = patriam_ketan.0002.desc.honourable
+		}
+	}
+	theme = diplomacy
+	override_background = { reference = council_chamber }
+
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	option = {
+		name = patriam_ketan.0002.a
+		trigger_event = { id = patriam_ketan.0003 days = 120 }
+	}
+}
+
+############################################################
+# 0003 The Sinking of the Ketanite Navy
+############################################################
+patriam_ketan.0003 = {
+	type = character_event
+	title = patriam_ketan.0003.t
+	desc = patriam_ketan.0003.desc
+	theme = battle
+	override_background = { reference = docks }
+
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+
+	option = {
+		name = patriam_ketan.0003.a
+		add_character_flag = { flag = patriam_ketan_led_the_van }
+		add_prestige = 200
+		add_dread = 5
+		trigger_event = { id = patriam_ketan.0004 days = 30 }
+	}
+
+	option = {
+		name = patriam_ketan.0003.b
+		add_prestige = 100
+		trigger_event = { id = patriam_ketan.0004 days = 30 }
+	}
+}
+
+############################################################
+# 0004 The Arithmetic of Merchants
+############################################################
+patriam_ketan.0004 = {
+	type = character_event
+	title = patriam_ketan.0004.t
+	desc = patriam_ketan.0004.desc
+	theme = battle
+	override_background = { reference = army_camp }
+
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	option = {
+		name = patriam_ketan.0004.a
+		trigger_event = { id = patriam_ketan.0005 days = 14 }
+	}
+
+	option = {
+		name = patriam_ketan.0004.b
+		add_character_flag = { flag = patriam_ketan_one_more_season }
+		add_dread = 15
+		stress_impact = { patient = minor_stress_impact_gain }
+		trigger_event = { id = patriam_ketan.0005 days = 180 }
+	}
+}
+
+############################################################
+# 0005 The Parade to the Imperial Palace
+############################################################
+patriam_ketan.0005 = {
+	type = character_event
+	title = patriam_ketan.0005.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = patriam_ketan_one_more_season }
+				desc = patriam_ketan.0005.desc.late
+			}
+			desc = patriam_ketan.0005.desc.prompt
+		}
+	}
+	theme = coronation
+	override_background = { reference = throne_room }
+
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	immediate = {
+		add_prestige = 1000
+		add_gold = 500
+	}
+
+	option = {
+		name = patriam_ketan.0005.a
+
+		# Leading the van in person is remembered in the tiers.
+		if = {
+			limit = { has_character_flag = patriam_ketan_led_the_van }
+			add_prestige = 250
+		}
+
+		# A harsher siege buys a heavier tribute and a colder city.
+		if = {
+			limit = { has_character_flag = patriam_ketan_one_more_season }
+			add_gold = 250
+			add_dread = 10
+		}
+	}
+}

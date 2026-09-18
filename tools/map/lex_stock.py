@@ -1,0 +1,40 @@
+"""The word pools the name generators draw on, all of them lexicon entries."""
+
+HEADS = {
+    "mountains": [("gaenir", "mountain"), ("gaenaen", "range"), ("krathen", "cliff"), ("gaeniris", "pass"),
+                  ("krathaen", "gorge"), ("gaenithos", "peak"), ("krathos", "crag")],
+    "hills": [("hyraen", "hill"), ("ithrin", "ridge"), ("hythaen", "height"), ("hylaen", "fell"),
+              ("thuraenis", "hollow"), ("mnaeros", "standing rock"), ("thuraen", "valley")],
+    "forest": [("tholaen", "forest"), ("tholir", "orchard"), ("tholaenis", "glade"), ("thuraen", "valley")],
+    "taiga": [("tholaen", "forest"), ("haelaen", "frost"), ("tholaenis", "glade")],
+    "jungle": [("tholaen", "forest"), ("draemis", "marsh"), ("tholaenis", "glade")],
+    "wetlands": [("draemis", "marsh"), ("iraetha", "mud"), ("aeliraen", "wellspring"), ("thuraenis", "hollow")],
+    "floodplains": [("thaerin", "river"), ("thaeraen", "ford"), ("imaer", "field"), ("aeliraen", "wellspring")],
+    "farmlands": [("imaer", "field"), ("imaerin", "village"), ("tholir", "orchard"), ("imaerathir", "farmstead"),
+                  ("naegraen", "pasture")],
+    "plains": [("kalaen", "plain"), ("imaer", "field"), ("kalaerin", "grass"), ("naegraen", "pasture"),
+               ("onaraen", "crossroads")],
+    "steppe": [("kalaen", "plain"), ("naekalaen", "waste"), ("tiraen", "heath"), ("naegraen", "pasture")],
+    "drylands": [("tiraen", "heath"), ("hiraes", "sand"), ("naekalaen", "waste"), ("hiraetsaen", "dune")],
+    "desert": [("hiraes", "sand"), ("naekalaen", "waste"), ("hiraetsaen", "dune")],
+    "desert_mountains": [("gaenir", "mountain"), ("hiraes", "sand"), ("krathos", "crag")],
+    "oasis": [("aelir", "spring"), ("tholir", "orchard"), ("aeliraen", "wellspring")],
+}
+COAST = [("daeros", "shore"), ("daeraen", "bay"), ("kaeraen", "harbour"), ("keraen", "island"),
+         ("atsiraen", "strait"), ("keraenithos", "skerry"), ("kaeraenis", "quay")]
+QUALITIES = [("elmin", "white"), ("dorathin", "black"), ("iraenin", "red"), ("tholin", "green"),
+             ("atsiorin", "blue"), ("kaelin", "golden"), ("aethaerin", "grey"), ("maegin", "great"),
+             ("kraelin", "little"), ("ithin", "old"), ("ophin", "new"), ("hylin", "high"),
+             ("nahylin", "low"), ("kalin", "wide"), ("ephin", "far"), ("naephin", "near"),
+             ("myrin", "holy"), ("donin", "thick"), ("tirin", "dry"), ("lithin", "wet"),
+             ("gaenin", "good"), ("aekilin", "bright"), ("naekilin", "dark"), ("mnaerin", "hard"),
+             ("thaelin", "true"), ("gralin", "strong"), ("thaenamin", "faithful"), ("bairin", "rich"),
+             ("hyraethin", "windy"), ("haelaerin", "snowy"), ("tholaerin", "wooded"), ("aelirin", "well watered"),
+             ("kraethin", "stormy"), ("daerotsin", "coastal"), ("naegraenin", "pastured")]
+SETTLEMENT = [("aelithos", "city"), ("thaenthir", "hall"), ("aelothir", "tower"), ("kaenaris", "gate"),
+              ("ithros", "wall"), ("aethiros", "fire temple"), ("taegraen", "forge"), ("mnaeraen", "quarry"),
+              ("taegrithos", "mine"), ("bairaen", "market"), ("othaeris", "bridge"), ("henaen", "camp"),
+              ("kaenithros", "keep"), ("kaenothir", "watchtower"), ("gralithros", "fort"),
+              ("imaerithos", "granary"), ("mnaethithos", "mill"), ("myraethiros", "shrine"),
+              ("imaerathir", "farmstead"), ("atsiraenis", "ferry"), ("graelithir", "hunting lodge"),
+              ("aekilothir", "beacon"), ("kaeraenis", "quay")]

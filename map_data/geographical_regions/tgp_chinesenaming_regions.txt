@@ -1,0 +1,240 @@
+﻿# Geographical regions for Patriam: Rise of Empires.
+#
+# Vanilla regions list vanilla province ids. The folder replacement for
+# map_data does not reach this subfolder, so vanilla's regions stayed
+# loaded, and at session start the game walked custom_sahara_proper's
+# provinces, 4558 onward, straight past the end of this world's 2668.
+# These files keep their vanilla names so they override for certain.
+#
+
+# Every Chinese naming region vanilla names, kept so references resolve,
+# each pointing at a single impassable province. Patriam will not use them.
+
+tgp_ba_region = {
+	provinces = { 944 }
+}
+tgp_bao_region = {
+	provinces = { 944 }
+}
+tgp_bi_region = {
+	provinces = { 944 }
+}
+tgp_cai_region = {
+	provinces = { 944 }
+}
+tgp_cao_region = {
+	provinces = { 944 }
+}
+tgp_chen_region = {
+	provinces = { 944 }
+}
+tgp_cheng_region = {
+	provinces = { 944 }
+}
+tgp_chu_region = {
+	provinces = { 944 }
+}
+tgp_dai_region = {
+	provinces = { 944 }
+}
+tgp_dao_region = {
+	provinces = { 944 }
+}
+tgp_deng_region = {
+	provinces = { 944 }
+}
+tgp_di_region = {
+	provinces = { 944 }
+}
+tgp_dian_region = {
+	provinces = { 944 }
+}
+tgp_e_region = {
+	provinces = { 944 }
+}
+tgp_gan_region = {
+	provinces = { 944 }
+}
+tgp_gui_region = {
+	provinces = { 944 }
+}
+tgp_guo_region = {
+	provinces = { 944 }
+}
+tgp_han_region = {
+	provinces = { 944 }
+}
+tgp_han_henan_region = {
+	provinces = { 944 }
+}
+tgp_hua_region = {
+	provinces = { 944 }
+}
+tgp_huai_region = {
+	provinces = { 944 }
+}
+tgp_huang_region = {
+	provinces = { 944 }
+}
+tgp_huo_region = {
+	provinces = { 944 }
+}
+tgp_ji_region = {
+	provinces = { 944 }
+}
+tgp_ji_hebei_region = {
+	provinces = { 944 }
+}
+tgp_jiao_region = {
+	provinces = { 944 }
+}
+tgp_jin_region = {
+	provinces = { 944 }
+}
+tgp_jing_region = {
+	provinces = { 944 }
+}
+tgp_ju_region = {
+	provinces = { 944 }
+}
+tgp_kang_region = {
+	provinces = { 944 }
+}
+tgp_lai_region = {
+	provinces = { 944 }
+}
+tgp_liang_region = {
+	provinces = { 944 }
+}
+tgp_liang_west_region = {
+	provinces = { 944 }
+}
+tgp_liao_region = {
+	provinces = { 944 }
+}
+tgp_lu_region = {
+	provinces = { 944 }
+}
+tgp_min_region = {
+	provinces = { 944 }
+}
+tgp_ou_region = {
+	provinces = { 944 }
+}
+tgp_peng_region = {
+	provinces = { 944 }
+}
+tgp_qi_region = {
+	provinces = { 944 }
+}
+tgp_qi_guannei_region = {
+	provinces = { 944 }
+}
+tgp_qian_region = {
+	provinces = { 944 }
+}
+tgp_qin_region = {
+	provinces = { 944 }
+}
+tgp_qiong_region = {
+	provinces = { 944 }
+}
+tgp_shang_region = {
+	provinces = { 944 }
+}
+tgp_shen_region = {
+	provinces = { 944 }
+}
+tgp_shu_region = {
+	provinces = { 944 }
+}
+tgp_song_region = {
+	provinces = { 944 }
+}
+tgp_sui_region = {
+	provinces = { 944 }
+}
+tgp_tan_region = {
+	provinces = { 944 }
+}
+tgp_tang_region = {
+	provinces = { 944 }
+}
+tgp_teng_region = {
+	provinces = { 944 }
+}
+tgp_wei_region = {
+	provinces = { 944 }
+}
+tgp_wey_region = {
+	provinces = { 944 }
+}
+tgp_wu_region = {
+	provinces = { 944 }
+}
+tgp_xi_region = {
+	provinces = { 944 }
+}
+tgp_xia_region = {
+	provinces = { 944 }
+}
+tgp_xiang_region = {
+	provinces = { 944 }
+}
+tgp_xing_region = {
+	provinces = { 944 }
+}
+tgp_xu_region = {
+	provinces = { 944 }
+}
+tgp_xu_shandong_region = {
+	provinces = { 944 }
+}
+tgp_yan_region = {
+	provinces = { 944 }
+}
+tgp_yang_region = {
+	provinces = { 944 }
+}
+tgp_yin_region = {
+	provinces = { 944 }
+}
+tgp_ying_region = {
+	provinces = { 944 }
+}
+tgp_yong_region = {
+	provinces = { 944 }
+}
+tgp_you_region = {
+	provinces = { 944 }
+}
+tgp_yu_region = {
+	provinces = { 944 }
+}
+tgp_yuan_ferghana_region = {
+	provinces = { 944 }
+}
+tgp_yue_region = {
+	provinces = { 944 }
+}
+tgp_yue_2_region = {
+	provinces = { 944 }
+}
+tgp_zhao_region = {
+	provinces = { 944 }
+}
+tgp_zheng_region = {
+	provinces = { 944 }
+}
+tgp_zhou_region = {
+	provinces = { 944 }
+}
+tgp_zou_region = {
+	provinces = { 944 }
+}
+tgp_duchy_chinese_naming_region = {
+	provinces = { 944 }
+}
+tgp_county_chinese_naming_region = {
+	provinces = { 944 }
+}

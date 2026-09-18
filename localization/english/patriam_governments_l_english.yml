@@ -1,0 +1,33 @@
+﻿l_english:
+
+ # The three forms of rule that Southern Kallonia holds beyond the feudal one.
+
+ house_government:0 "House"
+ house_government_adjective:0 "House"
+ house_government_with_icon:0 "@government_type_feudal! $house_government$"
+ house_government_realm:0 "House Realm"
+ house_government_desc:0 "The formal holdings of one family, expressed as a realm. A house answers to no lord above it, and its lands carry the name of the family rather than the name of the ground."
+ house_government_obligations:0 "[GetGovernment( 'house_government' ).GetName] [obligations|E]"
+ house_government_taxes:0 "[GetGovernment( 'house_government' ).GetNameNoTooltip] [taxes|U]"
+ house_government_levies:0 "[GetGovernment( 'house_government' ).GetNameNoTooltip] [levies|U]"
+ house_government_vassals_label:0 "House [obligations|E] are based on each [vassal|E]'s [vassal_contract|E]"
+
+ city_state_government:0 "City State"
+ city_state_government_adjective:0 "City State"
+ city_state_government_with_icon:0 "@government_type_republic! $city_state_government$"
+ city_state_government_realm:0 "City State"
+ city_state_government_desc:0 "One city and the walls around it, standing as a realm of its own. A city state holds little ground and a great deal of coin, and it has kept both by being more trouble to take than it is worth."
+ city_state_government_obligations:0 "[GetGovernment( 'city_state_government' ).GetName] [obligations|E]"
+ city_state_government_taxes:0 "[GetGovernment( 'city_state_government' ).GetNameNoTooltip] [taxes|U]"
+ city_state_government_levies:0 "[GetGovernment( 'city_state_government' ).GetNameNoTooltip] [levies|U]"
+ city_state_government_vassals_label:0 "City State [obligations|E] are based on each [vassal|E]'s [vassal_contract|E]"
+
+ merchant_monarchy_government:0 "Merchant Monarchy"
+ merchant_monarchy_government_adjective:0 "Merchant"
+ merchant_monarchy_government_with_icon:0 "@government_type_republic! $merchant_monarchy_government$"
+ merchant_monarchy_government_realm:0 "Merchant Monarchy"
+ merchant_monarchy_government_desc:0 "A throne seated in a counting house. The crown passes by blood, as any other does, but the strength of the realm is the ledger, the harbour, and the fleets that keep both, rather than the levy."
+ merchant_monarchy_government_obligations:0 "[GetGovernment( 'merchant_monarchy_government' ).GetName] [obligations|E]"
+ merchant_monarchy_government_taxes:0 "[GetGovernment( 'merchant_monarchy_government' ).GetNameNoTooltip] [taxes|U]"
+ merchant_monarchy_government_levies:0 "[GetGovernment( 'merchant_monarchy_government' ).GetNameNoTooltip] [levies|U]"
+ merchant_monarchy_government_vassals_label:0 "Merchant [obligations|E] are based on each [vassal|E]'s [vassal_contract|E]"

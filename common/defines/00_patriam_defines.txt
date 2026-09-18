@@ -1,0 +1,103 @@
+﻿# The Patriam canvas, and the era this campaign runs in.
+NJominiMap = {
+	WORLD_EXTENTS_X = 16383
+	WORLD_EXTENTS_Y = 50
+	WORLD_EXTENTS_Z = 6655
+	WATERLEVEL = 3
+}
+
+# Vanilla ends the game on 1453.1.1. This campaign opens in 6355 ADA, so
+# without this the game declared itself over on the first day.
+# Seven hundred years comfortably outlasts Hythaerion, who lives to about
+# 175, and the reigns that follow him.
+NGame = {
+	END_DATE = "7055.1.1"
+}
+
+############################################################
+# The long years of Patriam.
+#
+# Patriamic humans were made to hold their prime. A life runs at the ordinary
+# rate until twenty, at a quarter of it from twenty to sixty, and at half of it
+# afterwards. A man of forty is worn as a man of twenty five, one of sixty as
+# thirty, one of a hundred as fifty, one of a hundred and twenty as sixty, and
+# Hythaerion at 175 as a man of eighty seven.
+#
+# Every age that governs decline was mapped through that curve, and the health
+# ramp was refitted to it rather than merely stretched, so the wear a character
+# carries at any age matches the vanilla curve at the age above to within one
+# per cent.
+############################################################
+
+NCharacter = {
+	MALE_ELDERLY_AGE = 100
+	FEMALE_ELDERLY_AGE = 100
+	MALE_ATTRACTION_CUTOFF_AGE = 130
+	FEMALE_ATTRACTION_CUTOFF_AGE = 100
+	MALE_RANDOM_AGE_SPAN = 56
+	FEMALE_RANDOM_AGE_SPAN = 48
+}
+
+NOldAge = {
+	LOWER_HEALTH_START_AGE = 50
+	LOWER_HEALTH_BASE_CHANCE = 0.05
+	LOWER_HEALTH_YEARLY_INCREASE = 0.0055
+	LOWER_HEALTH_AMOUNT = -0.12
+	LOWER_PROWESS_START_AGE = 90
+	LOWER_PROWESS_YEARLY_INCREASE = 0.0075
+	LOWER_PROWESS_FACTOR = 0.05
+}
+
+NChildbirth = {
+	MAX_FEMALE_REPRODUCTION_AGE = 90
+	MALE_FERTILITY_MULTIPLIER_LIMITS = { 140 120 100 80 70 }
+	FEMALE_FERTILITY_MULTIPLIER_LIMITS = { 90 80 70 60 40 }
+	TWIN_BONUS_MAX_AGE = 70
+	TWIN_BONUS_MIN_AGE = 40
+}
+
+NMarriage = {
+	SPOUSE_FINDER_RELEVANCE_INFERTILE_MODIFIER_FEMALE_AGE = 70
+}
+
+############################################################
+# Every government the game knows, since this define replaces the list rather
+# than adding to it. The last three are ours, and without them the engine never
+# builds the modifiers a government needs and falls over as history loads.
+############################################################
+NGovernment = {
+	GOVERNMENT_TYPES = {
+		"feudal_government"
+		"republic_government"
+		"theocracy_government"
+		"clan_government"
+		"tribal_government"
+		"mercenary_government"
+		"holy_order_government"
+		"administrative_government"
+		"landless_adventurer_government"
+		"nomad_government"
+		"herder_government"
+		"celestial_government"
+		"japan_administrative_government"
+		"japan_feudal_government"
+		"mandala_government"
+		"wanua_government"
+		"meritocratic_government"
+		"steppe_admin_government"
+		"house_government"
+		"city_state_government"
+		"merchant_monarchy_government"
+	}
+}
+
+############################################################
+# The map table. Vanilla draws its cloth and clouds outside a rectangle sized
+# for a 9216 by 4608 Earth, so on this canvas the cloth was laid over every
+# province north of 3700 and the north of the world went black or turned into
+# tablecloth when zoomed out. The inner rectangle now covers the whole map.
+############################################################
+NGraphics = {
+	SURROUND_MAP_INNER_RECT = { 0.0 0.0 16384.0 6656.0 }
+	SURROUND_MAP_OUTER_RECT = { -20000.0 -20000.0 40000.0 40000.0 }
+}

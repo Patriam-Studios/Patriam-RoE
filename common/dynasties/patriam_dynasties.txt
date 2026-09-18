@@ -1,0 +1,248 @@
+﻿############################################################
+# Patriam: Rise of Empires. Dynasties.
+############################################################
+
+dynasty_kasparidii = {
+	name = "dynn_patriam_Kasparidii"
+	culture = "thenithrian"
+}
+
+dynasty_imaeranii = {
+	name = "dynn_patriam_Imaeranii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_valdanii = {
+	name = "dynn_patriam_Valdanii"
+	culture = "kaegonic"
+}
+
+dynasty_thaeraerii = {
+	name = "dynn_patriam_Thaeraerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_ophii = {
+	name = "dynn_patriam_Ophii"
+	culture = "akarian"
+}
+
+dynasty_gralaerii = {
+	name = "dynn_patriam_Gralaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_taenanii = {
+	name = "dynn_patriam_Taenanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_daeanii = {
+	name = "dynn_patriam_Daeanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_valdaerii = {
+	name = "dynn_patriam_Valdaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_aeliraerii = {
+	name = "dynn_patriam_Aeliraerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_thaenii = {
+	name = "dynn_patriam_Thaenii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_aekilii = {
+	name = "dynn_patriam_Aekilii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_krathaerii = {
+	name = "dynn_patriam_Krathaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_drathanii = {
+	name = "dynn_patriam_Drathanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_myrii = {
+	name = "dynn_patriam_Myrii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_thuranii = {
+	name = "dynn_patriam_Thuranii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_krathii = {
+	name = "dynn_patriam_Krathii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_valdii = {
+	name = "dynn_patriam_Valdii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_aeliranii = {
+	name = "dynn_patriam_Aeliranii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_gralii = {
+	name = "dynn_patriam_Gralii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_hylii = {
+	name = "dynn_patriam_Hylii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_atsioraerii = {
+	name = "dynn_patriam_Atsioraerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_krathanii = {
+	name = "dynn_patriam_Krathanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_onaraerii = {
+	name = "dynn_patriam_Onaraerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_taenii = {
+	name = "dynn_patriam_Taenii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_mnaeraerii = {
+	name = "dynn_patriam_Mnaeraerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_kaeanii = {
+	name = "dynn_patriam_Kaeanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_kraethanii = {
+	name = "dynn_patriam_Kraethanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_thaerii = {
+	name = "dynn_patriam_Thaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_ithanii = {
+	name = "dynn_patriam_Ithanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_aethaerii = {
+	name = "dynn_patriam_Aethaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_iraenanii = {
+	name = "dynn_patriam_Iraenanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_myraerii = {
+	name = "dynn_patriam_Myraerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_mnaeranii = {
+	name = "dynn_patriam_Mnaeranii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_imaerii = {
+	name = "dynn_patriam_Imaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_hylanii = {
+	name = "dynn_patriam_Hylanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_drathaerii = {
+	name = "dynn_patriam_Drathaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_taenaerii = {
+	name = "dynn_patriam_Taenaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_ithaerii = {
+	name = "dynn_patriam_Ithaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_thaenanii = {
+	name = "dynn_patriam_Thaenanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_kraethii = {
+	name = "dynn_patriam_Kraethii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_naethaerii = {
+	name = "dynn_patriam_Naethaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_myraethanii = {
+	name = "dynn_patriam_Myraethanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_gaenanii = {
+	name = "dynn_patriam_Gaenanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_kordii = {
+	name = "dynn_patriam_Kordii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_myraethii = {
+	name = "dynn_patriam_Myraethii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_aekilanii = {
+	name = "dynn_patriam_Aekilanii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_myraethaerii = {
+	name = "dynn_patriam_Myraethaerii"
+	culture = "late_drunathaenic"
+}
+
+dynasty_naethii = {
+	name = "dynn_patriam_Naethii"
+	culture = "late_drunathaenic"
+}

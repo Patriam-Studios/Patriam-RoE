@@ -1,0 +1,14 @@
+﻿############################################################
+# Patriam: Rise of Empires. Overrides of base game triggers.
+#
+# Only triggers that ask after something this world does not contain, and that
+# therefore cannot do anything but fill the error log.
+############################################################
+
+# The base game offers the Reichskrone to whoever holds the Holy Roman Empire.
+# There is no such title here, so the question is asked of every portrait in
+# the game and answered with an error every time. Eight thousand of them in two
+# months of play, which buries anything worth reading.
+portrait_reichskrone_trigger = {
+	always = no
+}

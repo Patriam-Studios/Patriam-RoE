@@ -1,0 +1,364 @@
+﻿############################################################
+# Patriam: Rise of Empires. The rulers of Southern Kallonia in 6355.
+#
+# Hythaerion holds the Kingdom of Thenithria, inherited from his
+# father in the last days of 6354. Every other realm painted on the map
+# has one ruler of its own culture and faith.
+############################################################
+
+6001 = { # Hythaerion the Conqueror. Seventeen at the start, and he dies in 6514 as canon.
+	name = "Hythaerion"
+	dynasty = dynasty_kasparidii
+	religion = myraethanen
+	culture = thenithrian
+	father = 6002
+	trait = brave
+	trait = ambitious
+	trait = education_martial_4
+	6338.1.1 = { birth = yes }
+	6514.1.1 = { death = yes }
+}
+6002 = { # Hythaerion's father, who holds Thenithria until the last days of 6354.
+	name = "Kasparion"
+	dynasty = dynasty_kasparidii
+	religion = myraethanen
+	culture = thenithrian
+	6262.1.1 = { birth = yes }
+	6354.12.31 = { death = yes }
+}
+6100 = { # Holds c_axia_01, the realm painted as Axia.
+	name = "Anathaen"
+	dynasty = dynasty_imaeranii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6299.6.19 = { birth = yes }
+}
+6101 = { # Holds c_kaeilon, the realm painted as Kaeilon.
+	name = "Oustarn"
+	dynasty = dynasty_valdanii
+	religion = myraethanen
+	culture = kaegonic
+	6309.6.21 = { birth = yes }
+}
+6102 = { # Holds k_aerif, the realm painted as Aerif.
+	name = "Jaenaryn"
+	dynasty = dynasty_thaeraerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6326.8.16 = { birth = yes }
+}
+6103 = { # Holds k_kingdom_of_akaria, the realm painted as Kingdom of Akaria.
+	name = "Antaar"
+	dynasty = dynasty_ophii
+	religion = myraethanen
+	culture = akarian
+	6328.2.20 = { birth = yes }
+}
+6104 = { # Holds c_hyrion_01, the realm painted as Hyrion.
+	name = "Taengyn"
+	dynasty = dynasty_gralaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6326.1.24 = { birth = yes }
+}
+6105 = { # Holds d_myrene, the realm painted as Myrene.
+	name = "Araelon"
+	dynasty = dynasty_taenanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6299.9.25 = { birth = yes }
+}
+6106 = { # Holds c_vaena, the realm painted as Vaena.
+	name = "Aetos"
+	dynasty = dynasty_daeanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6321.11.10 = { birth = yes }
+}
+6107 = { # Holds c_hynera, the realm painted as Hynera.
+	name = "Tharaen"
+	dynasty = dynasty_valdaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6309.7.25 = { birth = yes }
+}
+6108 = { # Holds c_kyraen, the realm painted as Kyraen.
+	name = "Aerys"
+	dynasty = dynasty_aeliraerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6313.9.9 = { birth = yes }
+}
+6109 = { # Holds c_araeon, the realm painted as Araeon.
+	name = "Aerif"
+	dynasty = dynasty_thaenii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6319.10.1 = { birth = yes }
+}
+6110 = { # Holds d_ithion, the realm painted as Ithion.
+	name = "Hyrion"
+	dynasty = dynasty_aekilii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6314.9.16 = { birth = yes }
+}
+6111 = { # Holds d_amnaeron, the realm painted as Amnaeron.
+	name = "Kyraen"
+	dynasty = dynasty_krathaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6314.1.14 = { birth = yes }
+}
+6112 = { # Holds d_thraenon, the realm painted as Thraenon.
+	name = "Araeon"
+	dynasty = dynasty_drathanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6304.3.5 = { birth = yes }
+}
+6113 = { # Holds k_myliros, the realm painted as Myliros.
+	name = "Ithion"
+	dynasty = dynasty_myrii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6323.9.17 = { birth = yes }
+}
+6114 = { # Holds k_araethos, the realm painted as Araethos.
+	name = "Amnaeron"
+	dynasty = dynasty_thuranii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6305.3.28 = { birth = yes }
+}
+6115 = { # Holds d_irithos, the realm painted as Irithos.
+	name = "Thraenon"
+	dynasty = dynasty_krathii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6314.2.9 = { birth = yes }
+}
+6116 = { # Holds d_araelos, the realm painted as Araelos.
+	name = "Myliros"
+	dynasty = dynasty_valdii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6326.11.2 = { birth = yes }
+}
+6117 = { # Holds c_namaeron_01, the realm painted as Namaeron.
+	name = "Araethos"
+	dynasty = dynasty_aeliranii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6318.11.18 = { birth = yes }
+}
+6118 = { # Holds c_mylaeros_01, the realm painted as Mylaeros.
+	name = "Irithos"
+	dynasty = dynasty_gralii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6306.1.6 = { birth = yes }
+}
+6119 = { # Holds d_druthaea, the realm painted as Druthaea.
+	name = "Araelos"
+	dynasty = dynasty_hylii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6307.8.22 = { birth = yes }
+}
+6120 = { # Holds c_bairaes, the realm painted as Bairaes.
+	name = "Namaeron"
+	dynasty = dynasty_atsioraerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6303.3.8 = { birth = yes }
+}
+6121 = { # Holds c_anaenaros, the realm painted as Anaenaros.
+	name = "Bairaes"
+	dynasty = dynasty_krathanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6325.11.22 = { birth = yes }
+}
+6122 = { # Holds c_hylaearon_01, the realm painted as Hylaearon.
+	name = "Hylaearon"
+	dynasty = dynasty_onaraerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6310.6.22 = { birth = yes }
+}
+6123 = { # Holds c_ketan, the realm painted as Ketan.
+	name = "Imaeros"
+	dynasty = dynasty_taenii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6303.10.5 = { birth = yes }
+}
+6124 = { # Holds c_myrenii, the realm painted as Myrenii.
+	name = "Kalaegran"
+	dynasty = dynasty_mnaeraerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6303.11.15 = { birth = yes }
+}
+6125 = { # Holds d_imaeros, the realm painted as Imaeros.
+	name = "Kaenor"
+	dynasty = dynasty_kaeanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6326.1.5 = { birth = yes }
+}
+6126 = { # Holds d_taenthaeros, the realm painted as Taenthaeros.
+	name = "Myrkaenos"
+	dynasty = dynasty_kraethanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6315.3.1 = { birth = yes }
+}
+6127 = { # Holds c_orarithos, the realm painted as Orarithos.
+	name = "Gaenthos"
+	dynasty = dynasty_thaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6306.11.4 = { birth = yes }
+}
+6128 = { # Holds d_thionia, the realm painted as Thionia.
+	name = "Aelothos"
+	dynasty = dynasty_ithanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6312.4.25 = { birth = yes }
+}
+6129 = { # Holds c_thyrithara, the realm painted as Thyrithara.
+	name = "Aegos"
+	dynasty = dynasty_aethaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6316.7.4 = { birth = yes }
+}
+6130 = { # Holds k_elaetharia, the realm painted as Elaetharia.
+	name = "Daeanaes"
+	dynasty = dynasty_iraenanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6321.4.7 = { birth = yes }
+}
+6131 = { # Holds c_thaeara_01, the realm painted as Thaeara.
+	name = "Taenaeros"
+	dynasty = dynasty_myraerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6317.5.19 = { birth = yes }
+}
+6132 = { # Holds c_ithilis, the realm painted as Ithilis.
+	name = "Tholaenaen"
+	dynasty = dynasty_mnaeranii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6314.9.21 = { birth = yes }
+}
+6133 = { # Holds c_milaelithos, the realm painted as Milaelithos.
+	name = "Thaeraenos"
+	dynasty = dynasty_imaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6327.3.22 = { birth = yes }
+}
+6134 = { # Holds k_aethanin, the realm painted as Aethanin.
+	name = "Drathaeor"
+	dynasty = dynasty_hylanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6321.4.3 = { birth = yes }
+}
+6135 = { # Holds d_hyraena, the realm painted as Hyraena.
+	name = "Kalon"
+	dynasty = dynasty_drathaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6315.3.23 = { birth = yes }
+}
+6136 = { # Holds d_elaelonia, the realm painted as Elaelonia.
+	name = "Kraethanaen"
+	dynasty = dynasty_taenaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6305.1.12 = { birth = yes }
+}
+6137 = { # Holds d_orarithos, the realm painted as Orarithos.
+	name = "Thuraeos"
+	dynasty = dynasty_ithaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6319.9.4 = { birth = yes }
+}
+6138 = { # Holds c_tholaethara_01, the realm painted as Tholaethara.
+	name = "Aekilaeon"
+	dynasty = dynasty_thaenanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6313.2.7 = { birth = yes }
+}
+6139 = { # Holds c_aegiraenor, the realm painted as Aegiraenor.
+	name = "Taenon"
+	dynasty = dynasty_kraethii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6328.12.17 = { birth = yes }
+}
+6140 = { # Holds d_hylithros, the realm painted as Hylithros.
+	name = "Kraethaeraes"
+	dynasty = dynasty_naethaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6311.4.7 = { birth = yes }
+}
+6141 = { # Holds d_aeraeonia, the realm painted as Aeraeonia.
+	name = "Tholir"
+	dynasty = dynasty_myraethanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6312.1.5 = { birth = yes }
+}
+6142 = { # Holds k_liaeraria, the realm painted as Liaeraria.
+	name = "Thuren"
+	dynasty = dynasty_gaenanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6309.11.23 = { birth = yes }
+}
+6143 = { # Holds c_thrailia, the realm painted as Thrailia.
+	name = "Mnaerithys"
+	dynasty = dynasty_kordii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6321.11.26 = { birth = yes }
+}
+6144 = { # Holds c_aenaerithos, the realm painted as Aenaerithos.
+	name = "Thaeraenaen"
+	dynasty = dynasty_myraethii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6313.3.18 = { birth = yes }
+}
+6145 = { # Holds c_omaithros, the realm painted as Omaithros.
+	name = "Valdithir"
+	dynasty = dynasty_aekilanii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6311.3.7 = { birth = yes }
+}
+6146 = { # Holds d_ophaera, the realm painted as Ophaera.
+	name = "Mnaeranen"
+	dynasty = dynasty_myraethaerii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6316.2.3 = { birth = yes }
+}
+6147 = { # Holds k_drathaetha, the realm painted as Drathaetha.
+	name = "Gralin"
+	dynasty = dynasty_naethii
+	religion = myraethanen
+	culture = late_drunathaenic
+	6315.7.25 = { birth = yes }
+}

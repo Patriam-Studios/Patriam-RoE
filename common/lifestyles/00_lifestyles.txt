@@ -1,0 +1,75 @@
+﻿############################################################
+# Patriam: Rise of Empires. Lifestyles.
+#
+# A copy of the base file with one change. A Patriamic life runs at a
+# quarter of the ordinary rate through the prime years, twenty to sixty,
+# which is where a reign is spent, so the experience a character gathers
+# each month is quartered to match. Without this every ruler would empty
+# three lifestyle trees before he looked thirty.
+############################################################
+
+diplomacy_lifestyle = {
+
+	is_highlighted = {
+		has_trait = education_diplomacy		
+	}
+
+	xp_per_level = 1000
+	base_xp_gain = 6
+}
+
+martial_lifestyle = {
+
+	is_highlighted = {
+		has_trait = education_martial		
+	}
+
+	xp_per_level = 1000
+	base_xp_gain = 6
+}
+
+stewardship_lifestyle = {
+
+	is_highlighted = {
+		has_trait = education_stewardship		
+	}
+	
+	
+	xp_per_level = 1000
+	base_xp_gain = 6
+}
+
+intrigue_lifestyle = {
+
+	is_highlighted = {
+		has_trait = education_intrigue		
+	}
+	
+	
+	xp_per_level = 1000
+	base_xp_gain = 6
+}
+
+learning_lifestyle = {
+
+	is_highlighted = {
+		has_trait = education_learning		
+	}
+	
+	
+	xp_per_level = 1000
+	base_xp_gain = 6
+}
+
+wanderer_lifestyle = {
+	is_valid = {
+		has_dlc_feature = wandering_nobles
+	}
+
+	is_highlighted = {
+		always = yes
+	}
+
+	xp_per_level = 1000
+	base_xp_gain = 20
+}
