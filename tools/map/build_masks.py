@@ -23,7 +23,9 @@ GAME = r"C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game\g
 
 
 def main(w, h):
-    settings = io.open(os.path.join(GAME, "materials.settings"), encoding="utf-8-sig").read()
+    mine = os.path.join(MOD, "gfx", "map", "terrain", "materials.settings")
+    src = mine if os.path.exists(mine) else os.path.join(GAME, "materials.settings")
+    settings = io.open(src, encoding="utf-8-sig").read()
     paths = sorted(set(re.findall(r'mask\s*=\s*"([^"]+)"', settings)))
     first = None
     for rel in paths:

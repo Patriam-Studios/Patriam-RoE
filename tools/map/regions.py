@@ -102,10 +102,14 @@ def build(prefix):
     # Olzhar, Mekanis and Senkaria share one landmass and are told apart by what
     # they are painted with: the red rock of the mesa, the sand of the desert,
     # and Olzhar's own grass for everything left.
-    west = out == names.index("olzhar") + 1
-    mek = largest(surface_mask(prefix, MESA_SURFACES, close=17)) & west   # 272 blocks, wider than any canyon
+    west = (out == names.index("olzhar") + 1) | (out == 0)
+    # The mesa is taken from the paint alone and not from the landmass: its own
+    # ravines cut below the water plane, which splits the tableland into several
+    # pieces of land, and the middle of Mekanis was falling outside the region
+    # and keeping vanilla's grey rock.
+    mek = largest(surface_mask(prefix, MESA_SURFACES, close=17))   # 272 blocks, wider than any canyon
     out[mek] = names.index("mekanis") + 1
-    sand = surface_mask(prefix, SAND_SURFACES) & west & ~mek
+    sand = surface_mask(prefix, SAND_SURFACES) & (out == names.index("olzhar") + 1) & ~mek
     out[sand] = names.index("senkaria") + 1
     report.append(("mekanis", int(mek.sum())))
     report.append(("senkaria", int(sand.sum())))

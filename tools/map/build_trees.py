@@ -39,6 +39,10 @@ TARGET_TREES = 430000
 PINE = ["tree_pine_01_b_mesh", "tree_pine_single_01_a_mesh"]
 LEAF = ["tree_leaf_01_a_mesh", "tree_leaf_01_b_mesh", "tree_leaf_01_c_mesh"]
 JUNGLE = ["tree_jungle_01_d_mesh", "tree_jungle_01_c_mesh", "tree_palm_01_a_mesh"]
+# The temperate mix Alexander asked for: mostly ordinary leaf trees, a quarter
+# cypress, and cherry scattered thinly through them. A mesh repeated in the list
+# is drawn that much more often.
+TEMPERATE = (LEAF * 2) + ["tree_cypress_01_a_mesh", "tree_cypress_01_a_mesh", "tree_sakura_02_mesh"]
 
 # Which meshes a layer plants, first match wins. Several meshes share a layer's
 # trees evenly, which is how the base game varies a forest.
@@ -58,12 +62,18 @@ RULES = [
 # Watol is rainforest, and the closest the base game has is its jungle, so its
 # jungle trees and palms stand in until something better is modelled.
 REGION_TREES = {
-    "norkinia": (PINE, 1.0),
-    "aeloen": (PINE, 1.0),
-    "watol": (JUNGLE, 1.15),
-    "northern_kallonia": (LEAF, 0.35),          # sparse temperate over most of it
-    "bouropheia": (PINE, 1.25),                 # except the far north west, which is thick pine
+    "norkinia": (PINE, 0.85),
+    "aeloen": (PINE, 0.85),
+    "watol": (JUNGLE, 1.0),
+    "northern_kallonia": (TEMPERATE, 0.25),      # sparse temperate over most of it
+    "bouropheia": (PINE, 1.6),                  # except the far north west, which is thick pine
 }
+# Norkinia, Aeloen and Watol carry no tree layer at all in the WorldPainter
+# world, so there is nothing there to thin: their trees are sown on their own
+# ground instead, everywhere the land will hold a forest.
+SOWN = 0.62                    # strength given to ground a layer never covered
+SOW_MAX_BLOCKS = 165.0         # nothing grows above this, where the rock begins
+SOW_MAX_SLOPE = 3.2            # nor on a cliff, in blocks of rise a province pixel
 BOUROPHEIA = ("northern_kallonia", "nw")        # Bouropheia is the north west of Northern Kallonia
 # The file each mesh is written to, which is the vanilla file of that mesh.
 FILE_OF = {
@@ -123,7 +133,15 @@ def main(prefix):
     clump = np.clip(clump, 0.0, 1.0)
     clump = np.clip((clump - 0.34) * 2.6, 0.0, 1.6)      # bare ground under the low third
     dens *= clump
-    del clump
+
+    # Ground that will hold a forest: not water, not the bare rock of a summit,
+    # not a cliff face. Used where a region has trees but no layer ever painted
+    # one, which is the case for Norkinia, Aeloen and Watol.
+    el = hs.elevation_blocks(np.array(Image.open(
+        os.path.join(MOD, "map_data", "heightmap.png")))[::2, ::2].astype(np.float32))
+    gy, gx = np.gradient(el)
+    plantable = land & (el < SOW_MAX_BLOCKS) & (np.hypot(gx, gy) < SOW_MAX_SLOPE)
+    del gy, gx, el
 
     # what each region insists on, which overrides the painted layer
     import regions as rg
@@ -137,8 +155,16 @@ def main(prefix):
             m = rmap == rnames.index(name) + 1
         region_names.append(name)
         region_of[m] = len(region_names)
+        # a named region carries its own forest, so the painted layer is only a
+        # floor to build on and never what holds it back
+        sow = m & plantable
+        raised = int((dens[sow] < SOWN * clump[sow]).sum())
+        dens[sow] = np.maximum(dens[sow], SOWN * clump[sow])
         dens[m] *= REGION_TREES[name][1]
-    del rmap
+        print("  %-20s %8d province pixels, %7d of them sown, %7d too steep or too high"
+              % (name, int(m.sum()), raised, int((m & ~plantable).sum())))
+        del sow
+    del rmap, plantable, clump
 
     # expected trees a province pixel at full strength, set so the total lands near the target
     weight = np.zeros_like(dens)
@@ -146,6 +172,7 @@ def main(prefix):
         if meshes_for(name):
             m = which == li + 1
             weight[m] = dens[m]
+    weight[region_of > 0] = dens[region_of > 0]
     total_weight = float(weight.sum())
     per_px = TARGET_TREES / max(total_weight, 1.0)
     per_px = min(per_px, 1.5)          # never more than three trees to two pixels, however little forest there is

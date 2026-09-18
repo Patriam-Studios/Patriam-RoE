@@ -53,6 +53,8 @@ MATERIAL_TINT = {
     "hills_01": (120, 120, 82),
     "mountain_02": (124, 114, 100),
     "mountain_02_desert_c": (172, 122, 86),
+    "patriam_terracotta": (176, 96, 64),        # the mesa of Mekanis
+    "patriam_terracotta_rock": (132, 92, 76),
     "snow": (228, 232, 236),
     "mountain_02_b": (76, 68, 64),          # the ash and dark rock of Vurkia
     "desert_wavy_01": (198, 172, 114),
@@ -99,6 +101,10 @@ def main(heightmap_path, terrain_dir, prefix=None):
         primary, _, _ = tm.ground_maps(prefix, (W, H), idx, report=False)
         tinted = 0
         high = np.clip((elev - HIGH_GROUND_START) / (HIGH_GROUND_FULL - HIGH_GROUND_START), 0, 1)[..., None]
+        # A region that insists on its own ground keeps it at any height. Mekanis
+        # is a tableland, and letting the high ground fade towards rock as it
+        # does everywhere else left a grey pan across the middle of the mesa.
+        forced = {m for pair in tm.REGION_GROUND.values() for m in pair if m}
         for mid in np.unique(primary):
             tint = MATERIAL_TINT.get(names.get(int(mid), ""))
             if tint is None:
@@ -108,7 +114,8 @@ def main(heightmap_path, terrain_dir, prefix=None):
                 continue
             # gentle shading by height inside the ground so broad plains are not one flat colour
             shade = (0.92 + 0.10 * np.clip(elev[m] / 80.0, 0, 1))[:, None]
-            col[m] = (np.array(tint, dtype=np.float32)[None, :] * shade) * (1.0 - high[m]) + col[m] * high[m]
+            fade = np.zeros_like(high[m]) if names.get(int(mid), "") in forced else high[m]
+            col[m] = (np.array(tint, dtype=np.float32)[None, :] * shade) * (1.0 - fade) + col[m] * fade
             tinted += int(m.sum())
         del primary, high
         print("ground tint applied to %.1f%% of the land" % (tinted * 100.0 / max(1, int(land.sum()))))

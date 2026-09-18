@@ -13,7 +13,12 @@ import json
 import os
 import re
 
-MATERIALS_SETTINGS = os.path.join(
+# The mod's own copy when it exists, since it declares the terracotta of Mekanis
+# after every one of the base game's materials, and the index of a material is
+# its place in this list.
+_MOD_SETTINGS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",
+                             "gfx", "map", "terrain", "materials.settings")
+MATERIALS_SETTINGS = _MOD_SETTINGS if os.path.exists(_MOD_SETTINGS) else os.path.join(
     r"C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game",
     "gfx", "map", "terrain", "materials.settings")
 
@@ -50,7 +55,7 @@ SURFACE_RULES = [
     (r"^(bare )?grass|^dirt|permadirt|^custom \d+: custom", None),
     (r"sea floor", None),                                   # under the water, and the biome knows the shore better
     (r"beach|white sand", ("beach_02_mediterranean", "beach_02")),
-    (r"red sand|red desert|mesa|terracotta|hardened clay|stained clay", ("mountain_02_desert_c", "desert_rocky")),
+    (r"red sand|red desert|mesa|terracotta|hardened clay|stained clay", ("patriam_terracotta", "patriam_terracotta_rock")),
     (r"desert mountain|canyon|sul(f|ph)ur", ("mountain_02_desert_c", "desert_rocky")),
     (r"riverside|riverbed", ("hills_01_rocks_small", "mud_wet_01")),
     (r"sandstone", ("desert_rocky", "desert_01")),
@@ -71,7 +76,7 @@ SURFACE_RULES = [
 # those canyons are painted as grass, which left green threads running through
 # the red. The whole tableland reads as desert rock instead.
 REGION_GROUND = {
-    "mekanis": ("mountain_02_desert_c", "desert_rocky"),
+    "mekanis": ("patriam_terracotta", "patriam_terracotta_rock"),
 }
 
 # Slope and height override the biome where the land itself is steep or high,

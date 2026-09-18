@@ -64,6 +64,8 @@ OLD_PW, OLD_PH = 11840, 8448
 OLD_UNITS_PER_BLOCK = 160.0
 OLD_SEA_UNITS_PER_BLOCK = hs.CK3_SEA / (hs.SEA_BLOCK - hs.MIN_BLOCK)
 SEA_CELL, LAND_CELL, D = 130, 170, 4                  # as the first canvas used
+LIFT_REGIONS = ("mekanis",)      # raised clear of the water rather than flattened
+CARVE = 0.5                      # how far the resampling leans towards the deepest of a neighbourhood
 
 t0 = time.time()
 
@@ -136,6 +138,64 @@ def blocks_from_old_sources():
     del ov, east_src
     blocks = np.concatenate([west, east], axis=1)
     del west, east
+    return blocks
+
+
+def lift_region(prefix):
+    """The regions whose ground is raised rather than flattened where it lies
+    under the water plane, at sixteen blocks a pixel.
+
+    Mekanis is cut by ravines that reach down to y 1 in the source, far below the
+    plane at 62. Flattening them, as every other basin is flattened, is what left
+    the mesa reading as a plain with hills on it. Instead the whole tableland is
+    carried up until its deepest floor clears the water, which is what a mesa is:
+    high ground with canyons cut into it."""
+    import regions as rg
+    out, names = rg.region_map(prefix)
+    m = np.zeros(out.shape, bool)
+    for name in LIFT_REGIONS:
+        m |= out == names.index(name) + 1
+    say("regions lifted clear of the water rather than flattened: %s, %.2f%% of the world"
+        % (", ".join(LIFT_REGIONS), m.mean() * 100))
+    return m
+
+
+def apply_lift(blocks, prefix):
+    """Raise each lifted region until its deepest dry ground clears the water,
+    smoothly, and never near its own coast, so the coastline does not move."""
+    import regions as rg
+    out, names = rg.region_map(prefix)
+    m = np.zeros(out.shape, bool)
+    for name in LIFT_REGIONS:
+        m |= out == names.index(name) + 1
+    q = 8                                                   # eighths of the canvas
+    mc = np.array(Image.fromarray(m.astype(np.uint8)).resize((HW // q, HH // q), Image.NEAREST)).astype(bool)
+    # the LOWEST canvas pixel of each little square, not every eighth one: a
+    # ravine four blocks wide falls between samples and the lift came out at
+    # three blocks instead of sixty
+    small = blocks.reshape(HH // q, q, HW // q, q).min(axis=(1, 3))
+    deficit = np.where(mc & (small < hs.SEA_BLOCK + 1.0), np.float32(hs.SEA_BLOCK + 1.0) - small, 0.0).astype(np.float32)
+    if deficit.max() <= 0:
+        return blocks
+    spread = ndimage.maximum_filter(deficit, size=25)        # about five hundred blocks
+    spread = ndimage.gaussian_filter(spread, 10)
+    # the real ocean, not the region's own ravines, which are under the plane
+    # only until the lift raises them
+    sea = (blocks[::q, ::q] <= hs.SEA_BLOCK) & ~mc
+    dist = ndimage.distance_transform_edt(~sea).astype(np.float32)
+    taper = np.clip((dist - 4.0) / 12.0, 0.0, 1.0) * ndimage.gaussian_filter(mc.astype(np.float32), 8)
+    off = spread * taper
+    say("lift: up to %.1f blocks, mean %.1f over the lifted regions"
+        % (off.max(), off[mc].mean() if mc.any() else 0.0))
+    full = np.array(Image.fromarray(off).resize((HW, HH), Image.BILINEAR), dtype=np.float32)
+    del off, spread, taper, dist, sea, deficit
+    blocks += full
+    del full
+    # anything still under the plane in those regions is flattened as before
+    mfull = np.array(Image.fromarray(m.astype(np.uint8)).resize((HW, HH), Image.NEAREST)).astype(bool)
+    stubborn = mfull & (blocks <= hs.SEA_BLOCK)
+    blocks[stubborn] = np.float32(hs.SEA_BLOCK + 0.3)
+    say("still under the plane after the lift and flattened: %d pixels" % int(stubborn.sum()))
     return blocks
 
 
@@ -231,6 +291,7 @@ def blocks_from_export(prefix):
     # the canvas, a band at a time; bands overlap so the resampling filter
     # never sees an edge that is not the edge of the world
     river_px = river_band(prefix, EW, EH)
+    lift_q = lift_region(prefix)
     blocks = np.empty((HH, HW), dtype=np.float32)
     SB, TB, SO, TO = EH // 8, HH // 8, 135, 104     # source and target band and overlap rows, exact ratios
     stats = {"lake": 0, "basin": 0, "river": 0}
@@ -253,25 +314,39 @@ def blocks_from_export(prefix):
         # Ground at the very bottom with no water over it is not a basin: it is a
         # part of the world with no tile at all, which the export writes as the
         # floor of the height range. Lifting that made specks of land in the void.
-        basin = ~wet & ~riv & (gb <= hs.SEA_BLOCK) & (gb > np.float32(hs.MIN_BLOCK + 0.5))
+        offq = a0 % 8
+        mk = np.repeat(np.repeat(lift_q[a0 // 8:-(-a1 // 8)], 8, axis=0), 8, axis=1)[offq:offq + a1 - a0, :EW]
+        basin = ~wet & ~riv & ~mk & (gb <= hs.SEA_BLOCK) & (gb > np.float32(hs.MIN_BLOCK + 0.5))
         # the deeper the floor the lower it sits, so that a canyon in the mesa
         # does not come out as one flat pan
         gb[basin] = np.float32(hs.SEA_BLOCK + 0.3) + 0.7 * (1.0 - np.clip(
             (np.float32(hs.SEA_BLOCK) - gb[basin]) / 20.0, 0.0, 1.0))
         stats["lake"] += int(lake[s0 - a0:s1 - a0].sum()); stats["basin"] += int(basin[s0 - a0:s1 - a0].sum())
         stats["river"] += int(lifted[s0 - a0:s1 - a0].sum())
-        del riv, lifted
+        del riv, lifted, mk
         off = a0 % q                                   # the mask row a band starts part way through
         m = np.repeat(np.repeat(sink[a0 // q:-(-a1 // q)], q, axis=0), q, axis=1)[off:off + a1 - a0, :EW]
         gb[m] = 52.0
         del wb, wet, lake, basin, m
         th = int(round((a1 - a0) * HH / EH))
+        # A gorge only a few blocks wide is averaged away by the resampling, and
+        # the mesa of Mekanis is cut through with them. Carrying the lowest of
+        # each little neighbourhood alongside the average, and leaning towards it
+        # where the two disagree, cuts those channels back in.
         up = resize_f(gb, (HW, th))
+        deep = resize_f(ndimage.minimum_filter(gb, size=3), (HW, th))
+        gap = np.clip(up - deep - 2.0, 0.0, None)
+        del deep
+        carved = up - np.float32(CARVE) * gap
+        keep_dry = up > hs.SEA_BLOCK
+        up = np.where(keep_dry, np.maximum(carved, np.float32(hs.SEA_BLOCK + 0.15)), carved)
+        del carved, gap, keep_dry
         t_off = int(round((s0 - a0) * HH / EH))
         blocks[b * TB:(b + 1) * TB] = up[t_off:t_off + TB]
         del gb, up
         say("band %d of 8" % (b + 1))
     del h, wl
+    blocks = apply_lift(blocks, prefix)
     say("lakes lowered to the sea plane: %.2f%% of the export; dry basins lifted: %.2f%%; "
         "river beds raised clear of the water: %.2f%%" % (
             stats["lake"] * 100.0 / (EW * EH), stats["basin"] * 100.0 / (EW * EH),

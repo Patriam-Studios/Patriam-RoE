@@ -9,11 +9,11 @@ seasons = "seasons.txt"
 #############
 # SEA ZONES
 #############
-sea_zones = RANGE { 1809 2871 }
+sea_zones = RANGE { 1791 2849 }
 
 #####################
 # IMPASSABLE TERRAIN
 #####################
 # Every landmass that is not Southern Kallonia yet, and the Great Mountain Ring.
 # These become real provinces as each region is provinced in turn.
-impassable_mountains = RANGE { 944 1808 }
+impassable_mountains = RANGE { 944 1790 }

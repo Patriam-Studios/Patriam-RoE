@@ -128,7 +128,32 @@ Mekanis and Senkaria share one landmass and are told apart by what they are
 painted with: mesa and red desert for Mekanis, sand for Senkaria, the rest for
 Olzhar. The mesa mask is closed over the canyons cut through it, whose floors
 are painted as grass, so that the whole tableland reads as red rock rather
-than showing green threads.
+than showing green threads. Mekanis is taken from the paint alone and not from
+the landmass under it, because its own ravines cut below the water plane and
+break the tableland into several pieces of land: matching the landmass left the
+middle of the mesa outside the region and wearing vanilla's grey rock.
+
+### Mekanis and its canyons
+
+Mekanis is a mesa of red terracotta cut by ravines, and the source world cuts
+them down to y 1, sixty blocks below the water plane. Every other basin on the
+map is flattened just clear of the water, which is what left the mesa reading
+as a plain with hills on it. Instead the whole tableland is carried upwards by
+a smooth offset until its deepest floor clears the plane, tapered to nothing
+near its own coast so the coastline does not move. That is what a mesa is: high
+ground with canyons cut into it.
+
+Narrow gorges are also lost to the resampling, which averages a four block
+channel away. Alongside the average the canvas carries the lowest of each small
+neighbourhood, and leans towards it where the two disagree by more than two
+blocks, which cuts the channels back in without touching open ground.
+
+The base game has no red rock at all: its desert mountain is grey brown and its
+rocky desert is tan. `tools/map/make_terracotta.py` turns two of its textures
+red, keeping their grain and borrowing their normal and properties maps, and
+writes a copy of materials.settings declaring them after every one of the base
+game's materials, so that no existing material index moves. Every tool reads
+the mod's copy when it is there.
 
 ### Rivers
 

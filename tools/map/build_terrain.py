@@ -114,6 +114,11 @@ def main(prefix, heightmap_path, map_data_dir, out_dir):
 
     rock_w = np.clip((slope - ROCK_SLOPE_START) / (ROCK_SLOPE_FULL - ROCK_SLOPE_START), 0, 1)
     snow_w = np.clip((elev - SNOWLINE_BLOCKS) / (SNOW_FULL_BLOCKS - SNOWLINE_BLOCKS), 0, 1)
+    # A region that insists on its own ground never takes snow. Mekanis is a
+    # tableland carried high enough to clear its ravines, and the snowline would
+    # otherwise put a white cap on a desert mesa.
+    forced = [idx[m] for pair in tm.REGION_GROUND.values() for m in pair if m]
+    snow_w[np.isin(primary, forced)] = 0.0
     del slope
 
     # slot three: rock, snow, or a second texture for the ground itself
