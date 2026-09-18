@@ -226,6 +226,15 @@ Southern Kallonia currently builds to 9 kingdoms, 44 duchies, 192 counties and
 same reason the province map stays out of `map_data`: they would collide with
 vanilla's own titles on those province numbers.
 
+What sits in `tools/map/build` is the first pass, and its titles still carry
+placeholder names such as "Kingdom of Thenithria 14 2". The names the mod
+actually uses came later, from `tools/map/name_titles.py`, which writes both the
+localisation and `tools/names_southern_kallonia.json`. That json is the source
+of truth for every title name, and `tools/build_holdings.py` and
+`tools/build_development.py` read it to decide what stands on each barony and
+how rich each county is. Read it rather than the build folder, whose contents
+are older than everything the mod now ships.
+
 Regenerate rather than hand editing. The assignment is the source of truth and
 the two will drift apart otherwise.
 
