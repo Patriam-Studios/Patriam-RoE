@@ -33,8 +33,12 @@ Image.MAX_IMAGE_PIXELS = None
 CK3_SEA = 3932          # sixteen bit sea level in heightmap.png
 SNOWLINE_BLOCKS = 150.0
 SNOW_FULL_BLOCKS = 215.0
-ROCK_SLOPE_START = 1.6   # blocks of rise per province pixel before rock shows
-ROCK_SLOPE_FULL = 4.5
+# Blocks of rise a province pixel before bare rock shows through. Set at 1.6 the
+# rock covered nearly half the land, because the ground is far sharper than it
+# was, and the world went dark and purple under it. Ordinary hills keep their
+# ground now and only a true cliff gives it up.
+ROCK_SLOPE_START = 3.8
+ROCK_SLOPE_FULL = 9.5
 Q = 4                    # province pixels a blending pixel
 BLEND_SIGMA = 1.6        # blending pixels, so about 33 blocks of softened join
 MAX_BLEND = 0.46         # the ground of the pixel itself always keeps the most weight
@@ -118,6 +122,7 @@ def main(prefix, heightmap_path, map_data_dir, out_dir):
     # tableland carried high enough to clear its ravines, and the snowline would
     # otherwise put a white cap on a desert mesa.
     forced = [idx[m] for pair in tm.REGION_GROUND.values() for m in pair if m]
+    forced += [idx[m] for m in tm.VURKIA_LAVA if m]
     snow_w[np.isin(primary, forced)] = 0.0
     del slope
 
@@ -135,7 +140,7 @@ def main(prefix, heightmap_path, map_data_dir, out_dir):
     del rock_w, snow_w, overlay, rock, snow
 
     # Very steep ground gives up its ground entirely to the rock.
-    cliff = w3 > 0.85
+    cliff = w3 > 0.92
     primary[cliff] = third[cliff]
     w3[cliff] = 0.0
     del cliff

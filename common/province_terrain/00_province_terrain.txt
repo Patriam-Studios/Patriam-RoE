@@ -1335,5 +1335,3 @@ default_coastal_sea=coastal_sea
 1786=mountains
 1787=mountains
 1788=mountains
-1789=mountains
-1790=mountains

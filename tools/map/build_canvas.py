@@ -64,7 +64,7 @@ OLD_PW, OLD_PH = 11840, 8448
 OLD_UNITS_PER_BLOCK = 160.0
 OLD_SEA_UNITS_PER_BLOCK = hs.CK3_SEA / (hs.SEA_BLOCK - hs.MIN_BLOCK)
 SEA_CELL, LAND_CELL, D = 130, 170, 4                  # as the first canvas used
-LIFT_REGIONS = ("mekanis",)      # raised clear of the water rather than flattened
+LIFT_REGIONS = ("mekanis",)      # raised clear of the water rather than flattened, and carved
 CARVE = 0.5                      # how far the resampling leans towards the deepest of a neighbourhood
 
 t0 = time.time()
@@ -196,6 +196,23 @@ def apply_lift(blocks, prefix):
     stubborn = mfull & (blocks <= hs.SEA_BLOCK)
     blocks[stubborn] = np.float32(hs.SEA_BLOCK + 0.3)
     say("still under the plane after the lift and flattened: %d pixels" % int(stubborn.sum()))
+    return blocks
+
+
+def fill_calderas(blocks, prefix):
+    """The craters of Vurkia hold lakes of fire, not water.
+
+    In the source world each caldera is a drowned crater, so the game would draw
+    the sea in it. Each is filled to a flat floor just clear of the water plane
+    instead, which is the surface of its lava, and build_terrain paints it."""
+    import regions as rg
+    lava, calderas, filled = rg.vurkia_lava(prefix)
+    if not calderas.any():
+        return blocks
+    m = np.array(Image.fromarray(calderas.astype(np.uint8)).resize((HW, HH), Image.NEAREST)).astype(bool)
+    say("calderas filled with lava: %d canvas pixels, %.0f square blocks" % (m.sum(), m.sum() * 2.594 * 2.596))
+    blocks[m] = np.float32(hs.SEA_BLOCK + 0.5)
+    del m
     return blocks
 
 
@@ -333,20 +350,31 @@ def blocks_from_export(prefix):
         # the mesa of Mekanis is cut through with them. Carrying the lowest of
         # each little neighbourhood alongside the average, and leaning towards it
         # where the two disagree, cuts those channels back in.
+        #
+        # Only where a region asks for it. Run over the whole world it put a step
+        # into every slope, which drove the ground steep enough that nearly half
+        # the land came out as bare rock and the light broke on it.
         up = resize_f(gb, (HW, th))
         deep = resize_f(ndimage.minimum_filter(gb, size=3), (HW, th))
         gap = np.clip(up - deep - 2.0, 0.0, None)
         del deep
-        carved = up - np.float32(CARVE) * gap
+        # the min filter leaves the gap in little plateaus, so it is softened
+        # before it is cut, or the carving itself shows as blocks
+        cut = ndimage.gaussian_filter(np.float32(CARVE) * gap, 1.5)
+        del gap
+        # only inside the regions that asked for their gorges back
+        cut *= resize_f(lift_q[a0 // 8:-(-a1 // 8)].astype(np.float32), (HW, th))
+        carved = up - cut
         keep_dry = up > hs.SEA_BLOCK
         up = np.where(keep_dry, np.maximum(carved, np.float32(hs.SEA_BLOCK + 0.15)), carved)
-        del carved, gap, keep_dry
+        del carved, cut, keep_dry
         t_off = int(round((s0 - a0) * HH / EH))
         blocks[b * TB:(b + 1) * TB] = up[t_off:t_off + TB]
         del gb, up
         say("band %d of 8" % (b + 1))
     del h, wl
     blocks = apply_lift(blocks, prefix)
+    blocks = fill_calderas(blocks, prefix)
     say("lakes lowered to the sea plane: %.2f%% of the export; dry basins lifted: %.2f%%; "
         "river beds raised clear of the water: %.2f%%" % (
             stats["lake"] * 100.0 / (EW * EH), stats["basin"] * 100.0 / (EW * EH),

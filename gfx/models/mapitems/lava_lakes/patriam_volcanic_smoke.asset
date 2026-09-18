@@ -1,0 +1,10 @@
+﻿entity = {
+	name = "patriam_volcanic_smoke"
+	locator = { name = part1 }
+
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 node = "part1" particle = "city/city_smoke_02" trigger_once = yes skip_forward = 2 }
+	}
+	cull_radius = 60
+}

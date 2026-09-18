@@ -55,6 +55,8 @@ MATERIAL_TINT = {
     "mountain_02_desert_c": (172, 122, 86),
     "patriam_terracotta": (176, 96, 64),        # the mesa of Mekanis
     "patriam_terracotta_rock": (132, 92, 76),
+    "patriam_ash": (40, 38, 40),                # the burnt ground of Vurkia
+    "patriam_lava": (196, 74, 18),
     "snow": (228, 232, 236),
     "mountain_02_b": (76, 68, 64),          # the ash and dark rock of Vurkia
     "desert_wavy_01": (198, 172, 114),
@@ -105,6 +107,7 @@ def main(heightmap_path, terrain_dir, prefix=None):
         # is a tableland, and letting the high ground fade towards rock as it
         # does everywhere else left a grey pan across the middle of the mesa.
         forced = {m for pair in tm.REGION_GROUND.values() for m in pair if m}
+        forced |= {m for m in tm.VURKIA_LAVA if m}
         for mid in np.unique(primary):
             tint = MATERIAL_TINT.get(names.get(int(mid), ""))
             if tint is None:

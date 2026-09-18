@@ -1027,6 +1027,22 @@
 		mask     = "masks/patriam_terracotta_rock_mask.png"
 		id       = "patriam_terracotta_rock"
 	}
+	{
+		name     = "patriam_lava"
+		diffuse  = "patriam_lava_diffuse.dds"
+		normal   = "mountain_03_desert_normal.dds"
+		material = "mountain_03_desert_properties.dds"
+		mask     = "masks/patriam_lava_mask.png"
+		id       = "patriam_lava"
+	}
+	{
+		name     = "patriam_ash"
+		diffuse  = "patriam_ash_diffuse.dds"
+		normal   = "mountain_03_desert_normal.dds"
+		material = "mountain_03_desert_properties.dds"
+		mask     = "masks/patriam_ash_mask.png"
+		id       = "patriam_ash"
+	}
 }
 
 # unmasked textures

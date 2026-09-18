@@ -155,6 +155,22 @@ writes a copy of materials.settings declaring them after every one of the base
 game's materials, so that no existing material index moves. Every tool reads
 the mod's copy when it is there.
 
+### Vurkia
+
+Vurkia is the wreck of Argonia, an archipelago of volcanoes, and the source
+world paints its basalt over the sea floor as well as the islands, so the paint
+alone takes in the whole ocean there. What counts as Vurkia is basalt standing
+above the water, and a caldera is then a hollow enclosed by one of those
+islands, drowned in the source and filled with fire here.
+
+Each caldera is filled to a flat floor just clear of the water plane, or the
+game would draw the sea inside the crater. `tools/map/build_vurkia.py` then lays
+a lake of lava over the wider ones as a map object, which is how the base game
+draws its own lakes: one flat plane with a position, a turn and a scale. The
+ground itself is ash, with lava showing in the calderas and along the gullies
+the land drains down, and nine hundred plumes of smoke rise from the rims and
+the fissures, using the base game's own city smoke.
+
 ### Rivers
 
 The game draws rivers from `map_data/rivers.png`, not from the heightmap, so a

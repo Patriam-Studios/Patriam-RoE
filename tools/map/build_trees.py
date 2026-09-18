@@ -74,7 +74,6 @@ REGION_TREES = {
 SOWN = 0.62                    # strength given to ground a layer never covered
 SOW_MAX_BLOCKS = 165.0         # nothing grows above this, where the rock begins
 SOW_MAX_SLOPE = 3.2            # nor on a cliff, in blocks of rise a province pixel
-BOUROPHEIA = ("northern_kallonia", "nw")        # Bouropheia is the north west of Northern Kallonia
 # The file each mesh is written to, which is the vanilla file of that mesh.
 FILE_OF = {
     "tree_leaf_01_a_mesh": "tree_leaf_high_generator_1.txt",
@@ -169,7 +168,8 @@ def main(prefix):
     region_names = []
     for name in REGION_TREES:
         if name == "bouropheia":
-            m = rg.sub_mask(rmap, rnames, BOUROPHEIA[0], BOUROPHEIA[1])
+            m = (rmap == rnames.index("northern_kallonia") + 1) & rg.polygon_mask(
+                rmap.shape, rg.BOUROPHEIA_OUTLINE)
         else:
             m = rmap == rnames.index(name) + 1
         region_names.append(name)

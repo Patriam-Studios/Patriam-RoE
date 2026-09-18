@@ -77,7 +77,10 @@ SURFACE_RULES = [
 # the red. The whole tableland reads as desert rock instead.
 REGION_GROUND = {
     "mekanis": ("patriam_terracotta", "patriam_terracotta_rock"),
+    "vurkia": ("patriam_ash", "mountain_02_b"),
 }
+# And where the fire shows through the ash of Vurkia.
+VURKIA_LAVA = ("patriam_lava", "patriam_ash")
 
 # Slope and height override the biome where the land itself is steep or high,
 # so cliffs read as rock and summits as snow whatever was painted there.
@@ -168,7 +171,15 @@ def ground_maps(prefix, size, idx, report=True):
             if report:
                 print("  %-12s takes %s over %.2f%% of the map, canyon floors and all"
                       % (name, ground, m.mean() * 100))
-        del rmap
+        lava, calderas, filled = regions.vurkia_lava(prefix)
+        lm = np.array(Image.fromarray(lava.astype(np.uint8)).resize((W, H), Image.NEAREST)).astype(bool)
+        primary[lm] = idx[VURKIA_LAVA[0]]
+        overlay[lm] = idx[VURKIA_LAVA[1]]
+        unresolved[lm] = False
+        if report:
+            print("  %-12s takes %s over %.2f%% of the map, the calderas and the gullies"
+                  % ("vurkia fire", VURKIA_LAVA, lm.mean() * 100))
+        del lm, rmap
     return primary, overlay, unresolved
 
 

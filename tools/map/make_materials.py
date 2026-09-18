@@ -1,4 +1,5 @@
-"""The terracotta ground of Mekanis, which the base game has nothing like.
+"""The grounds the base game has nothing like: the terracotta of Mekanis and
+the lava and ash of Vurkia.
 
 Mekanis is a mesa of red terracotta cut by canyons, as the Grand Canyon is.
 Crusader Kings III ships no red rock at all: its desert mountain is grey brown
@@ -11,7 +12,7 @@ The hue is taken from Minecraft's terracotta, which is what the mesa is built
 of in the source world: a red orange around eighteen degrees for the ground and
 a deeper, darker red for the rock.
 
-usage: python make_terracotta.py [--write]
+usage: python make_materials.py [--write]
 """
 import io
 import os
@@ -34,10 +35,26 @@ RECOLOUR = {
     "patriam_terracotta": ("desert_rocky_diffuse.dds", 16.0, 1.85, 1.02),
     "patriam_terracotta_rock": ("mountain_03_desert_diffuse.dds", 13.0, 1.70, 1.18),
 }
+
+# Vurkia is not a matter of hue. Lava is a dark crust with fire in its cracks, so
+# the light and dark of the source texture is read as a ramp instead: black
+# crust, a red glow in the seams, and yellow where the crust has broken open.
+# Ash is the same ramp run into grey, dark enough to read as burnt ground.
+RAMP = {
+    "patriam_lava": ("mountain_03_desert_diffuse.dds", [
+        (0.00, (16, 8, 7)), (0.22, (48, 14, 8)), (0.42, (150, 36, 8)),
+        (0.60, (232, 96, 14)), (0.80, (252, 174, 46)), (1.00, (255, 236, 150))]),
+    "patriam_ash": ("mountain_03_desert_diffuse.dds", [
+        (0.00, (14, 13, 15)), (0.40, (34, 32, 36)), (0.70, (58, 55, 58)),
+        (1.00, (96, 92, 94))]),
+}
+
 # the normal and properties maps carry no colour, so the base game's own are used
 BORROW = {
     "patriam_terracotta": "desert_rocky",
     "patriam_terracotta_rock": "mountain_03_desert",
+    "patriam_lava": "mountain_03_desert",
+    "patriam_ash": "mountain_03_desert",
 }
 
 
@@ -86,12 +103,23 @@ def write_dds(im, src_path, out_path):
     return mips
 
 
+def ramp_map(path, stops):
+    """Read the texture's light and dark as a ramp of colour, which is how a
+    crust of lava is made out of a crust of dried mud."""
+    a = np.array(Image.open(path).convert("RGB")).astype(np.float32) / 255.0
+    lum = (0.299 * a[..., 0] + 0.587 * a[..., 1] + 0.114 * a[..., 2])
+    lum = np.clip((lum - lum.min()) / max(1e-6, lum.max() - lum.min()), 0.0, 1.0)
+    xs = [p for p, _ in stops]
+    out = np.stack([np.interp(lum, xs, [c[i] for _, c in stops]) for i in range(3)], axis=2)
+    return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
+
+
 def settings_with_new_materials():
     src = os.path.join(SRC, "materials.settings")
     s = io.open(src, encoding="utf-8-sig").read()
     assert "patriam_terracotta" not in s, "the base game already has it"
     block = ""
-    for name in RECOLOUR:
+    for name in list(RECOLOUR) + list(RAMP):
         borrowed = BORROW[name]
         block += ('\t{\n'
                   '\t\tname     = "%s"\n'
@@ -109,8 +137,9 @@ def settings_with_new_materials():
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    for name, (src, hue, sat, light) in RECOLOUR.items():
-        im = recolour(os.path.join(SRC, src), hue, sat, light)
+    made = [(n, recolour(os.path.join(SRC, v[0]), *v[1:]), v[0]) for n, v in RECOLOUR.items()]
+    made += [(n, ramp_map(os.path.join(SRC, v[0]), v[1]), v[0]) for n, v in RAMP.items()]
+    for name, im, src in made:
         print("%-26s from %-32s mean rgb %s" % (name, src, np.array(im).reshape(-1, 3).mean(0).round()))
         if WRITE:
             mips = write_dds(im, os.path.join(SRC, src), os.path.join(OUT, name + "_diffuse.dds"))

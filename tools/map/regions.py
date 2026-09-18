@@ -45,8 +45,8 @@ SEEDS = {
 BOXES = {
     "ketan": (18000, 12500, 25000, 17500),
     "taienmar": (28500, 19500, 34000, 23500),
-    "vurkia": (21312, 24000, 57440, 34560),
 }
+VURKIA_BOX = (21312, 24000, 48384, 34560)      # the archipelago, inside the finished world
 MESA_SURFACES = ("mesa", "red desert", "afana")     # what Mekanis is painted with
 SAND_SURFACES = ("desert", "dune", "white sand")    # and Senkaria, which is sand rather than rock
 
@@ -76,11 +76,46 @@ def largest(m):
     return lab == sizes.argmax()
 
 
+def vurkia_parts(prefix):
+    """Vurkia's islands and the calderas sunk into them.
+
+    The basalt of the fallen archipelago is painted over its sea floor as well as
+    its islands, so the paint alone takes in the whole ocean there. What counts as
+    Vurkia is basalt that stands above the water, and a caldera is then a hollow
+    enclosed by one of those islands: the crater of a volcano, drowned in the
+    source world and filled with fire here."""
+    land = land_mask(prefix)
+    basalt = surface_mask(prefix, ("basalt", "blackstone"), close=5) & land
+    box = np.zeros(land.shape, bool)
+    x0, y0, x1, y1 = VURKIA_BOX
+    box[int(y0 / B):int(y1 / B), int(x0 / B):int(x1 / B)] = True
+    basalt &= box
+    lab, n = ndimage.label(basalt)
+    sizes = np.bincount(lab.ravel())
+    sizes[0] = 0
+    islands = np.isin(lab, np.nonzero(sizes >= 6)[0])
+    filled = ndimage.binary_fill_holes(islands)
+    calderas = filled & ~islands
+    return islands, calderas, filled
+
+
+def vurkia_lava(prefix):
+    """Where fire shows through Vurkia: the calderas, and the gullies the ground
+    drains along, which carry the magma down off the volcanoes."""
+    islands, calderas, filled = vurkia_parts(prefix)
+    h = np.array(Image.open(prefix + "_height.png"))[::Q, ::Q].astype(np.float32) / 64.0 + np.float32(hs.MIN_BLOCK)
+    hollow = ndimage.gaussian_filter(h, 6) - h          # how far below its surroundings a pixel lies
+    del h
+    cut = np.percentile(hollow[islands], 92) if islands.any() else 1e9
+    channels = islands & (hollow > cut)
+    return calderas | channels, calderas, filled
+
+
 def build(prefix):
     land = land_mask(prefix)
     H, W = land.shape
     lab, n = ndimage.label(land)
-    names = sorted(SEEDS) + sorted(BOXES) + ["mekanis", "senkaria"]
+    names = sorted(SEEDS) + sorted(BOXES) + ["mekanis", "senkaria", "vurkia"]
     out = np.zeros((H, W), dtype=np.uint8)
     report = []
     for name, (bx, by) in SEEDS.items():
@@ -93,6 +128,10 @@ def build(prefix):
         k = lab[y, x]
         out[lab == k] = names.index(name) + 1
         report.append((name, int((lab == k).sum())))
+    islands, calderas, filled = vurkia_parts(prefix)
+    out[filled] = names.index("vurkia") + 1
+    report.append(("vurkia, islands", int(islands.sum())))
+    report.append(("vurkia, calderas", int(calderas.sum())))
     for name, (x0, y0, x1, y1) in BOXES.items():
         box = np.zeros((H, W), dtype=bool)
         box[int(y0 / B):int(y1 / B), int(x0 / B):int(x1 / B)] = True
@@ -134,6 +173,27 @@ def region_map(prefix, size=None):
     if size is not None and (out.shape[1], out.shape[0]) != tuple(size):
         out = np.array(Image.fromarray(out).resize(tuple(size), Image.NEAREST))
     return out, names
+
+
+# Bouropheia, the north western arm of Northern Kallonia, as Alexander drew it
+# on 19 September 2026. Blocks of the source world, clockwise from the north tip.
+BOUROPHEIA_OUTLINE = [
+    (29100, 9400), (29900, 10250), (30000, 11250), (29450, 12250), (28950, 13250),
+    (28500, 14300), (27850, 14300), (27300, 13200), (26900, 12000), (27100, 10900),
+    (27900, 10000), (28500, 9500),
+]
+
+
+def polygon_mask(shape, points_in_blocks, blocks_per_px=None):
+    """Rasterise a polygon given in blocks onto a grid of the given shape.
+
+    The scale is worked out from the shape unless it is given, so the same
+    outline can be drawn on the region grid or on the province map."""
+    from PIL import ImageDraw
+    bx, by = blocks_per_px if blocks_per_px else (84992.0 / shape[1], 34560.0 / shape[0])
+    img = Image.new("L", (shape[1], shape[0]), 0)
+    ImageDraw.Draw(img).polygon([(x / bx, y / by) for x, y in points_in_blocks], fill=255)
+    return np.array(img) > 0
 
 
 def sub_mask(out, names, name, part=None):

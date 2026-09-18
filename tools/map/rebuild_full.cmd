@@ -14,7 +14,7 @@ set PW=16384
 set PH=6656
 
 echo === 1. refine the raw canvas heightmap into game heights
-python "%HERE%refine_heightmap.py" --from-export "%FULL%\canvas_blocks.png" --sigma 0.7 "%FULL%\heightmap.png" || goto :fail
+python "%HERE%refine_heightmap.py" --from-export "%FULL%\canvas_blocks.png" --sigma 1.0 "%FULL%\heightmap.png" || goto :fail
 copy /Y "%FULL%\heightmap.png" "%MOD%\map_data\heightmap.png" >nul || goto :fail
 
 echo === 2. pack the heightmap
@@ -39,6 +39,9 @@ echo === 7. map object locators
 pushd "%FULL%"
 python "%HERE%build_locators2.py" || (popd & goto :fail)
 popd
+
+echo === 7b. the fires of Vurkia
+python "%HERE%build_vurkia.py" "%FULL%\full" --write || goto :fail
 
 echo === 8. trees from the WorldPainter tree layers
 if exist "%FULL%\full_trees.png" (
