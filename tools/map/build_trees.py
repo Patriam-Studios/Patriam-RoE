@@ -94,6 +94,25 @@ FILE_OF = {
 EMPTY = ["reeds_01_generator_1.txt", "steppe_bush_01_generator.txt", "tree_leaf_2_high_generator_1.txt",
          "tree_pine_impassable_01_a_generator_1.txt", "tree_sakura_forest_generator.txt"]
 
+# The map editor plants objects from masks of its own, at half the province map,
+# and the base game's are sized for its own world, so the editor cuts them to fit
+# and warns that what falls outside is lost on save. Each generator names the
+# mask it reads, as content_source/map_objects/generators declares, and several
+# generators share one.
+OBJECT_MASKS = os.path.join(MOD, "content_source", "map_objects", "masks")
+MASK_OF = {
+    "tree_leaf_high_generator_1": "tree_leaf_01", "tree_leaf_high_generator_2": "tree_leaf_01",
+    "tree_leaf_high_generator_3": "tree_leaf_01", "tree_leaf_01_single_generator_1": "tree_leaf_01_single",
+    "tree_pine_01_a_generator_1": "tree_pine_01_a", "tree_pine_01_b_generator_1": "tree_pine_01_b",
+    "tree_cypress_01_generator_1": "tree_cypress_01", "tree_palm_generator_1": "tree_palm_01",
+    "tree_jungle_01_c_generator_1": "tree_jungle_01_c", "tree_jungle_01_d_generator_1": "tree_jungle_01_d",
+    "tree_sakura_01_generator": "tree_sakura_01", "tree_sakura_02_generator": "tree_sakura_02",
+    "tree_sakura_03_generator": "tree_sakura_03", "reeds_01_generator_1": "reeds_01",
+    "steppe_bush_01_generator": "steppe_bush_01", "tree_leaf_2_high_generator_1": "tree_leaf_02",
+    "tree_pine_impassable_01_a_generator_1": "tree_pine_impassable_01_a",
+    "tree_sakura_forest_generator": "tree_sakura_forest",
+}
+
 
 def meshes_for(name):
     for pattern, meshes in RULES:
@@ -237,6 +256,41 @@ def main(prefix):
         io.open(os.path.join(OUT, fname), "w", encoding="utf-8-sig", newline="\n").write("")
         print("wrote %-44s   empty" % fname)
     print("total trees", total)
+    write_object_masks(by_mesh, PW, PH)
+
+
+def write_object_masks(by_mesh, PW, PH):
+    """One mask an object generator, at half the province map, holding the trees
+    this build placed, so that the map editor sees the same forests the game
+    draws and does not cut a mask of the wrong size to fit."""
+    import shutil
+    mw, mh = PW // 2, PH // 2
+    os.makedirs(OBJECT_MASKS, exist_ok=True)
+    per_mask = {}
+    for mesh, parts in by_mesh.items():
+        name = MASK_OF[FILE_OF[mesh].replace(".txt", "")]
+        if parts:
+            per_mask.setdefault(name, []).extend(parts)
+    empty = None
+    for name in sorted(set(MASK_OF.values())):
+        out = os.path.join(OBJECT_MASKS, name + "_mask.png")
+        parts = per_mask.get(name)
+        if not parts:
+            if empty is None:
+                Image.fromarray(np.zeros((mh, mw), np.uint8)).save(out, optimize=True)
+                empty = out
+            else:
+                shutil.copyfile(empty, out)
+            continue
+        pts = np.concatenate(parts)
+        x = np.clip((pts[:, 0] / 2.0).astype(np.int32), 0, mw - 1)
+        y = np.clip(((PH - pts[:, 1]) / 2.0).astype(np.int32), 0, mh - 1)
+        acc = np.zeros(mh * mw, np.int32)
+        np.add.at(acc, y * mw + x, 1)
+        arr = np.minimum(acc.reshape(mh, mw) * 160, 255).astype(np.uint8)
+        Image.fromarray(arr).save(out)
+        print("wrote object mask %-30s %6.2f%% of the map" % (name, (arr > 0).mean() * 100))
+    print("object masks at %d x %d" % (mw, mh))
 
 
 if __name__ == "__main__":

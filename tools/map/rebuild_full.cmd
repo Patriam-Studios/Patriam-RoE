@@ -26,14 +26,14 @@ python "%HERE%build_nodes.py" "%MOD%\map_data\heightmap.png" "%MOD%\map_data" ||
 echo === 3b. rivers from the river biome
 python "%HERE%build_rivers.py" "%FULL%\full" "%MOD%\map_data" --write || goto :fail
 
-echo === 4. material masks sized to the canvas
-python "%HERE%build_masks.py" %PW% %PH% || goto :fail
-
 echo === 5. colour map and paper map
 python "%HERE%build_textures.py" "%MOD%\map_data\heightmap.png" "%MOD%\gfx\map\terrain" "%FULL%\full" || goto :fail
 
 echo === 6. ground materials (from biomes when the export exists, else from elevation)
 python "%HERE%build_terrain.py" "%FULL%\full" "%MOD%\map_data\heightmap.png" "%MOD%\map_data" "%MOD%\gfx\map\terrain" || goto :fail
+
+echo === 6b. material masks, filled from the splat maps for the map editor
+python "%HERE%build_masks.py" %PW% %PH% "%MOD%\map_data" "%MOD%\gfx\map\terrain" || goto :fail
 
 echo === 7. map object locators
 pushd "%FULL%"
