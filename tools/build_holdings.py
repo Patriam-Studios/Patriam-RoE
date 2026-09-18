@@ -34,6 +34,12 @@ TOWN_WORDS = ("Aelithos", "Bairaen", "Kaeraenis", "Kaeraen", "Othaeris", "Imaeri
 CASTLE_WORDS = ("Kaenithros", "Gralithros", "Aelothir", "Kaenothir", "Ithros", "Aekilothir")
 
 
+# Places whose holding is settled by Alexander and must not drift when this is
+# run again. Thenithria is the great city of the kingdom, and nothing in its
+# name would otherwise mark it as a town.
+FIXED = {660: "city_holding"}
+
+
 def named_kind(name):
     if any(w in name for w in TEMPLE_WORDS):
         return "church_holding"
@@ -54,7 +60,7 @@ for k in names:
             kinds = [None] * len(bars)
             kinds[0] = "castle_holding"  # vanilla seats even Venice in a castle
             for i, b in enumerate(bars[1:], start=1):
-                kinds[i] = named_kind(b["name"])
+                kinds[i] = FIXED.get(b["province"]) or named_kind(b["name"])
             # A county wants a town and a temple if it has the land for them, and a
             # city state or a merchant realm wants its town before anything else.
             for wanted in (("city_holding", "church_holding") if not wants_town else ("city_holding", "church_holding")):
