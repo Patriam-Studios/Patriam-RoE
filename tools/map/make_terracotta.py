@@ -58,6 +58,34 @@ def recolour(path, hue_deg, sat, light):
     return Image.fromarray(np.clip(out * 255.0, 0, 255).astype(np.uint8))
 
 
+def write_dds(im, src_path, out_path):
+    """Write the texture with the same header and the same chain of mip levels
+    as the texture it came from.
+
+    Crusader Kings III loads every terrain diffuse into one texture array, and an
+    array will not hold a texture whose resolution, format or number of mip
+    levels differs from the first. A file with a single level, which is all that
+    Pillow writes on its own, makes the whole array fail to build, and the entire
+    world then draws purple. That is exactly what happened on 19 September 2026."""
+    header = open(src_path, "rb").read(128)
+    mips = int.from_bytes(header[28:32], "little") or 1
+    data = bytearray()
+    w, h = im.size
+    for level in range(mips):
+        lw, lh = max(1, w >> level), max(1, h >> level)
+        m = im.resize((lw, lh), Image.LANCZOS)
+        if lw < 4 or lh < 4:
+            m = m.resize((4, 4), Image.LANCZOS)      # a block is four by four whatever the level holds
+        buf = io.BytesIO()
+        m.save(buf, format="DDS", pixel_format="DXT5")
+        data += buf.getvalue()[128:]
+    out = bytes(header) + bytes(data)
+    want = os.path.getsize(src_path)
+    assert len(out) == want, "wrote %d bytes where the base game's texture is %d" % (len(out), want)
+    open(out_path, "wb").write(out)
+    return mips
+
+
 def settings_with_new_materials():
     src = os.path.join(SRC, "materials.settings")
     s = io.open(src, encoding="utf-8-sig").read()
@@ -85,7 +113,8 @@ def main():
         im = recolour(os.path.join(SRC, src), hue, sat, light)
         print("%-26s from %-32s mean rgb %s" % (name, src, np.array(im).reshape(-1, 3).mean(0).round()))
         if WRITE:
-            im.save(os.path.join(OUT, name + "_diffuse.dds"), format="DDS", pixel_format="DXT5")
+            mips = write_dds(im, os.path.join(SRC, src), os.path.join(OUT, name + "_diffuse.dds"))
+            print("   wrote %s_diffuse.dds with %d mip levels" % (name, mips))
             im.resize((256, 256)).save(os.path.join(HERE, "build", "preview_" + name + ".png"))
     s = settings_with_new_materials()
     if WRITE:
