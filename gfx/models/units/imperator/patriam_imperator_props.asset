@@ -1,0 +1,94 @@
+﻿############################################################
+# The props both ported cultures borrow from Imperator: Rome.
+#
+# The shovel is what a soldier digs siege works with, and the drill post is what
+# he strikes while the army gathers. Imperator asks the post for the shader
+# standard_snow, which Crusader Kings III does not have, so it is named
+# standard_winter here.
+############################################################
+
+pdxmesh = {
+	name = "patriam_imperator_shovel_01_mesh"
+	file = "shovel_01.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 6.0 }
+	}
+
+	meshsettings = {
+		name = "shovel_01Shape"
+		index = 0
+		texture_diffuse = "shovel_01_diffuse.dds"
+		texture_normal = "shovel_01_normal.dds"
+		texture_specular = "shovel_01_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_imperator_shovel_01_entity"
+	pdxmesh = "patriam_imperator_shovel_01_mesh"
+	# Crusader Kings III draws its own soldiers at 0.06, and both games declare no
+	# scale at all on their buildings, so the two measure their worlds alike and a
+	# soldier of Imperator belongs at the same 0.06. Turn this and every attachment
+	# below together, since an attachment does not inherit the body's scale.
+	scale = 0.06
+
+	default_state = "idle"
+	state = { name = "idle" state_time = 5 }
+	state = { name = "shoveling" state_time = 4.13 }
+}
+
+pdxmesh = {
+	name = "patriam_imperator_drill_post_mesh"
+	file = "drill_post.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 10.0 }
+	}
+
+	animation = { id = "attack_animation" type = "drill_post_attack.anim" }
+
+	meshsettings = {
+		name = "polySurfaceShape26"
+		index = 0
+		texture_diffuse = "drill_post_diffuse.dds"
+		texture_normal = "drill_post_normal.dds"
+		texture_specular = "drill_post_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "LOD_1_polySurface24Shape"
+		index = 0
+		texture_diffuse = "drill_post_diffuse.dds"
+		texture_normal = "drill_post_normal.dds"
+		texture_specular = "drill_post_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_imperator_drill_post_entity"
+	pdxmesh = "patriam_imperator_drill_post_mesh"
+	scale = 0.06
+
+	default_state = "attack"
+	state = {
+		name = "attack"
+		animation = "attack_animation"
+		animation_speed = 1
+	}
+}

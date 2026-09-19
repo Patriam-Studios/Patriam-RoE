@@ -477,6 +477,74 @@ Not yet checked in game: the scale of the meshes against CK3's own, the
 terrain mask decal, and how the temples sit on a holding footprint they were
 never cut for.
 
+### The armies on the map
+
+Two sets of soldiers are ported, both under `gfx/models/units/imperator`.
+
+| Folder | Set | Entity | Worn by |
+| --- | --- | --- | --- |
+| `roman_infantry` | Roman legionary, sword and scutum | `patriam_roman_infantry_01_entity` | `patriam_roman_unit_gfx` |
+| `greek_infantry` | Greek hoplite, spear and aspis | `patriam_greek_infantry_01_entity` | `patriam_unit_gfx` |
+
+Thenithrian carries `unit_gfx = { patriam_roman_unit_gfx }` and Late
+Drunathaenic carries `unit_gfx = { patriam_unit_gfx }`. Kaegonic and Akarian
+stay on `eastern_unit_gfx`.
+
+Imperator's Greek meshes carry no animations of their own: every Greek asset
+reaches into the Roman folder for them. Both sets therefore share one skeleton
+and one animation set, which is held once in
+`gfx/models/units/imperator/animations` and reached by relative path from
+either folder. The shovel a soldier besieges with and the post he strikes while
+the army gathers are shared in the same way, from
+`patriam_imperator_props.asset` at the root of the ported folder. The drill post
+is the only ported unit mesh that asked for `standard_snow`, so it is named
+`standard_winter` here. Everything else asks only for `standard` and
+`standard_usercolor`, which both games spell the same way.
+
+Imperator sorts its animations into two weapon sets. Set one is the spear, and
+the hoplite takes it. Set two is the sword, and the legionary takes it. A
+soldier playing the wrong set would swing a weapon he is not holding. The two
+sets run to the same lengths, so a legionary and a hoplite still trade blows in
+time with one another.
+
+Crusader Kings III asks an army entity for twenty four states and Imperator
+names its states differently, so each one carries whichever Imperator animation
+reads closest. Two states have no counterpart at all. Imperator has no sick
+soldier, so a sick one idles and marches exactly as a well one does and is told
+apart only by the flies vanilla puts over his head. Imperator has no soldier
+going home either, so disbanding borrows the animation men are recruited with.
+
+`gfx/models/units/entity_links/00_army_entity_links.txt` is vanilla's file
+carried across whole, with two blocks added at the foot, so it must be diffed
+against vanilla after a game update. Vanilla gives each graphical culture three
+models across the quality tiers 0, 2 and 4. The port has one model a culture, so
+all three tiers point at the same entity, and a Thenithrian levy looks the same
+as a Thenithrian royal army until a second and a third rank of soldier are
+ported. Both graphical cultures carry a localisation entry, because the game
+logs a missing loc for one that has none.
+
+Left behind, and why:
+
+* Imperator's light Roman levies and its Greek levies. Nothing Crusader Kings
+  III asks for needs them, and they would only be worth porting as the second
+  and the third quality tiers.
+* The javelin, the club and the raiding torch, for the same reason. No state
+  reaches for any of them.
+* The weapon impact sparks and the blood particles. Vanilla fires those from the
+  weapon entity by passing it a state and a timing, and Imperator's timings were
+  cut for Imperator's own state names. The weapon and the shield are therefore
+  plain meshes here.
+* Imperator's own sound events. The ported states use vanilla's Crusader Kings
+  III unit sounds instead, since Imperator's FMOD banks are not in this game.
+
+Not yet checked in game. The first thing to look at is the scale, which is
+Imperator's own 0.1 against the 0.06 Crusader Kings III draws its own soldiers
+at, and which is the only number in either asset worth turning. The second is
+the `THE_RIG:` prefix the Imperator meshes carry on every bone name, since no
+vanilla asset uses that form and nothing here proves this game's parser accepts
+it. If the helmet or the weapon is missing while the soldier himself walks, that
+prefix is the reason.
+
 ## Naming conventions
 
 Every file and key this mod adds carries a `patriam_` prefix so that vanilla

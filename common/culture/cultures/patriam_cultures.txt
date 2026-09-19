@@ -29,7 +29,8 @@ thenithrian = {
 	# Byzantine set for everything the port does not cover yet.
 	building_gfx = { patriam_roman_building_gfx byzantine_building_gfx }
 	clothing_gfx = { byzantine_clothing_gfx }
-	unit_gfx = { eastern_unit_gfx }
+	# The Roman legionary from Imperator: Rome.
+	unit_gfx = { patriam_roman_unit_gfx }
 
 	ethnicities = {
 		100 = mediterranean_byzantine
@@ -59,7 +60,8 @@ late_drunathaenic = {
 	# Byzantine set for everything the port does not cover yet.
 	building_gfx = { patriam_building_gfx byzantine_building_gfx }
 	clothing_gfx = { byzantine_clothing_gfx }
-	unit_gfx = { eastern_unit_gfx }
+	# The Greek hoplite from Imperator: Rome.
+	unit_gfx = { patriam_unit_gfx }
 
 	ethnicities = {
 		100 = mediterranean_byzantine

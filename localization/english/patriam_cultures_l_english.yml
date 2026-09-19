@@ -152,3 +152,5 @@
  dynn_patriam_Naethii:0 "Naethii"
  patriam_building_gfx: "Drunathaenic"
  patriam_roman_building_gfx: "Thenithrian"
+ patriam_unit_gfx: "Drunathaenic"
+ patriam_roman_unit_gfx: "Thenithrian"
