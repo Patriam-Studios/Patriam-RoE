@@ -4,11 +4,13 @@
 # round wooden palisade, and the cultures of the Drunathaen build square walls
 # about a central keep.
 #
-# Imperator ships one fort mesh and no others, so that one mesh serves all four
-# castle levels: a Thenithrian keep looks the same at level one as at level four
-# until a second and a third fort are modelled. The two graphical cultures are
-# named in one block each level, since both take the same fort; split the block
-# in two when they come to differ.
+# Imperator ships one fort mesh and no others, so the levels are told apart by
+# what gathers around it. The first is the fort alone, laid as a plain mesh,
+# which is what every castle in the world shows until a lord pays to raise it.
+# Above that the same fort carries a village at its gate, larger at every level
+# and built of the culture's own houses, so a Thenithrian fortress gathers a
+# Roman village and a Drunathaenic one a Greek village. Those are written by
+# tools/map/build_holding_models.py.
 #
 # Everything else in this file is vanilla's and should be diffed against it
 # after a game update.
@@ -32,13 +34,13 @@ castle_01 = {
 	construction_time = slow_construction_time
 
 	assets = {
-		### Patriam: the square stone fort of Imperator: Rome ###
+		### Patriam: the square stone fort of Imperator: Rome, standing bare, a lord having paid for its walls and nothing beyond them ###
 		asset = {
 			type = pdxmesh
 			name = "patriam_hellenistic_fort_mesh"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx patriam_roman_building_gfx }
+			graphical_cultures = { patriam_building_gfx patriam_roman_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 
@@ -586,13 +588,30 @@ castle_02 = {
 	construction_time = slow_construction_time
 
 	assets = {
-		### Patriam: the square stone fort of Imperator: Rome ###
+		### Patriam: the same fort with a Roman village grown at its gate ###
 		asset = {
-			type = pdxmesh
-			name = "patriam_hellenistic_fort_mesh"
+			type = entity
+			names = {
+				"patriam_roman_fort_02_first_entity"
+				"patriam_roman_fort_02_second_entity"
+				"patriam_roman_fort_02_third_entity"
+			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 1 } }
-			graphical_cultures = { patriam_building_gfx patriam_roman_building_gfx }
+			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the same fort with a Greek village grown at its gate ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_hellenistic_fort_02_first_entity"
+				"patriam_hellenistic_fort_02_second_entity"
+				"patriam_hellenistic_fort_02_third_entity"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 1 } }
+			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 
@@ -1081,13 +1100,30 @@ castle_03 = {
 	construction_time = slow_construction_time
 
 	assets = {
-		### Patriam: the square stone fort of Imperator: Rome ###
+		### Patriam: the same fort with a Roman village grown at its gate ###
 		asset = {
-			type = pdxmesh
-			name = "patriam_hellenistic_fort_mesh"
+			type = entity
+			names = {
+				"patriam_roman_fort_03_first_entity"
+				"patriam_roman_fort_03_second_entity"
+				"patriam_roman_fort_03_third_entity"
+			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 2 } }
-			graphical_cultures = { patriam_building_gfx patriam_roman_building_gfx }
+			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the same fort with a Greek village grown at its gate ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_hellenistic_fort_03_first_entity"
+				"patriam_hellenistic_fort_03_second_entity"
+				"patriam_hellenistic_fort_03_third_entity"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 2 } }
+			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 
@@ -1573,13 +1609,30 @@ castle_04 = {
 	construction_time = slow_construction_time
 
 	assets = {
-		### Patriam: the square stone fort of Imperator: Rome ###
+		### Patriam: the same fort with a Roman village grown at its gate ###
 		asset = {
-			type = pdxmesh
-			name = "patriam_hellenistic_fort_mesh"
+			type = entity
+			names = {
+				"patriam_roman_fort_04_first_entity"
+				"patriam_roman_fort_04_second_entity"
+				"patriam_roman_fort_04_third_entity"
+			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 3 } }
-			graphical_cultures = { patriam_building_gfx patriam_roman_building_gfx }
+			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the same fort with a Greek village grown at its gate ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_hellenistic_fort_04_first_entity"
+				"patriam_hellenistic_fort_04_second_entity"
+				"patriam_hellenistic_fort_04_third_entity"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 3 } }
+			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 

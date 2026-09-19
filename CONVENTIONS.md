@@ -448,7 +448,7 @@ Five sets are ported, all under `gfx/models/buildings/imperator`.
 | --- | --- | --- | --- |
 | `hellenistic_city` | Greek city | 3, 5, 7 and 8 variants over four tiers, plus a centre | `patriam_building_gfx` |
 | `roman_city` | Roman city | 5, 7, 5 and 6 variants over four tiers, plus a centre | `patriam_roman_building_gfx` |
-| `hellenistic_fort` | Square stone fort | one mesh, all four castle levels | both |
+| `hellenistic_fort` | Square stone fort | one mesh, bare at the first castle level and villaged above it | both |
 | `temples` | Temple of Jupiter | one mesh, all four temple levels | `patriam_roman_building_gfx` |
 | `temples` | Temples of Zeus and Artemis | two meshes, all four temple levels | `patriam_building_gfx` |
 
@@ -479,49 +479,56 @@ Not yet checked in game: the scale of the meshes against CK3's own, the
 terrain mask decal, and how the temples sit on a holding footprint they were
 never cut for.
 
-### Cities of many buildings
+### Towns of many buildings
 
-The two games build a city differently, and the difference is what first made
-Thenithria a speck on the map. Imperator draws a city as a crowd of building
-meshes clustered together, placed by its own `gfx/map/city_data` according to
-how many people live there, so one Imperator mesh is one house. Crusader Kings
-III draws a whole holding as a single entity, and its own
-`building_..._city_01` mesh is an entire town. Putting one Imperator house
-where the base game expected a town is why the map showed a house. Scaling that
-house up to the size of a town would give one absurd building, so a city here is
+The two games build a settlement differently, and the difference is what first
+made Thenithria a speck on the map. Imperator draws a city as a crowd of
+building meshes clustered together, placed by its own `gfx/map/city_data`
+according to how many people live there, so one Imperator mesh is one house.
+Crusader Kings III draws a whole holding as a single entity, and its own
+`building_..._city_01` mesh is an entire town. Putting one Imperator house where
+the base game expected a town is why the map showed a house. Scaling that house
+up to the size of a town would give one absurd building, so a holding here is
 composed instead.
 
 The base game composes entities itself. An entity may declare locators at any
 position and attach other entities to them, which
-`gfx/models/artifacts/props/bp1/bp1_lantern_01_a.asset` does for a flame, which
-`gfx/models/buildings/all_buildings.asset` does for a whole board of holdings,
-and which the holding entity `fp3_building_persian_temple_01_a_01_entity` does
-in the base game's own city view. A holding asset block takes either a mesh or
-an entity, as `common/buildings/_buildings.info` sets out, so the composite is
-reached by `type = entity` and a name rather than by a mesh list.
+`gfx/models/artifacts/props/bp1/bp1_lantern_01_a.asset` does for a flame and
+which `gfx/models/buildings/all_buildings.asset` does for a whole board of
+holdings, that last being a file in a parent folder attaching entities declared
+in a subfolder, which is exactly the arrangement used here. A holding asset
+block takes either a mesh or an entity, as `common/buildings/_buildings.info`
+sets out, and the same file states that `names` may hold entities as well as
+meshes, which is how one level is given several towns to choose between.
 
-`tools/map/build_city_models.py` writes the eight composites, one for each level
-of each set, into `patriam_hellenistic_city_levels.asset` and
-`patriam_roman_city_levels.asset` beside the meshes they gather. Each is one
-entity carrying a centrepiece mesh, ringed by locators with one Imperator house
-attached at each. The layout is a town rather than a grid: rings about the
-centre, each ring further out and carrying more houses, every house nudged off
-its ring and turned on the spot so the result does not read as a wheel. The
-grand meshes sit in the inner rings and the humble ones on the outskirts, which
-is the shape a real town takes. The randomness is seeded, so the same cities are
-written every time.
+`tools/map/build_holding_models.py` writes every composite into the single file
+`gfx/models/buildings/imperator/zz_patriam_holdings.asset`. Each is one entity
+carrying a centrepiece mesh with a town of houses laid about it, and each level
+is written three times over so that neighbouring holdings are not the same town
+laid down again.
 
-| Level | Buildings | Rings | Outer ring | Across |
+| Holding | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- | --- |
-| 1, the village | 6 | 1 | 2.0 | about 6 province pixels |
-| 2 | 15 | 2 | 3.6 | about 10 |
-| 3 | 44 | 4 | 6.8 | about 16 |
-| 4, the capital | 88 | 6 | 10.0 | about 22 |
+| City, buildings | about 45 | about 58 | about 70 | about 79 |
+| City, across | about 22 | about 25 | about 27 | about 29 |
+| Fortress, buildings | the fort alone | about 16 | about 35 | about 55 |
+| Fortress, across | 9 | about 21 | about 26 | about 29 |
 
 Those are province pixels on a map 16384 of them wide, where the median barony
-measures about 26 across, so the capital nearly fills its own barony. The Greek
-tiers are the ones Imperator's own `city_data/default.txt` names at each
-population tier, except that its third tier lists six meshes where the game
+measures about 26 across, so a city fills its barony and a grown one presses at
+its edges. Level one matters more than the three above it, because every holding
+in the world begins there and a lord must pay to raise it.
+
+The town is not a wheel. Houses are laid ring by ring from the middle outwards,
+but the outline of each town is lumped by three slow waves, every house wanders
+off its ring and turns on the spot, and the grand buildings are only likelier at
+the heart rather than sorted into rings by rank, so thirteen to twenty two
+distinct meshes stand in one town. The centrepiece keeps a square of open ground
+about it, being a civic complex and not a house. The randomness is seeded, so
+the same world is written every time.
+
+The Greek tiers are the ones Imperator's own `city_data/default.txt` names at
+each population tier, except that its third tier lists six meshes where the game
 ships seven, and `hellenistic_03_07`, which nothing in Imperator ever names, is
 grouped with the six for the variety. Imperator's data never names a single
 `western` mesh at all, so the Roman tiers come from the file names alone. The
@@ -533,16 +540,30 @@ ordinary house instead.
 Every layout number lives in named constants at the head of that tool, and these
 are the ones worth turning.
 
+* `TOWN_RADIUS` is how far a town reaches at each level, and it is the first
+  thing to turn if a holding looks wrong for its barony.
 * `HOUSE_WIDTH` is 2.3, measured off the bounding boxes inside the mesh files
   themselves, where a house body runs from 0.6 to 2.8 province pixels across.
   Every Greek mesh also drags a 5.09 pixel ground decal, which is a blend patch
   rather than the building, so it is ignored and the decals of neighbours are
-  meant to overlap. If the houses stand too far apart, lower this.
-* `RINGS_PER_LEVEL` is what turns a village into a capital, and it is the first
-  thing to turn if a city looks wrong for its barony.
-* `BUILDING_SCALE` is one, and is applied on the locator rather than on the
-  mesh, so a single number resizes every house in every city without any mesh
-  being touched.
+  meant to overlap.
+* `BUILDING_SCALE` is 1.15 and is applied on the locator rather than on the
+  mesh, so a single number resizes every house in every holding without any mesh
+  being touched. `LANE` and `RING_STEP` are how crowded the result is.
+* `VARIANTS` is how many towns each level offers the game.
+
+The asset blocks name the Roman set before the Greek one at every level, because
+Thenithrian carries both `patriam_roman_building_gfx` and, after it,
+`byzantine_building_gfx`, and the Greek block answers to that second tag as
+well. That fallback is deliberate: it means Kaegonic and Akarian, which carry
+`byzantine_building_gfx` alone, are given the Greek face rather than the base
+game's medieval one, and no holding anywhere in Southern Kallonia falls back to
+a timber palisade.
+
+Since a holding is drawn at the level of its main building and every holding in
+the world starts at the first, the great seats are raised in province history
+instead of waiting on a lord's purse: `660` Thenithria is given `city_04` and
+`659` Kaeraenis Gralin, the royal seat, is given `castle_03`.
 
 ### The forts
 
@@ -558,16 +579,15 @@ copied in a second time under the same names. Imperator fires a sound of its own
 from the fort, out of an FMOD bank this game does not carry, so that state is
 stripped and the castle levels name a sound of this game instead.
 
-Imperator ships one fort mesh and no others, so that one mesh serves all four
-castle levels, and a keep looks the same at level one as at level four until a
-second and a third fort are modelled. Both graphical cultures are named in one
-asset block each level, since both take the same fort.
-
-Not yet checked in game: the fort measures 9.0 province pixels across against
-the 4.9 of the base game's own fourth level castle, which is meant to be the
-larger thing, being a walled fort rather than a keep. `scale` on
-`patriam_hellenistic_fort_entity` is the one number to turn if it crowds its
-barony.
+Imperator ships one fort mesh and no others, so the castle levels are told apart
+by what gathers around it. The first level is the fort standing bare, named as a
+plain mesh rather than as an entity, which is both the simplest path the game
+has and the one every castle in the world takes at the start. Above it the same
+fort carries a village at its gate, larger at every level and built of the
+culture's own houses, so a Thenithrian fortress gathers a Roman village and a
+Drunathaenic one a Greek village. Nothing is laid within `FORT_CLEAR` of the
+middle, the fort measuring 9.0 province pixels across against the 4.9 of the
+base game's own fourth level castle.
 
 ### The armies on the map
 

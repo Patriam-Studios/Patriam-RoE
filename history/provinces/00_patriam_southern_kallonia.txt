@@ -3299,11 +3299,26 @@
 	culture = thenithrian
 	religion = myraethanen
 	holding = castle_holding
+	# Kaeraenis Gralin, the seat of the King of Thenithria, which is why its fort
+	# stands higher than the forts of his lords.
+	6355.1.1 = {
+		buildings = {
+			castle_03
+		}
+	}
 }
 660 = {
 	culture = thenithrian
 	religion = myraethanen
 	holding = city_holding
+	# Thenithria itself. A holding is drawn at the level of its main building and
+	# every holding in the world begins at the first, so without this the city of
+	# Hythaerion would stand on the map as a village like any other.
+	6355.1.1 = {
+		buildings = {
+			city_04
+		}
+	}
 }
 661 = {
 	culture = thenithrian

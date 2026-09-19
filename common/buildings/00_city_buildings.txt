@@ -27,22 +27,30 @@ city_01 = {
 	construction_time = slow_construction_time
 
 	assets = {
-		### Patriam: the Hellenistic cities of Imperator: Rome ###
-		asset = {
-			type = entity
-			name = "patriam_hellenistic_city_01_entity"
-			illustration = @holding_illustration_mediterranean
-			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx }
-			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
-		}
 		### Patriam: the Roman cities of Imperator: Rome ###
 		asset = {
 			type = entity
-			name = "patriam_roman_city_01_entity"
+			names = {
+				"patriam_roman_city_01_first_entity"
+				"patriam_roman_city_01_second_entity"
+				"patriam_roman_city_01_third_entity"
+			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
 			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the Hellenistic cities of Imperator: Rome ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_hellenistic_city_01_first_entity"
+				"patriam_hellenistic_city_01_second_entity"
+				"patriam_hellenistic_city_01_third_entity"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
+			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### FP1 Norse ###
@@ -634,22 +642,30 @@ city_02 = {
 	construction_time = slow_construction_time
 
 	assets = {
-		### Patriam: the Hellenistic cities of Imperator: Rome ###
-		asset = {
-			type = entity
-			name = "patriam_hellenistic_city_02_entity"
-			illustration = @holding_illustration_mediterranean
-			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
-			graphical_cultures = { patriam_building_gfx }
-			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
-		}
 		### Patriam: the Roman cities of Imperator: Rome ###
 		asset = {
 			type = entity
-			name = "patriam_roman_city_02_entity"
+			names = {
+				"patriam_roman_city_02_first_entity"
+				"patriam_roman_city_02_second_entity"
+				"patriam_roman_city_02_third_entity"
+			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
 			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the Hellenistic cities of Imperator: Rome ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_hellenistic_city_02_first_entity"
+				"patriam_hellenistic_city_02_second_entity"
+				"patriam_hellenistic_city_02_third_entity"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
+			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### FP1 Norse ###
@@ -1217,22 +1233,30 @@ city_03 = {
 	construction_time = slow_construction_time
 
 	assets = {
-		### Patriam: the Hellenistic cities of Imperator: Rome ###
-		asset = {
-			type = entity
-			name = "patriam_hellenistic_city_03_entity"
-			illustration = @holding_illustration_mediterranean
-			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
-			graphical_cultures = { patriam_building_gfx }
-			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
-		}
 		### Patriam: the Roman cities of Imperator: Rome ###
 		asset = {
 			type = entity
-			name = "patriam_roman_city_03_entity"
+			names = {
+				"patriam_roman_city_03_first_entity"
+				"patriam_roman_city_03_second_entity"
+				"patriam_roman_city_03_third_entity"
+			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
 			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the Hellenistic cities of Imperator: Rome ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_hellenistic_city_03_first_entity"
+				"patriam_hellenistic_city_03_second_entity"
+				"patriam_hellenistic_city_03_third_entity"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
+			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### FP1 Norse ###
@@ -1784,22 +1808,30 @@ city_04 = {
 	construction_time = slow_construction_time
 
 	assets = {
-		### Patriam: the Hellenistic cities of Imperator: Rome ###
-		asset = {
-			type = entity
-			name = "patriam_hellenistic_city_04_entity"
-			illustration = @holding_illustration_mediterranean
-			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 3 } }
-			graphical_cultures = { patriam_building_gfx }
-			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
-		}
 		### Patriam: the Roman cities of Imperator: Rome ###
 		asset = {
 			type = entity
-			name = "patriam_roman_city_04_entity"
+			names = {
+				"patriam_roman_city_04_first_entity"
+				"patriam_roman_city_04_second_entity"
+				"patriam_roman_city_04_third_entity"
+			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 3 } }
 			graphical_cultures = { patriam_roman_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the Hellenistic cities of Imperator: Rome ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_hellenistic_city_04_first_entity"
+				"patriam_hellenistic_city_04_second_entity"
+				"patriam_hellenistic_city_04_third_entity"
+			}
+			illustration = @holding_illustration_mediterranean
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 3 } }
+			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### FP1 Norse ###
