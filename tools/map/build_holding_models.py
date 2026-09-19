@@ -26,12 +26,13 @@ capital at level four is built to fill one, and a village at level one already
 covers better than half, which matters because every holding in the world starts
 at level one: a lord must pay for the levels above it.
 
-FORTRESSES. Imperator ships one fort mesh and no others. The first level is that
-fort alone, laid as a plain mesh and not as an entity, so the commonest holding
-in the world takes the simplest path the game has. The levels above it are the
-same fort with a settlement growing at its gate, which is what tells them apart,
-and the houses are of the culture's own set, so a Thenithrian fortress gathers a
-Roman village and a Drunathaenic one a Greek village.
+FORTRESSES. Imperator ships one fort mesh to a graphical culture and no more, so
+the first level is that fort alone, laid as a plain mesh and not as an entity,
+which lets the commonest holding in the world take the simplest path the game
+has. The levels above it are the same fort with a settlement growing at its gate,
+which is what tells them apart, and the houses are of the culture's own set, so a
+Thenithrian fortress gathers a Roman village, a Drunathaenic one a Greek village
+and an Akarian one a Persian village about the Persian fort.
 
 usage: python build_holding_models.py [--write]
 """
@@ -146,13 +147,14 @@ VARIANTS = ("first", "second", "third")
 ############################################################
 # The meshes, grouped into tiers.
 #
-# The Greek tiers are the ones Imperator's own gfx/map/city_data/default.txt
-# uses at each population tier. Its list at the third tier names six meshes and
-# the game ships a seventh, hellenistic_03_07, which nothing in Imperator ever
-# names; it is grouped with the six by its name, for the variety.
+# Every tier list below is the one Imperator's own gfx/map/city_data/default.txt
+# names at that population tier, and not a list read off the file names. The
+# Hellenistic tiers are the single exception: that file names six meshes at the
+# third tier where the game ships a seventh, hellenistic_03_07, which nothing in
+# Imperator ever names, and it is grouped with the six by its name for variety.
 #
-# Both ported sets draw on these, Imperator's own Roman culture having drawn on
-# them too.
+# The Hellenistic list serves both the Greek set and the Roman one, Imperator's
+# own Roman culture having drawn on the very same meshes.
 ############################################################
 
 GREEK_TIERS = {
@@ -179,6 +181,21 @@ GREEK_TIERS = {
 # as the ground allows.
 ROMAN_TIERS = GREEK_TIERS
 
+# Akaria builds in its own stone. The Persian tiers are the ones Imperator's own
+# gfx/map/city_data/default.txt names under its `persian` graphical culture, and
+# unlike the Hellenistic list that one leaves no mesh over: the game ships four
+# meshes at the first tier and six at each of the three above it, and the file
+# names all twenty two.
+PERSIAN_TIERS = {
+    1: ["persian_01_01", "persian_01_02", "persian_01_03", "persian_01_04"],
+    2: ["persian_02_01", "persian_02_02", "persian_02_03",
+        "persian_02_04", "persian_02_05", "persian_02_06"],
+    3: ["persian_03_01", "persian_03_02", "persian_03_03",
+        "persian_03_04", "persian_03_05", "persian_03_06"],
+    4: ["persian_04_01", "persian_04_02", "persian_04_03",
+        "persian_04_04", "persian_04_05", "persian_04_06"],
+}
+
 SETS_LAYOUT = [
     {
         "key": "hellenistic",
@@ -187,6 +204,7 @@ SETS_LAYOUT = [
         "plan": "organic",
         "city": "patriam_hellenistic_city_%02d_%s_entity",
         "fort": "patriam_hellenistic_fort_%02d_%s_entity",
+        "fort_mesh": "patriam_hellenistic_fort_mesh",
         "centres": {1: "hellenistic_01_03", 2: "hellenistic_02_02",
                     3: "hellenistic_center", 4: "hellenistic_center"},
     },
@@ -197,12 +215,28 @@ SETS_LAYOUT = [
         "plan": "grid",
         "city": "patriam_roman_city_%02d_%s_entity",
         "fort": "patriam_roman_fort_%02d_%s_entity",
+        "fort_mesh": "patriam_hellenistic_fort_mesh",
         "centres": {1: "hellenistic_02_02", 2: "hellenistic_02_04",
                     3: "hellenistic_center", 4: "hellenistic_center"},
     },
+    {
+        # WHY AKARIA TAKES THE ORGANIC PLAN. The Roman set needed a plan of its
+        # own only because Rome and Greece build from the very same meshes in
+        # Imperator, so nothing but the plan could tell their towns apart; the
+        # Persian set is twenty two buildings of its own, mudbrick and dome
+        # against colonnade and tile, so an Akarian town already reads as
+        # nothing else and the plan it grew on may be the one the ground gave.
+        "key": "persian",
+        "name": "Persian",
+        "tiers": PERSIAN_TIERS,
+        "plan": "organic",
+        "city": "patriam_persian_city_%02d_%s_entity",
+        "fort": "patriam_persian_fort_%02d_%s_entity",
+        "fort_mesh": "patriam_persian_fort_mesh",
+        "centres": {1: "persian_01_04", 2: "persian_02_04",
+                    3: "persian_center", 4: "persian_center"},
+    },
 ]
-
-FORT_MESH = "patriam_hellenistic_fort_mesh"
 
 
 def outline(angle, radius, waves):
@@ -361,7 +395,7 @@ def build(rng):
                 across = 2.0 * max(math.hypot(x, z) for x, z, _, _ in houses) + HOUSE_WIDTH * BUILDING_SCALE
                 kinds = len({h for _, _, _, h in houses})
                 blocks.append(entity(
-                    spec["fort"] % (level, variant), FORT_MESH, houses,
+                    spec["fort"] % (level, variant), spec["fort_mesh"], houses,
                     "%s fortress, level %d, the %s village of three. The fort of Imperator\n"
                     "# with %d houses of %d kinds at its gate, about %.1f province pixels across."
                     % (spec["name"], level, variant, len(houses), kinds, across)))
@@ -391,7 +425,8 @@ def build(rng):
 def known_entities():
     """Every entity the ported sets declare, read off the asset files."""
     names = set()
-    for folder in ("hellenistic_city", "hellenistic_fort", "temples"):
+    for folder in ("hellenistic_city", "hellenistic_fort", "persian_city",
+                   "persian_fort", "temples"):
         here = os.path.join(SETS, folder)
         for f in sorted(os.listdir(here)):
             if not f.endswith(".asset") or f.startswith("zz_"):
@@ -406,7 +441,8 @@ def known_entities():
 def known_meshes():
     """Every mesh the ported sets declare."""
     names = set()
-    for folder in ("hellenistic_city", "hellenistic_fort", "temples"):
+    for folder in ("hellenistic_city", "hellenistic_fort", "persian_city",
+                   "persian_fort", "temples"):
         here = os.path.join(SETS, folder)
         for f in sorted(os.listdir(here)):
             if not f.endswith(".asset") or f.startswith("zz_"):

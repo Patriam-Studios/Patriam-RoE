@@ -1,5 +1,5 @@
 ﻿# Patriam: Rise of Empires. Vanilla's tribal holdings, carried across whole so
-# that the two ported sets are offered at both of its levels. The base game
+# that the three ported sets are offered at both of its levels. The base game
 # draws a tribal holding as a ring of timber stakes, which is what put palisades
 # across Southern Kallonia: a barony whose holder is tribal shows this building
 # and not its castle, and this world holds no timber palisades.
@@ -44,6 +44,19 @@ tribe_01 = {
 			illustration = @holding_illustration_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: a Persian town, Akaria building in mudbrick before it builds walls ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_persian_city_01_first_entity"
+				"patriam_persian_city_01_second_entity"
+				"patriam_persian_city_01_third_entity"
+			}
+			illustration = @holding_illustration_arid
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
+			graphical_cultures = { patriam_persian_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		# Emishi/Amuric - Falls back to Japanese or Steppe
@@ -222,6 +235,19 @@ tribe_02 = {
 			illustration = @holding_illustration_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 1 } }
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: a Persian town, Akaria building in mudbrick before it builds walls ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_persian_city_02_first_entity"
+				"patriam_persian_city_02_second_entity"
+				"patriam_persian_city_02_third_entity"
+			}
+			illustration = @holding_illustration_arid
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 1 } }
+			graphical_cultures = { patriam_persian_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		# Emishi/Amuric - Falls back to Japanese or Steppe

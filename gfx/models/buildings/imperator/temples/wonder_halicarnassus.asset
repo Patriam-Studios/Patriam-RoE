@@ -1,0 +1,63 @@
+﻿############################################################
+# The temple of Akaria. The Mausoleum of Halicarnassus of Imperator: Rome.
+#
+# Ported from Imperator: Rome, which Paradox gave written permission to use.
+# Imperator ships no Persian temple, and its Persian city set is houses and a
+# civic centre with nothing sacred among them, so the temple is taken from its
+# wonders instead. The Mausoleum is the one monument in that game raised in the
+# eastern manner, a stepped podium under a colonnade and a pyramid roof, and it
+# was built by a satrap of the Persian king, so it wears the same architecture
+# as the Persian cities it will stand among.
+#
+# It measures 5.1 by 6.2 province pixels, which is smaller than either Greek
+# temple already ported and sits comfortably on a holding footprint.
+#
+# This mesh asks only for standard, which both games spell the same way, so it
+# carries no shader rename. It fires no particle of its own either, unlike the
+# Greek temples, so nothing had to be stripped.
+############################################################
+
+pdxmesh = {
+	name = "wonder_halicarnassus_mesh"
+	file = "wonder_halicarnassus.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 15.0 }
+		lod = { index = 2 percent = 8.0 }
+	}
+
+	meshsettings = {
+		name = "halicarnassus_mausoleum_LOD0Shape"
+		index = 0
+		texture_diffuse = "wonder_halicarnassus_diffuse.dds"
+		texture_normal = "wonder_halicarnassus_normal.dds"
+		texture_specular = "wonder_halicarnassus_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "LOD_1|halicarnassus_mausoleum_LOD1|halicarnassus_mausoleum_LOD1"
+		index = 0
+		texture_diffuse = "wonder_halicarnassus_diffuse.dds"
+		texture_normal = "wonder_halicarnassus_normal.dds"
+		texture_specular = "wonder_halicarnassus_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "LOD_2|halicarnassus_mausoleum_LOD1|halicarnassus_mausoleum_LOD1"
+		index = 0
+		texture_diffuse = "wonder_halicarnassus_diffuse.dds"
+		texture_normal = "wonder_halicarnassus_normal.dds"
+		texture_specular = "wonder_halicarnassus_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+
+entity = {
+	name = "wonder_halicarnassus_entity"
+	pdxmesh = "wonder_halicarnassus_mesh"
+}

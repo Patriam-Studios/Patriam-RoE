@@ -1,0 +1,59 @@
+﻿############################################################
+# The eastern stone fort of Imperator: Rome, which Akaria garrisons.
+#
+# Ported from Imperator: Rome, which Paradox gave written permission to use.
+# Crusader Kings III wraps its own castles in a round wooden palisade, and the
+# Kingdom of Akaria builds a walled compound about a central keep, which is
+# exactly the fort Imperator already ships for its Persian graphical culture.
+#
+# Imperator asks this mesh for the shader standard_snow, which Crusader Kings III
+# does not have, so it is named standard_winter here.
+#
+# Its stone paving is the one the Hellenistic cities already carry, in
+# gfx/models/buildings/imperator/hellenistic_city. Textures resolve by bare file
+# name across the whole gfx tree, so it is reached where it sits rather than
+# copied in a second time under the same name. The wall texture is the fort's
+# own and is copied in beside this file.
+#
+# SCALE: the fort measures 9.0 province pixels across, the same as the
+# Hellenistic one, against the 4.9 of the base game's own fourth level castle,
+# and the median barony is about 26 across. It is meant to be the larger thing,
+# being a walled fort rather than a keep, but scale below is the one number to
+# turn if it crowds its barony.
+############################################################
+
+pdxmesh = {
+	name = "patriam_persian_fort_mesh"
+	file = "persian_fort.mesh"
+
+	meshsettings = {
+		name = "fort_plate:polySurfaceShape47"
+		index = 0
+		texture_diffuse = "stone_tiles_diffuse.dds"
+		texture_normal = "stone_tiles_normal.dds"
+		texture_specular = "stone_tiles_material.dds"
+		texture = { file = "persian_fort_mask.dds" index = 3 }
+		shader = "decal_world"
+		shader_file = "gfx/FX/pdxmesh_decal.shader"
+		subpass = "Decals"
+	}
+
+	meshsettings = {
+		name = "persian_fortShape"
+		index = 0
+		texture_diffuse = "persian_fort_diffuse.dds"
+		texture_normal = "persian_fort_normal.dds"
+		texture_specular = "persian_fort_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+
+# Imperator fires a sound of its own from this entity, out of an FMOD bank that
+# Crusader Kings III does not carry, so that state is stripped. The castle levels
+# in common/buildings/00_castle_buildings.txt name a sound of this game instead.
+entity = {
+	name = "patriam_persian_fort_entity"
+	pdxmesh = "patriam_persian_fort_mesh"
+	scale = 1.0
+}

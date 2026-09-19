@@ -87,9 +87,12 @@ kaegonic = {
 	name_list = name_list_kaegonic
 
 	coa_gfx = { byzantine_group_coa_gfx }
-	building_gfx = { byzantine_building_gfx }
-	clothing_gfx = { byzantine_clothing_gfx }
-	unit_gfx = { eastern_unit_gfx }
+	# The Kaegonic are of the Anglo Saxon cast, so they take the face the base
+	# game gives England: western_building_gfx and western_unit_gfx are exactly
+	# what its own english culture carries.
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { western_clothing_gfx }
+	unit_gfx = { western_unit_gfx }
 
 	ethnicities = {
 		100 = mediterranean_byzantine
@@ -115,9 +118,14 @@ akarian = {
 	name_list = name_list_akarian
 
 	coa_gfx = { byzantine_group_coa_gfx }
-	building_gfx = { byzantine_building_gfx }
+	# The Persian cities, the eastern fort and the Mausoleum of Halicarnassus
+	# from Imperator: Rome, vanilla's Byzantine set for everything the port does
+	# not cover yet.
+	building_gfx = { patriam_persian_building_gfx byzantine_building_gfx }
 	clothing_gfx = { byzantine_clothing_gfx }
-	unit_gfx = { eastern_unit_gfx }
+	# The Persian spearman from Imperator: Rome, a levy at the lowest quality
+	# tier and an armoured soldier at the two above it.
+	unit_gfx = { patriam_persian_unit_gfx }
 
 	ethnicities = {
 		100 = mediterranean_byzantine

@@ -1,0 +1,1079 @@
+﻿############################################################
+# Akarian armies. The Persian spearman of Imperator: Rome.
+#
+# Ported from Imperator: Rome, which Paradox gave written permission to use.
+# The mesh, the helmet, the spear and the shield are Imperator's own, and so are
+# the animations, which all three ported cultures share out of
+# gfx/models/units/imperator/animations.
+#
+# WHICH WEAPON SET. Imperator sorts its infantry animations into two, set one for
+# the spear and set two for the sword, and a soldier playing the wrong set swings
+# a weapon he is not holding. Imperator's own persian_gfx_light_infantry, which
+# is the soldier ported here, plays set one in every one of its combat states and
+# carries persian_spear_01 in its right hand, so set one is what is named below.
+# That is the same set the Greek hoplite takes, which is why the two share their
+# states word for word. Imperator's persian_gfx_heavy_infantry plays set two and
+# is not ported.
+#
+# TWO SOLDIERS, THREE QUALITY TIERS. Crusader Kings III asks a graphical culture
+# for a model at each of the quality tiers 0, 2 and 4. Imperator ships two
+# Persian spearmen, a levy in a quilted coat and a soldier in scale armour, so
+# the levy stands at tier 0 and the armoured soldier at the two above it, which
+# is wired in gfx/models/units/entity_links/00_army_entity_links.txt.
+#
+# The twenty four state names below are the ones Crusader Kings III asks an army
+# entity for. Imperator names its states differently, so each one here carries
+# whichever Imperator animation reads closest. Two have no counterpart at all:
+# Imperator has no sick soldier, so a sick one idles and marches as a well one
+# does and is told apart only by the flies vanilla puts over his head, and it has
+# no soldier going home either, so disbanding borrows the recruiting animation.
+#
+# SCALE: Imperator draws this soldier at 0.1 and Crusader Kings III draws its own
+# at 0.06. Every mesh and every attachment below carries 0.06, and an attachment
+# does not inherit the body's scale, so all of them have to be turned together.
+############################################################
+
+############################################################
+# The armoured spearman, worn at the quality tiers 2 and 4.
+############################################################
+
+pdxmesh = {
+	name = "patriam_persian_infantry_01_mesh"
+	file = "persian_infantry_01.mesh"
+	scale = 0.06
+	cull_distance = 3000
+
+	lod_percentages = {
+		lod = { index = 1 percent = 10.0 }
+		lod = { index = 2 percent = 5.0 }
+	}
+
+	animation = { id = "idle_base_animation" type = "../animations/ROM_infantry_01_idle_1_base_shield_SM.anim" }
+	animation = { id = "idle_var_1_animation" type = "../animations/ROM_infantry_01_idle_1_var_1_shield_SM.anim" }
+	animation = { id = "moving_animation" type = "../animations/ROM_infantry_01_moving_1.anim" }
+	animation = { id = "force_march_animation" type = "../animations/ROM_infantry_01_force_march_1.anim" }
+	animation = { id = "retreat_animation" type = "../animations/ROM_infantry_01_retreat_1.anim" }
+	animation = { id = "army_drill_animation" type = "../animations/ROM_infantry_01_army_drill_1.anim" }
+	animation = { id = "recruiting_action_animation" type = "../animations/ROM_infantry_01_recruiting_action.anim" }
+	animation = { id = "recruiting_loop_animation" type = "../animations/ROM_infantry_01_recruiting_loop.anim" }
+	animation = { id = "build_road_shoveling_animation" type = "../animations/ROM_infantry_01_build_road_shoveling.anim" }
+	animation = { id = "offensive_successful_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_successful.anim" }
+	animation = { id = "even_offensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_sequence_1.anim" }
+	animation = { id = "winlose_offensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_sequence_2.anim" }
+	animation = { id = "pursuit_offensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_sequence_3.anim" }
+	animation = { id = "even_defensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_sequence_1.anim" }
+	animation = { id = "winlose_defensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_sequence_2.anim" }
+	animation = { id = "pursuit_defensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_sequence_3.anim" }
+	animation = { id = "even_winlose_tx_offensive_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_counter.anim" }
+	animation = { id = "winlose_even_tx_offensive_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_block.anim" }
+	animation = { id = "even_winlose_tx_defensive_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_counter.anim" }
+	animation = { id = "winlose_even_tx_defensive_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_block.anim" }
+
+	meshsettings = {
+		name = "persian_infantry_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "persian_infantry_01_diffuse.dds"
+		texture_normal = "persian_infantry_01_normal.dds"
+		texture_specular = "persian_infantry_01_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_infantry_01_LOD0Shape"
+		index = 1
+		texture_diffuse = "persian_armor_01_diffuse.dds"
+		texture_normal = "persian_armor_01_normal.dds"
+		texture_specular = "persian_armor_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_infantry_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "persian_infantry_01_diffuse.dds"
+		texture_normal = "persian_infantry_01_normal.dds"
+		texture_specular = "persian_infantry_01_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_infantry_01_LOD1Shape"
+		index = 1
+		texture_diffuse = "persian_armor_01_diffuse.dds"
+		texture_normal = "persian_armor_01_normal.dds"
+		texture_specular = "persian_armor_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_infantry_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "persian_infantry_01_diffuse.dds"
+		texture_normal = "persian_infantry_01_normal.dds"
+		texture_specular = "persian_infantry_01_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_infantry_01_LOD2Shape"
+		index = 1
+		texture_diffuse = "persian_armor_01_diffuse.dds"
+		texture_normal = "persian_armor_01_normal.dds"
+		texture_specular = "persian_armor_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_persian_infantry_01_entity"
+	pdxmesh = "patriam_persian_infantry_01_mesh"
+
+	default_state = "idle"
+
+	state = {
+		name = "idle"
+		animation = "idle_base_animation"
+		looping = no
+		next_state = idle
+		chance = 4
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_idle_base" }}
+	}
+
+	state = {
+		name = "idle"
+		animation = "idle_var_1_animation"
+		looping = no
+		next_state = idle
+		chance = 1
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_idle_base" }}
+	}
+
+	state = {
+		name = "idle_sick"
+		animation = "idle_base_animation"
+		animation_blend_time = 0.3
+		start_event = { node = root particle = "disease/flies" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_idle_base" }}
+	}
+
+	state = {
+		name = "move"
+		animation = "moving_animation"
+		animation_blend_time = 0.3
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_standard" }}
+	}
+
+	state = {
+		name = "move_sick"
+		animation = "moving_animation"
+		animation_blend_time = 0.3
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = root particle = "disease/flies" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_standard" }}
+	}
+
+	state = {
+		name = "move_attack"
+		animation = "force_march_animation"
+		animation_blend_time = 0.3
+		looping = no
+		next_state = move_attack_continue
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:back_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_battle" }}
+	}
+
+	state = {
+		name = "move_attack_continue"
+		animation = "force_march_animation"
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:back_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_battle" }}
+	}
+
+	state = {
+		name = "move_retreat"
+		animation = "retreat_animation"
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_retreat" }}
+	}
+
+	state = {
+		name = "defeated"
+		animation = "retreat_animation"
+		next_state = move_retreat
+		looping = no
+		animation_blend_time = 0.5
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_retreat" }}
+	}
+
+	state = {
+		name = "gather"
+		animation = "army_drill_animation"
+		animation_blend_time = 0.3
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		start_event = { node = THE_RIG:root entity = "patriam_imperator_drill_post_entity" state = attack }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_gathering_army" }}
+	}
+
+	state = {
+		name = "spawn"
+		animation = "recruiting_action_animation"
+		looping = no
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_spawn" }}
+	}
+
+	state = {
+		name = "disband"
+		animation = "recruiting_loop_animation"
+		looping = no
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_disband" }}
+	}
+
+	state = {
+		name = "besiege"
+		animation = "build_road_shoveling_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_imperator_shovel_01_entity" state = shoveling }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_besiege" }}
+	}
+
+	state = {
+		name = "combat_won"
+		animation = "offensive_successful_animation"
+		looping = no
+		next_state = idle
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_victorious_combat" }}
+	}
+
+	state = {
+		name = "siege_won"
+		animation = "offensive_successful_animation"
+		looping = no
+		next_state = idle
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_victorious_siege" }}
+	}
+
+	####
+	# COMBAT ANIMATIONS
+	####
+
+	state = {
+		name = "even_offensive_seq_1"
+		animation = "even_offensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_seq_1_offensive" }}
+	}
+
+	state = {
+		name = "even_defensive_seq_1"
+		animation = "even_defensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_seq_1_defensive" }}
+	}
+
+	state = {
+		name = "winlose_offensive_seq_1"
+		animation = "winlose_offensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_seq_1_offensive" }}
+	}
+
+	state = {
+		name = "winlose_defensive_seq_1"
+		animation = "winlose_defensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_seq_1_defensive" }}
+	}
+
+	state = {
+		name = "pursuit_offensive_seq_1"
+		animation = "pursuit_offensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_pursuit_offensive" }}
+	}
+
+	state = {
+		name = "pursuit_defensive_seq_1"
+		animation = "pursuit_defensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_pursuit_defensive" }}
+	}
+
+	state = {
+		name = "even_winlose_tx_offensive_1"
+		animation = "even_winlose_tx_offensive_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_tx_winlose_offensive" }}
+	}
+
+	state = {
+		name = "winlose_even_tx_offensive_1"
+		animation = "winlose_even_tx_offensive_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_tx_even_offensive" }}
+	}
+
+	state = {
+		name = "even_winlose_tx_defensive_1"
+		animation = "even_winlose_tx_defensive_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_tx_winlose_defensive" }}
+	}
+
+	state = {
+		name = "winlose_even_tx_defensive_1"
+		animation = "winlose_even_tx_defensive_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_tx_even_defensive" }}
+	}
+
+	attach = { THE_RIG:Character1_Head = "patriam_persian_helmet_01_entity" }
+}
+
+pdxmesh = {
+	name = "patriam_persian_helmet_01_mesh"
+	file = "persian_helmet_01.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 2.5 }
+		lod = { index = 2 percent = 1.8 }
+	}
+
+	meshsettings = {
+		name = "persian_helmet_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "persian_helmet_diffuse.dds"
+		texture_normal = "persian_helmet_normal.dds"
+		texture_specular = "persian_helmet_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_helmet_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "persian_helmet_diffuse.dds"
+		texture_normal = "persian_helmet_normal.dds"
+		texture_specular = "persian_helmet_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_helmet_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "persian_helmet_diffuse.dds"
+		texture_normal = "persian_helmet_normal.dds"
+		texture_specular = "persian_helmet_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_persian_helmet_01_entity"
+	pdxmesh = "patriam_persian_helmet_01_mesh"
+	scale = 0.06
+}
+
+pdxmesh = {
+	name = "patriam_persian_spear_01_mesh"
+	file = "persian_spear_01.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 14.0 }
+		lod = { index = 2 percent = 10.0 }
+	}
+
+	meshsettings = {
+		name = "persian_spear_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "persian_weapons_diffuse.dds"
+		texture_normal = "persian_weapons_normal.dds"
+		texture_specular = "persian_weapons_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_spear_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "persian_weapons_diffuse.dds"
+		texture_normal = "persian_weapons_normal.dds"
+		texture_specular = "persian_weapons_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_spear_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "persian_weapons_diffuse.dds"
+		texture_normal = "persian_weapons_normal.dds"
+		texture_specular = "persian_weapons_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_persian_spear_01_entity"
+	pdxmesh = "patriam_persian_spear_01_mesh"
+	scale = 0.06
+}
+
+pdxmesh = {
+	name = "patriam_persian_shield_01_mesh"
+	file = "persian_shield_01.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 5.7 }
+		lod = { index = 2 percent = 4.0 }
+	}
+
+	meshsettings = {
+		name = "persian_shield_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "persian_weapons_diffuse.dds"
+		texture_normal = "persian_weapons_normal.dds"
+		texture_specular = "persian_weapons_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_shield_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "persian_weapons_diffuse.dds"
+		texture_normal = "persian_weapons_normal.dds"
+		texture_specular = "persian_weapons_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_shield_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "persian_weapons_diffuse.dds"
+		texture_normal = "persian_weapons_normal.dds"
+		texture_specular = "persian_weapons_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_persian_shield_01_entity"
+	pdxmesh = "patriam_persian_shield_01_mesh"
+	scale = 0.06
+}
+
+############################################################
+# The levy spearman, worn at the quality tier 0. He shares the armoured
+# soldier's skin and carries a quilted coat and a wicker shield of his own.
+############################################################
+
+pdxmesh = {
+	name = "patriam_persian_levies_infantry_01_mesh"
+	file = "persian_levies_infantry_01.mesh"
+	scale = 0.06
+	cull_distance = 3000
+
+	lod_percentages = {
+		lod = { index = 1 percent = 10.0 }
+		lod = { index = 2 percent = 5.0 }
+	}
+
+	animation = { id = "idle_base_animation" type = "../animations/ROM_infantry_01_idle_1_base_shield_SM.anim" }
+	animation = { id = "idle_var_1_animation" type = "../animations/ROM_infantry_01_idle_1_var_1_shield_SM.anim" }
+	animation = { id = "moving_animation" type = "../animations/ROM_infantry_01_moving_1.anim" }
+	animation = { id = "force_march_animation" type = "../animations/ROM_infantry_01_force_march_1.anim" }
+	animation = { id = "retreat_animation" type = "../animations/ROM_infantry_01_retreat_1.anim" }
+	animation = { id = "army_drill_animation" type = "../animations/ROM_infantry_01_army_drill_1.anim" }
+	animation = { id = "recruiting_action_animation" type = "../animations/ROM_infantry_01_recruiting_action.anim" }
+	animation = { id = "recruiting_loop_animation" type = "../animations/ROM_infantry_01_recruiting_loop.anim" }
+	animation = { id = "build_road_shoveling_animation" type = "../animations/ROM_infantry_01_build_road_shoveling.anim" }
+	animation = { id = "offensive_successful_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_successful.anim" }
+	animation = { id = "even_offensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_sequence_1.anim" }
+	animation = { id = "winlose_offensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_sequence_2.anim" }
+	animation = { id = "pursuit_offensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_sequence_3.anim" }
+	animation = { id = "even_defensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_sequence_1.anim" }
+	animation = { id = "winlose_defensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_sequence_2.anim" }
+	animation = { id = "pursuit_defensive_seq_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_sequence_3.anim" }
+	animation = { id = "even_winlose_tx_offensive_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_counter.anim" }
+	animation = { id = "winlose_even_tx_offensive_1_animation" type = "../animations/ROM_infantry_01_weapon_1_offensive_block.anim" }
+	animation = { id = "even_winlose_tx_defensive_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_counter.anim" }
+	animation = { id = "winlose_even_tx_defensive_1_animation" type = "../animations/ROM_infantry_01_weapon_1_defensive_block.anim" }
+
+	meshsettings = {
+		name = "persian_levies_infantry_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "persian_infantry_01_diffuse.dds"
+		texture_normal = "persian_infantry_01_normal.dds"
+		texture_specular = "persian_infantry_01_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_infantry_01_LOD0Shape"
+		index = 1
+		texture_diffuse = "persian_levies_infantry_01_diffuse.dds"
+		texture_normal = "persian_levies_infantry_01_normal.dds"
+		texture_specular = "persian_levies_infantry_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_infantry_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "persian_infantry_01_diffuse.dds"
+		texture_normal = "persian_infantry_01_normal.dds"
+		texture_specular = "persian_infantry_01_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_infantry_01_LOD1Shape"
+		index = 1
+		texture_diffuse = "persian_levies_infantry_01_diffuse.dds"
+		texture_normal = "persian_levies_infantry_01_normal.dds"
+		texture_specular = "persian_levies_infantry_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_infantry_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "persian_infantry_01_diffuse.dds"
+		texture_normal = "persian_infantry_01_normal.dds"
+		texture_specular = "persian_infantry_01_properties.dds"
+		shader = "standard"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_infantry_01_LOD2Shape"
+		index = 1
+		texture_diffuse = "persian_levies_infantry_01_diffuse.dds"
+		texture_normal = "persian_levies_infantry_01_normal.dds"
+		texture_specular = "persian_levies_infantry_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_persian_levies_infantry_01_entity"
+	pdxmesh = "patriam_persian_levies_infantry_01_mesh"
+
+	default_state = "idle"
+
+	state = {
+		name = "idle"
+		animation = "idle_base_animation"
+		looping = no
+		next_state = idle
+		chance = 4
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_idle_base" }}
+	}
+
+	state = {
+		name = "idle"
+		animation = "idle_var_1_animation"
+		looping = no
+		next_state = idle
+		chance = 1
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_idle_base" }}
+	}
+
+	state = {
+		name = "idle_sick"
+		animation = "idle_base_animation"
+		animation_blend_time = 0.3
+		start_event = { node = root particle = "disease/flies" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_idle_base" }}
+	}
+
+	state = {
+		name = "move"
+		animation = "moving_animation"
+		animation_blend_time = 0.3
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_standard" }}
+	}
+
+	state = {
+		name = "move_sick"
+		animation = "moving_animation"
+		animation_blend_time = 0.3
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = root particle = "disease/flies" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_standard" }}
+	}
+
+	state = {
+		name = "move_attack"
+		animation = "force_march_animation"
+		animation_blend_time = 0.3
+		looping = no
+		next_state = move_attack_continue
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:back_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_battle" }}
+	}
+
+	state = {
+		name = "move_attack_continue"
+		animation = "force_march_animation"
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:back_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_battle" }}
+	}
+
+	state = {
+		name = "move_retreat"
+		animation = "retreat_animation"
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_retreat" }}
+	}
+
+	state = {
+		name = "defeated"
+		animation = "retreat_animation"
+		next_state = move_retreat
+		looping = no
+		animation_blend_time = 0.5
+		start_event = { node = root particle = "dust_trail_3" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_retreat" }}
+	}
+
+	state = {
+		name = "gather"
+		animation = "army_drill_animation"
+		animation_blend_time = 0.3
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		start_event = { node = THE_RIG:root entity = "patriam_imperator_drill_post_entity" state = attack }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_gathering_army" }}
+	}
+
+	state = {
+		name = "spawn"
+		animation = "recruiting_action_animation"
+		looping = no
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_spawn" }}
+	}
+
+	state = {
+		name = "disband"
+		animation = "recruiting_loop_animation"
+		looping = no
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_disband" }}
+	}
+
+	state = {
+		name = "besiege"
+		animation = "build_road_shoveling_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_imperator_shovel_01_entity" state = shoveling }
+		start_event = { node = THE_RIG:world_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_besiege" }}
+	}
+
+	state = {
+		name = "combat_won"
+		animation = "offensive_successful_animation"
+		looping = no
+		next_state = idle
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_victorious_combat" }}
+	}
+
+	state = {
+		name = "siege_won"
+		animation = "offensive_successful_animation"
+		looping = no
+		next_state = idle
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_victorious_siege" }}
+	}
+
+	####
+	# COMBAT ANIMATIONS
+	####
+
+	state = {
+		name = "even_offensive_seq_1"
+		animation = "even_offensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_seq_1_offensive" }}
+	}
+
+	state = {
+		name = "even_defensive_seq_1"
+		animation = "even_defensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_seq_1_defensive" }}
+	}
+
+	state = {
+		name = "winlose_offensive_seq_1"
+		animation = "winlose_offensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_seq_1_offensive" }}
+	}
+
+	state = {
+		name = "winlose_defensive_seq_1"
+		animation = "winlose_defensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_seq_1_defensive" }}
+	}
+
+	state = {
+		name = "pursuit_offensive_seq_1"
+		animation = "pursuit_offensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_pursuit_offensive" }}
+	}
+
+	state = {
+		name = "pursuit_defensive_seq_1"
+		animation = "pursuit_defensive_seq_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_pursuit_defensive" }}
+	}
+
+	state = {
+		name = "even_winlose_tx_offensive_1"
+		animation = "even_winlose_tx_offensive_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_tx_winlose_offensive" }}
+	}
+
+	state = {
+		name = "winlose_even_tx_offensive_1"
+		animation = "winlose_even_tx_offensive_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_tx_even_offensive" }}
+	}
+
+	state = {
+		name = "even_winlose_tx_defensive_1"
+		animation = "even_winlose_tx_defensive_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_tx_winlose_defensive" }}
+	}
+
+	state = {
+		name = "winlose_even_tx_defensive_1"
+		animation = "winlose_even_tx_defensive_1_animation"
+		start_event = { node = THE_RIG:Right_hand_node_1 entity = "patriam_persian_levies_spear_01_entity" }
+		start_event = { node = THE_RIG:Left_hand_node_1 entity = "patriam_persian_levies_shield_01_entity" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer_fullplate" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_tx_even_defensive" }}
+	}
+
+	attach = { THE_RIG:Character1_Head = "patriam_persian_levies_helmet_01_entity" }
+}
+
+pdxmesh = {
+	name = "patriam_persian_levies_helmet_01_mesh"
+	file = "persian_levies_helmet_01.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 2.5 }
+		lod = { index = 2 percent = 1.8 }
+	}
+
+	meshsettings = {
+		name = "persian_levies_helmet_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "persian_levies_helmet_01_diffuse.dds"
+		texture_normal = "persian_levies_helmet_01_normal.dds"
+		texture_specular = "persian_levies_helmet_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_helmet_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "persian_levies_helmet_01_diffuse.dds"
+		texture_normal = "persian_levies_helmet_01_normal.dds"
+		texture_specular = "persian_levies_helmet_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_helmet_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "persian_levies_helmet_01_diffuse.dds"
+		texture_normal = "persian_levies_helmet_01_normal.dds"
+		texture_specular = "persian_levies_helmet_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_persian_levies_helmet_01_entity"
+	pdxmesh = "patriam_persian_levies_helmet_01_mesh"
+	scale = 0.06
+}
+
+pdxmesh = {
+	name = "patriam_persian_levies_spear_01_mesh"
+	file = "persian_levies_spear_01.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 14.0 }
+		lod = { index = 2 percent = 10.0 }
+	}
+
+	meshsettings = {
+		name = "persian_levies_spear_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "persian_levies_weapons_01_diffuse.dds"
+		texture_normal = "persian_levies_weapons_01_normal.dds"
+		texture_specular = "persian_levies_weapons_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_spear_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "persian_levies_weapons_01_diffuse.dds"
+		texture_normal = "persian_levies_weapons_01_normal.dds"
+		texture_specular = "persian_levies_weapons_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_spear_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "persian_levies_weapons_01_diffuse.dds"
+		texture_normal = "persian_levies_weapons_01_normal.dds"
+		texture_specular = "persian_levies_weapons_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_persian_levies_spear_01_entity"
+	pdxmesh = "patriam_persian_levies_spear_01_mesh"
+	scale = 0.06
+}
+
+pdxmesh = {
+	name = "patriam_persian_levies_shield_01_mesh"
+	file = "persian_levies_shield_01.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 5.7 }
+		lod = { index = 2 percent = 4.0 }
+	}
+
+	meshsettings = {
+		name = "persian_levies_shield_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "persian_levies_weapons_01_diffuse.dds"
+		texture_normal = "persian_levies_weapons_01_normal.dds"
+		texture_specular = "persian_levies_weapons_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_shield_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "persian_levies_weapons_01_diffuse.dds"
+		texture_normal = "persian_levies_weapons_01_normal.dds"
+		texture_specular = "persian_levies_weapons_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+
+	meshsettings = {
+		name = "persian_levies_shield_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "persian_levies_weapons_01_diffuse.dds"
+		texture_normal = "persian_levies_weapons_01_normal.dds"
+		texture_specular = "persian_levies_weapons_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+		additional_shader_defines = {
+			"MAP_LIGHTING_HACK"
+		}
+	}
+}
+
+entity = {
+	name = "patriam_persian_levies_shield_01_entity"
+	pdxmesh = "patriam_persian_levies_shield_01_mesh"
+	scale = 0.06
+}

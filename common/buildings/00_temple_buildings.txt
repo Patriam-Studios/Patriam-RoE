@@ -1,8 +1,12 @@
 ﻿# Patriam: Rise of Empires. Vanilla's temple holdings, carried across whole so
-# that each level can offer two more sets of models, both from Imperator: Rome
-# and both used with Paradox's written permission: the temple of Jupiter for
-# cultures whose building_gfx is patriam_roman_building_gfx, and the temples of
-# Zeus and Artemis for cultures whose building_gfx is patriam_building_gfx.
+# that each level can offer three more sets of models, all from Imperator: Rome
+# and all used with Paradox's written permission: the temple of Jupiter for
+# cultures whose building_gfx is patriam_roman_building_gfx, the temples of Zeus
+# and Artemis for cultures whose building_gfx is patriam_building_gfx, and the
+# Mausoleum of Halicarnassus for cultures whose building_gfx is
+# patriam_persian_building_gfx. Imperator ships no Persian temple of its own, so
+# the Mausoleum stands for one: it is the single monument in that game raised in
+# the eastern manner, and a satrap of the Persian king built it.
 # Everything else in this file is vanilla's and should be diffed against it
 # after a game update.
 
@@ -44,6 +48,15 @@ temple_01 = {
 			illustration = @illustration_generic_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the Mausoleum of Halicarnassus of Imperator: Rome, which is the one monument that game raises in the eastern manner ###
+		asset = {
+			type = pdxmesh
+			name = "wonder_halicarnassus_mesh"
+			illustration = @illustration_generic_arid
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
+			graphical_cultures = { patriam_persian_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		#Generic Base:
@@ -1086,6 +1099,15 @@ temple_02 = {
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
+		### Patriam: the Mausoleum of Halicarnassus of Imperator: Rome, which is the one monument that game raises in the eastern manner ###
+		asset = {
+			type = pdxmesh
+			name = "wonder_halicarnassus_mesh"
+			illustration = @illustration_generic_arid
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
+			graphical_cultures = { patriam_persian_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
 		### GENERIC ###
 		#Generic Base:
 		asset = {
@@ -1962,6 +1984,15 @@ temple_03 = {
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
+		### Patriam: the Mausoleum of Halicarnassus of Imperator: Rome, which is the one monument that game raises in the eastern manner ###
+		asset = {
+			type = pdxmesh
+			name = "wonder_halicarnassus_mesh"
+			illustration = @illustration_generic_arid
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
+			graphical_cultures = { patriam_persian_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
 		### GENERIC ###
 		#Generic Base:
 		asset = {
@@ -2824,6 +2855,15 @@ temple_04 = {
 			illustration = @illustration_generic_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the Mausoleum of Halicarnassus of Imperator: Rome, which is the one monument that game raises in the eastern manner ###
+		asset = {
+			type = pdxmesh
+			name = "wonder_halicarnassus_mesh"
+			illustration = @illustration_generic_arid
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
+			graphical_cultures = { patriam_persian_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### GENERIC ###

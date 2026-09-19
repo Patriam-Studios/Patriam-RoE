@@ -400,3 +400,28 @@ patriam_army_03 = {
 	graphical_cultures = { patriam_unit_gfx }
 	entity = patriam_greek_infantry_01_entity
 }
+
+# Patriam: Rise of Empires. Akaria takes the Persian spearman. Imperator ships
+# two of him, so unlike the sets above this one fills the quality tiers with
+# different models: a levy in a quilted coat at the lowest, and a soldier in
+# scale armour at the two above it.
+
+patriam_persian_army_01 = {
+	type = army
+	graphical_cultures = { patriam_persian_unit_gfx }
+	entity = patriam_persian_levies_infantry_01_entity
+}
+
+patriam_persian_army_02 = {
+	type = army
+	quality = @tier2_quality
+	graphical_cultures = { patriam_persian_unit_gfx }
+	entity = patriam_persian_infantry_01_entity
+}
+
+patriam_persian_army_03 = {
+	type = army
+	quality = @tier3_quality
+	graphical_cultures = { patriam_persian_unit_gfx }
+	entity = patriam_persian_infantry_01_entity
+}

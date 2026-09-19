@@ -171,6 +171,29 @@ ground itself is ash, with lava showing in the calderas and along the gullies
 the land drains down, and nine hundred plumes of smoke rise from the rims and
 the fissures, using the base game's own city smoke.
 
+### The farming heartland
+
+The middle of Southern Kallonia is the rich ground that will one day feed the
+empire of Thenithria, and it was reading as ordinary grass with puddles in it.
+The fifteen realms whose title history turns their holder to house government
+sit there in one contiguous cluster and hold 107 baronies between them, of
+which the 64 the province terrain leaves at its default are the plains of the
+heartland. `regions.heartland_baronies` reads them out of the title history,
+the de jure tree and the province terrain rather than from a list written down
+here, so that the fields follow the title tree wherever it goes, and it counts
+farmland as plains so that a second run reads back what the first one wrote.
+
+Those baronies take `medi_farmlands` as their ground, with `farmland_01` laid
+thinly over it so that a province is not one sheet of the same furrows. A
+barony boundary is a political line and a field is not, so the mask is carried
+25 blocks past the baronies and then thinned away over a further 75, mottled
+with smooth noise at about 150 blocks, and the fields interlock with the grass
+beyond instead of stopping dead on a border. What the fields do not take is a
+wood or a shore, since furrows under standing trees and furrows running into
+the sea both read as mistakes. The same 64 baronies read as `farmlands` in
+`common/province_terrain`, which `build_canvas.py` keeps when it rewrites that
+file.
+
 ### The base game's own map objects
 
 Every object the base game lays on its map is placed by coordinate: its lakes,
@@ -442,26 +465,41 @@ footprints. Textures resolve by bare file name across the whole `gfx` tree in
 both games, which is why a set's textures are copied in beside its meshes
 rather than referenced where they sit.
 
-Five sets are ported, all under `gfx/models/buildings/imperator`.
+Eight sets are ported, all under `gfx/models/buildings/imperator`.
 
 | Folder | Set | Meshes | Worn by |
 | --- | --- | --- | --- |
-| `hellenistic_city` | Classical city | 3, 5, 7 and 8 variants over four tiers, plus a centre | both sets |
-| `hellenistic_fort` | Square stone fort | one mesh, bare at the first castle level and villaged above it | both |
+| `hellenistic_city` | Classical city | 3, 5, 7 and 8 variants over four tiers, plus a centre | the Greek and the Roman sets |
+| `hellenistic_fort` | Square stone fort | one mesh, bare at the first castle level and villaged above it | the Greek and the Roman sets |
+| `persian_city` | Eastern city | 4, 6, 6 and 6 variants over four tiers, plus a centre | `patriam_persian_building_gfx` |
+| `persian_fort` | Eastern fort | one mesh, worn exactly as the square one is | `patriam_persian_building_gfx` |
 | `temples` | Temple of Jupiter | one mesh, all four temple levels | `patriam_roman_building_gfx` |
 | `temples` | Temples of Zeus and Artemis | two meshes, all four temple levels | `patriam_building_gfx` |
+| `temples` | Mausoleum of Halicarnassus | one mesh, all four temple levels | `patriam_persian_building_gfx` |
 
 Thenithrian takes the Roman face with
-`building_gfx = { patriam_roman_building_gfx byzantine_building_gfx }`, and
-Late Drunathaenic takes the Greek one with
-`building_gfx = { patriam_building_gfx byzantine_building_gfx }`. The second
-entry in each pair covers the holdings the port does not reach yet.
+`building_gfx = { patriam_roman_building_gfx byzantine_building_gfx }`, Late
+Drunathaenic takes the Greek one with
+`building_gfx = { patriam_building_gfx byzantine_building_gfx }`, and Akarian
+takes the Persian one with
+`building_gfx = { patriam_persian_building_gfx byzantine_building_gfx }`. The
+second entry in each pair covers the holdings the port does not reach yet.
+
+WHY AKARIA HAS NO TEMPLE OF ITS OWN CULT. Imperator ships no Persian temple:
+its Persian city set is houses and a civic centre with nothing sacred among
+them, and its wonders hold one monument raised in the eastern manner, the
+Mausoleum of Halicarnassus, which a satrap of the Persian king built. That is
+what stands on an Akarian temple holding. It asks only for `standard`, so it
+carries no shader rename, and it fires no particle, so nothing had to be
+stripped from it as the Greek temples needed.
 
 `common/buildings/00_city_buildings.txt`,
-`common/buildings/00_castle_buildings.txt` and
-`common/buildings/00_temple_buildings.txt` are all three vanilla's files carried
+`common/buildings/00_castle_buildings.txt`,
+`common/buildings/00_temple_buildings.txt` and
+`common/buildings/00_tribal_buildings.txt` are all four vanilla's files carried
 across whole, with asset blocks added at every level, so each must be diffed
-against vanilla after a game update.
+against vanilla after a game update. Add to them and never rewrite one: the
+castle file alone is 2000 lines of the base game's own.
 
 Two things Imperator ships that had to be corrected or dropped:
 
@@ -544,6 +582,15 @@ Imperator names at each population tier, except that its third tier lists six
 meshes where the game ships seven, and `hellenistic_03_07`, which nothing in
 Imperator ever names, is grouped with the six for the variety.
 
+AKARIA NEEDS NO PLAN OF ITS OWN. The Roman set had to be given one only because
+Rome and Greece build from the very same meshes, so nothing but the plan could
+tell their towns apart. The Persian set is twenty two buildings of its own,
+mudbrick and dome against colonnade and tile, so an Akarian town already reads
+as nothing else and it is laid on the organic plan beside the Drunathaenic one.
+Its tiers are read straight out of Imperator's `persian` block, four meshes at
+the first and six at each of the three above it, and that block leaves no mesh
+over the way the Hellenistic one does.
+
 WHICH NUMBER IN A LOCATOR IS THE HEADING. A locator's `rotation` is three angles
 in degrees and THE FIRST OF THEM turns the model about the vertical. The base
 game writes 763 locator rotations, 715 of them with the angle in the first place
@@ -559,9 +606,10 @@ are the ones worth turning.
   thing to turn if a holding looks wrong for its barony.
 * `HOUSE_WIDTH` is 2.3, measured off the bounding boxes inside the mesh files
   themselves, where a house body runs from 0.6 to 2.8 province pixels across.
-  Every Greek mesh also drags a 5.09 pixel ground decal, which is a blend patch
-  rather than the building, so it is ignored and the decals of neighbours are
-  meant to overlap.
+  Every Greek mesh drags a 5.09 pixel ground decal and every Persian one a 5.08
+  pixel decal, which is a blend patch rather than the building, so it is ignored
+  and the decals of neighbours are meant to overlap. The two sets of houses come
+  out the same size, which is why one `HOUSE_WIDTH` serves all three plans.
 * `BUILDING_SCALE` is 1.15 and is applied on the locator rather than on the
   mesh, so a single number resizes every house in every holding without any mesh
   being touched. `LANE` and `RING_STEP` are how crowded the result is.
@@ -570,10 +618,12 @@ are the ones worth turning.
 The asset blocks name the Roman set before the Greek one at every level, because
 Thenithrian carries both `patriam_roman_building_gfx` and, after it,
 `byzantine_building_gfx`, and the Greek block answers to that second tag as
-well. That fallback is deliberate: it means Kaegonic and Akarian, which carry
-`byzantine_building_gfx` alone, are given the Greek face rather than the base
+well. That fallback is deliberate: it means any culture carrying
+`byzantine_building_gfx` alone is given the Greek face rather than the base
 game's medieval one, and no holding anywhere in Southern Kallonia falls back to
-a timber palisade.
+a timber palisade. The Persian blocks sit after the Greek ones at every level
+and answer to `patriam_persian_building_gfx` alone, which is first in Akaria's
+own list, so Akaria takes them and nothing else does.
 
 Since a holding is drawn at the level of its main building and every holding in
 the world starts at the first, the great seats are raised in province history
@@ -608,34 +658,42 @@ copied in a second time under the same names. Imperator fires a sound of its own
 from the fort, out of an FMOD bank this game does not carry, so that state is
 stripped and the castle levels name a sound of this game instead.
 
-Imperator ships one fort mesh and no others, so the castle levels are told apart
-by what gathers around it. The first level is the fort standing bare, named as a
-plain mesh rather than as an entity, which is both the simplest path the game
-has and the one every castle in the world takes at the start. Above it the same
-fort carries a village at its gate, larger at every level and built of the
-culture's own houses, so a Thenithrian fortress gathers a Roman village and a
-Drunathaenic one a Greek village. Nothing is laid within `FORT_CLEAR` of the
-middle, the fort measuring 9.0 province pixels across against the 4.9 of the
-base game's own fourth level castle.
+Akaria garrisons a fort of its own, Imperator's `persian_fort`, ported to
+`gfx/models/buildings/imperator/persian_fort` as `patriam_persian_fort_mesh` in
+exactly the same way and with the same shader rename and the same stripped
+sound. Its paving is the Greek cities' again and its wall texture is its own.
+
+Imperator ships one fort mesh to a graphical culture and no more, so the castle
+levels are told apart by what gathers around it. The first level is the fort
+standing bare, named as a plain mesh rather than as an entity, which is both the
+simplest path the game has and the one every castle in the world takes at the
+start. Above it the same fort carries a village at its gate, larger at every
+level and built of the culture's own houses, so a Thenithrian fortress gathers a
+Roman village, a Drunathaenic one a Greek village and an Akarian one a Persian
+village. Nothing is laid within `FORT_CLEAR` of the middle, and the two forts
+measure 9.0 province pixels across alike, against the 4.9 of the base game's own
+fourth level castle, so one clearance serves both.
 
 ### The armies on the map
 
-Two sets of soldiers are ported, both under `gfx/models/units/imperator`.
+Four soldiers are ported, all under `gfx/models/units/imperator`.
 
 | Folder | Set | Entity | Worn by |
 | --- | --- | --- | --- |
 | `roman_infantry` | Roman legionary, sword and scutum | `patriam_roman_infantry_01_entity` | `patriam_roman_unit_gfx` |
 | `greek_infantry` | Greek hoplite, spear and aspis | `patriam_greek_infantry_01_entity` | `patriam_unit_gfx` |
+| `persian_infantry` | Persian spearman in scale armour | `patriam_persian_infantry_01_entity` | `patriam_persian_unit_gfx`, tiers 2 and 4 |
+| `persian_infantry` | Persian levy in a quilted coat | `patriam_persian_levies_infantry_01_entity` | `patriam_persian_unit_gfx`, tier 0 |
 
-Thenithrian carries `unit_gfx = { patriam_roman_unit_gfx }` and Late
-Drunathaenic carries `unit_gfx = { patriam_unit_gfx }`. Kaegonic and Akarian
-stay on `eastern_unit_gfx`.
+Thenithrian carries `unit_gfx = { patriam_roman_unit_gfx }`, Late Drunathaenic
+carries `unit_gfx = { patriam_unit_gfx }` and Akarian carries
+`unit_gfx = { patriam_persian_unit_gfx }`.
 
-Imperator's Greek meshes carry no animations of their own: every Greek asset
-reaches into the Roman folder for them. Both sets therefore share one skeleton
-and one animation set, which is held once in
-`gfx/models/units/imperator/animations` and reached by relative path from
-either folder. The shovel a soldier besieges with and the post he strikes while
+Imperator's Greek and Persian meshes carry no animations of their own: every
+one of those assets reaches into the Roman folder for them. All three sets
+therefore share one skeleton and one animation set, which is held once in
+`gfx/models/units/imperator/animations` and reached by relative path from any
+of the folders. Porting the Persian soldiers added no animation file at all. The shovel a soldier besieges with and the post he strikes while
 the army gathers are shared in the same way, from
 `patriam_imperator_props.asset` at the root of the ported folder. The drill post
 is the only ported unit mesh that asked for `standard_snow`, so it is named
@@ -648,6 +706,14 @@ soldier playing the wrong set would swing a weapon he is not holding. The two
 sets run to the same lengths, so a legionary and a hoplite still trade blows in
 time with one another.
 
+WHICH SET A PORTED SOLDIER BELONGS TO IS READ OFF ITS OWN IMPERATOR ENTITY AND
+NOT GUESSED FROM ITS WEAPON. Imperator's `persian_gfx_light_infantry`, which is
+the spearman ported here, names `weapon_1` in all eighteen of its combat states
+and holds `persian_spear_01`, so the Akarian soldier takes set one beside the
+hoplite, and its states are the hoplite's word for word. Imperator's
+`persian_gfx_heavy_infantry` names `weapon_2` in twenty two states and holds an
+Arabian sword; it is not ported.
+
 Crusader Kings III asks an army entity for twenty four states and Imperator
 names its states differently, so each one carries whichever Imperator animation
 reads closest. Two states have no counterpart at all. Imperator has no sick
@@ -656,19 +722,25 @@ apart only by the flies vanilla puts over his head. Imperator has no soldier
 going home either, so disbanding borrows the animation men are recruited with.
 
 `gfx/models/units/entity_links/00_army_entity_links.txt` is vanilla's file
-carried across whole, with two blocks added at the foot, so it must be diffed
-against vanilla after a game update. Vanilla gives each graphical culture three
-models across the quality tiers 0, 2 and 4. The port has one model a culture, so
-all three tiers point at the same entity, and a Thenithrian levy looks the same
-as a Thenithrian royal army until a second and a third rank of soldier are
-ported. Both graphical cultures carry a localisation entry, because the game
-logs a missing loc for one that has none.
+carried across whole, with three blocks added at the foot for each ported
+graphical culture, so it must be diffed against vanilla after a game update.
+Vanilla gives each graphical culture three models across the quality tiers 0, 2
+and 4. Thenithria and the Late Drunathaen have one model apiece, so all three
+tiers point at the same entity and a levy looks the same as a royal army until a
+second and a third rank of soldier are ported. Akaria has two, since Imperator
+ships a Persian levy as well as a Persian soldier, so its levy tier is the
+quilted coat and the two tiers above it the scale armour. Every graphical
+culture carries a localisation entry, because the game logs a missing loc for
+one that has none.
 
 Left behind, and why:
 
 * Imperator's light Roman levies and its Greek levies. Nothing Crusader Kings
-  III asks for needs them, and they would only be worth porting as the second
-  and the third quality tiers.
+  III asks for needs them, and they would only be worth porting as the lower
+  quality tiers, which is exactly what the Persian levies were ported for.
+* Imperator's Persian heavy infantry, its archers and everything it mounts. The
+  heavy infantry plays the sword set and would want its own state block, and no
+  army entity link asks for a horse.
 * The javelin, the club and the raiding torch, for the same reason. No state
   reaches for any of them.
 * The weapon impact sparks and the blood particles. Vanilla fires those from the

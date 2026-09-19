@@ -4,13 +4,17 @@
 # round wooden palisade, and the cultures of the Drunathaen build square walls
 # about a central keep.
 #
-# Imperator ships one fort mesh and no others, so the levels are told apart by
-# what gathers around it. The first is the fort alone, laid as a plain mesh,
-# which is what every castle in the world shows until a lord pays to raise it.
-# Above that the same fort carries a village at its gate, larger at every level
-# and built of the culture's own houses, so a Thenithrian fortress gathers a
-# Roman village and a Drunathaenic one a Greek village. Those are written by
+# Imperator ships one fort mesh to a graphical culture and no more, so the
+# levels are told apart by what gathers around it. The first is the fort alone,
+# laid as a plain mesh, which is what every castle in the world shows until a
+# lord pays to raise it. Above that the same fort carries a village at its gate,
+# larger at every level and built of the culture's own houses, so a Thenithrian
+# fortress gathers a Roman village, a Drunathaenic one a Greek village and an
+# Akarian one a Persian village. Those are written by
 # tools/map/build_holding_models.py.
+#
+# Two forts are ported. The square stone one serves Thenithria and the Late
+# Drunathaen, and the eastern one serves Akaria.
 #
 # Everything else in this file is vanilla's and should be diffed against it
 # after a game update.
@@ -41,6 +45,15 @@ castle_01 = {
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 0 } }
 			graphical_cultures = { patriam_building_gfx patriam_roman_building_gfx byzantine_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the eastern fort of Imperator: Rome, standing bare, which is the same holding at the same level in Akarian stone ###
+		asset = {
+			type = pdxmesh
+			name = "patriam_persian_fort_mesh"
+			illustration = @holding_illustration_mena
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mena_castle" soundparameter = { "Tier" = 0 } }
+			graphical_cultures = { patriam_persian_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 
@@ -614,6 +627,19 @@ castle_02 = {
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
+		### Patriam: the eastern fort with a Persian village grown at its gate ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_persian_fort_02_first_entity"
+				"patriam_persian_fort_02_second_entity"
+				"patriam_persian_fort_02_third_entity"
+			}
+			illustration = @holding_illustration_mena
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mena_castle" soundparameter = { "Tier" = 1 } }
+			graphical_cultures = { patriam_persian_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
 
 		### FP1 Norse ###
 		asset = {
@@ -1126,6 +1152,19 @@ castle_03 = {
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
+		### Patriam: the eastern fort with a Persian village grown at its gate ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_persian_fort_03_first_entity"
+				"patriam_persian_fort_03_second_entity"
+				"patriam_persian_fort_03_third_entity"
+			}
+			illustration = @holding_illustration_mena
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mena_castle" soundparameter = { "Tier" = 2 } }
+			graphical_cultures = { patriam_persian_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
 
 		### FP1 Norse ###
 		asset = {
@@ -1633,6 +1672,19 @@ castle_04 = {
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 3 } }
 			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		}
+		### Patriam: the eastern fort with a Persian village grown at its gate ###
+		asset = {
+			type = entity
+			names = {
+				"patriam_persian_fort_04_first_entity"
+				"patriam_persian_fort_04_second_entity"
+				"patriam_persian_fort_04_third_entity"
+			}
+			illustration = @holding_illustration_mena
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mena_castle" soundparameter = { "Tier" = 3 } }
+			graphical_cultures = { patriam_persian_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 
