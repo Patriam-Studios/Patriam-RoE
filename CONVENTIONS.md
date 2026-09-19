@@ -442,12 +442,13 @@ footprints. Textures resolve by bare file name across the whole `gfx` tree in
 both games, which is why a set's textures are copied in beside its meshes
 rather than referenced where they sit.
 
-Four sets are ported, all under `gfx/models/buildings/imperator`.
+Five sets are ported, all under `gfx/models/buildings/imperator`.
 
 | Folder | Set | Meshes | Worn by |
 | --- | --- | --- | --- |
 | `hellenistic_city` | Greek city | 3, 5, 7 and 8 variants over four tiers, plus a centre | `patriam_building_gfx` |
 | `roman_city` | Roman city | 5, 7, 5 and 6 variants over four tiers, plus a centre | `patriam_roman_building_gfx` |
+| `hellenistic_fort` | Square stone fort | one mesh, all four castle levels | both |
 | `temples` | Temple of Jupiter | one mesh, all four temple levels | `patriam_roman_building_gfx` |
 | `temples` | Temples of Zeus and Artemis | two meshes, all four temple levels | `patriam_building_gfx` |
 
@@ -457,9 +458,10 @@ Late Drunathaenic takes the Greek one with
 `building_gfx = { patriam_building_gfx byzantine_building_gfx }`. The second
 entry in each pair covers the holdings the port does not reach yet.
 
-`common/buildings/00_city_buildings.txt` and
-`common/buildings/00_temple_buildings.txt` are both vanilla's files carried
-across whole, with asset blocks added at every level, so both must be diffed
+`common/buildings/00_city_buildings.txt`,
+`common/buildings/00_castle_buildings.txt` and
+`common/buildings/00_temple_buildings.txt` are all three vanilla's files carried
+across whole, with asset blocks added at every level, so each must be diffed
 against vanilla after a game update.
 
 Two things Imperator ships that had to be corrected or dropped:
@@ -476,6 +478,96 @@ Two things Imperator ships that had to be corrected or dropped:
 Not yet checked in game: the scale of the meshes against CK3's own, the
 terrain mask decal, and how the temples sit on a holding footprint they were
 never cut for.
+
+### Cities of many buildings
+
+The two games build a city differently, and the difference is what first made
+Thenithria a speck on the map. Imperator draws a city as a crowd of building
+meshes clustered together, placed by its own `gfx/map/city_data` according to
+how many people live there, so one Imperator mesh is one house. Crusader Kings
+III draws a whole holding as a single entity, and its own
+`building_..._city_01` mesh is an entire town. Putting one Imperator house
+where the base game expected a town is why the map showed a house. Scaling that
+house up to the size of a town would give one absurd building, so a city here is
+composed instead.
+
+The base game composes entities itself. An entity may declare locators at any
+position and attach other entities to them, which
+`gfx/models/artifacts/props/bp1/bp1_lantern_01_a.asset` does for a flame, which
+`gfx/models/buildings/all_buildings.asset` does for a whole board of holdings,
+and which the holding entity `fp3_building_persian_temple_01_a_01_entity` does
+in the base game's own city view. A holding asset block takes either a mesh or
+an entity, as `common/buildings/_buildings.info` sets out, so the composite is
+reached by `type = entity` and a name rather than by a mesh list.
+
+`tools/map/build_city_models.py` writes the eight composites, one for each level
+of each set, into `patriam_hellenistic_city_levels.asset` and
+`patriam_roman_city_levels.asset` beside the meshes they gather. Each is one
+entity carrying a centrepiece mesh, ringed by locators with one Imperator house
+attached at each. The layout is a town rather than a grid: rings about the
+centre, each ring further out and carrying more houses, every house nudged off
+its ring and turned on the spot so the result does not read as a wheel. The
+grand meshes sit in the inner rings and the humble ones on the outskirts, which
+is the shape a real town takes. The randomness is seeded, so the same cities are
+written every time.
+
+| Level | Buildings | Rings | Outer ring | Across |
+| --- | --- | --- | --- | --- |
+| 1, the village | 6 | 1 | 2.0 | about 6 province pixels |
+| 2 | 15 | 2 | 3.6 | about 10 |
+| 3 | 44 | 4 | 6.8 | about 16 |
+| 4, the capital | 88 | 6 | 10.0 | about 22 |
+
+Those are province pixels on a map 16384 of them wide, where the median barony
+measures about 26 across, so the capital nearly fills its own barony. The Greek
+tiers are the ones Imperator's own `city_data/default.txt` names at each
+population tier, except that its third tier lists six meshes where the game
+ships seven, and `hellenistic_03_07`, which nothing in Imperator ever names, is
+grouped with the six for the variety. Imperator's data never names a single
+`western` mesh at all, so the Roman tiers come from the file names alone. The
+Roman centrepiece is `western_center`, which carries every Roman level, and the
+Greek one is `hellenistic_center`, which the base game never used and which
+takes the two larger Greek levels while the smaller pair are given the finest
+ordinary house instead.
+
+Every layout number lives in named constants at the head of that tool, and these
+are the ones worth turning.
+
+* `HOUSE_WIDTH` is 2.3, measured off the bounding boxes inside the mesh files
+  themselves, where a house body runs from 0.6 to 2.8 province pixels across.
+  Every Greek mesh also drags a 5.09 pixel ground decal, which is a blend patch
+  rather than the building, so it is ignored and the decals of neighbours are
+  meant to overlap. If the houses stand too far apart, lower this.
+* `RINGS_PER_LEVEL` is what turns a village into a capital, and it is the first
+  thing to turn if a city looks wrong for its barony.
+* `BUILDING_SCALE` is one, and is applied on the locator rather than on the
+  mesh, so a single number resizes every house in every city without any mesh
+  being touched.
+
+### The forts
+
+Crusader Kings III wraps its own early castles in a round wooden palisade, and
+the cultures of the Drunathaen build square stone walls about a central keep.
+Imperator ships exactly that, and it is ported whole to
+`gfx/models/buildings/imperator/hellenistic_fort` as
+`patriam_hellenistic_fort_mesh`. It asks for `standard_snow`, so it carries the
+rename to `standard_winter` like the rest. Its paving and its wall texture are
+the ones the Greek cities already carry, and since textures resolve by bare file
+name across the whole `gfx` tree they are reached where they sit rather than
+copied in a second time under the same names. Imperator fires a sound of its own
+from the fort, out of an FMOD bank this game does not carry, so that state is
+stripped and the castle levels name a sound of this game instead.
+
+Imperator ships one fort mesh and no others, so that one mesh serves all four
+castle levels, and a keep looks the same at level one as at level four until a
+second and a third fort are modelled. Both graphical cultures are named in one
+asset block each level, since both take the same fort.
+
+Not yet checked in game: the fort measures 9.0 province pixels across against
+the 4.9 of the base game's own fourth level castle, which is meant to be the
+larger thing, being a walled fort rather than a keep. `scale` on
+`patriam_hellenistic_fort_entity` is the one number to turn if it crowds its
+barony.
 
 ### The armies on the map
 

@@ -4,6 +4,11 @@
 # cultures whose building_gfx is patriam_building_gfx, and the Roman cities for
 # cultures whose building_gfx is patriam_roman_building_gfx. Everything else in
 # this file is vanilla's and should be diffed against it after a game update.
+#
+# Each set names an entity rather than a mesh, because one Imperator mesh is a
+# single house where the base game expects a whole town. The entities named
+# below are composed of many houses apiece and are written by
+# tools/map/build_city_models.py.
 
 @holding_illustration_western = "gfx/interface/illustrations/holding_types/city_western.dds"
 @holding_illustration_india = "gfx/interface/illustrations/holding_types/city_india.dds"
@@ -24,12 +29,8 @@ city_01 = {
 	assets = {
 		### Patriam: the Hellenistic cities of Imperator: Rome ###
 		asset = {
-			type = pdxmesh
-			names = {
-				"hellenistic_01_01_mesh"
-				"hellenistic_01_02_mesh"
-				"hellenistic_01_03_mesh"
-			}
+			type = entity
+			name = "patriam_hellenistic_city_01_entity"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
 			graphical_cultures = { patriam_building_gfx }
@@ -37,14 +38,8 @@ city_01 = {
 		}
 		### Patriam: the Roman cities of Imperator: Rome ###
 		asset = {
-			type = pdxmesh
-			names = {
-				"western_01_01_mesh"
-				"western_01_02_mesh"
-				"western_01_03_mesh"
-				"western_01_04_mesh"
-				"western_01_05_mesh"
-			}
+			type = entity
+			name = "patriam_roman_city_01_entity"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
 			graphical_cultures = { patriam_roman_building_gfx }
@@ -641,14 +636,8 @@ city_02 = {
 	assets = {
 		### Patriam: the Hellenistic cities of Imperator: Rome ###
 		asset = {
-			type = pdxmesh
-			names = {
-				"hellenistic_02_01_mesh"
-				"hellenistic_02_02_mesh"
-				"hellenistic_02_03_mesh"
-				"hellenistic_02_04_mesh"
-				"hellenistic_02_05_mesh"
-			}
+			type = entity
+			name = "patriam_hellenistic_city_02_entity"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
 			graphical_cultures = { patriam_building_gfx }
@@ -656,16 +645,8 @@ city_02 = {
 		}
 		### Patriam: the Roman cities of Imperator: Rome ###
 		asset = {
-			type = pdxmesh
-			names = {
-				"western_02_01_mesh"
-				"western_02_02_mesh"
-				"western_02_03_mesh"
-				"western_02_04_mesh"
-				"western_02_05_mesh"
-				"western_02_06_mesh"
-				"western_02_07_mesh"
-			}
+			type = entity
+			name = "patriam_roman_city_02_entity"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
 			graphical_cultures = { patriam_roman_building_gfx }
@@ -1238,16 +1219,8 @@ city_03 = {
 	assets = {
 		### Patriam: the Hellenistic cities of Imperator: Rome ###
 		asset = {
-			type = pdxmesh
-			names = {
-				"hellenistic_03_01_mesh"
-				"hellenistic_03_02_mesh"
-				"hellenistic_03_03_mesh"
-				"hellenistic_03_04_mesh"
-				"hellenistic_03_05_mesh"
-				"hellenistic_03_06_mesh"
-				"hellenistic_03_07_mesh"
-			}
+			type = entity
+			name = "patriam_hellenistic_city_03_entity"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
 			graphical_cultures = { patriam_building_gfx }
@@ -1255,14 +1228,8 @@ city_03 = {
 		}
 		### Patriam: the Roman cities of Imperator: Rome ###
 		asset = {
-			type = pdxmesh
-			names = {
-				"western_03_01_mesh"
-				"western_03_02_mesh"
-				"western_03_03_mesh"
-				"western_03_04_mesh"
-				"western_03_05_mesh"
-			}
+			type = entity
+			name = "patriam_roman_city_03_entity"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
 			graphical_cultures = { patriam_roman_building_gfx }
@@ -1819,17 +1786,8 @@ city_04 = {
 	assets = {
 		### Patriam: the Hellenistic cities of Imperator: Rome ###
 		asset = {
-			type = pdxmesh
-			names = {
-				"hellenistic_04_01_mesh"
-				"hellenistic_04_02_mesh"
-				"hellenistic_04_03_mesh"
-				"hellenistic_04_04_mesh"
-				"hellenistic_04_05_mesh"
-				"hellenistic_04_06_mesh"
-				"hellenistic_04_07_mesh"
-				"hellenistic_04_08_mesh"
-			}
+			type = entity
+			name = "patriam_hellenistic_city_04_entity"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 3 } }
 			graphical_cultures = { patriam_building_gfx }
@@ -1837,15 +1795,8 @@ city_04 = {
 		}
 		### Patriam: the Roman cities of Imperator: Rome ###
 		asset = {
-			type = pdxmesh
-			names = {
-				"western_04_01_mesh"
-				"western_04_02_mesh"
-				"western_04_03_mesh"
-				"western_04_04_mesh"
-				"western_04_05_mesh"
-				"western_04_06_mesh"
-			}
+			type = entity
+			name = "patriam_roman_city_04_entity"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 3 } }
 			graphical_cultures = { patriam_roman_building_gfx }

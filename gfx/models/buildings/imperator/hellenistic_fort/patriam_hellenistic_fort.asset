@@ -1,0 +1,67 @@
+﻿############################################################
+# The square stone fort of Imperator: Rome, which both ported cultures garrison.
+#
+# Ported from Imperator: Rome, which Paradox gave written permission to use.
+# Crusader Kings III wraps its own castles in a round wooden palisade, and the
+# cultures of the Drunathaen build square stone walls about a central keep, which
+# is exactly the fort Imperator already ships.
+#
+# Imperator asks this mesh for the shader standard_snow, which Crusader Kings III
+# does not have, so it is named standard_winter here.
+#
+# Its stone paving and its wall texture are the ones the Hellenistic cities
+# already carry, in gfx/models/buildings/imperator/hellenistic_city. Textures
+# resolve by bare file name across the whole gfx tree, so they are reached where
+# they sit rather than copied in a second time under the same names.
+#
+# SCALE: the fort measures 9.0 province pixels across, against the 4.9 of the
+# base game's own fourth level castle, and the median barony is about 26 across.
+# It is meant to be the larger thing, being a walled fort rather than a keep, but
+# scale below is the one number to turn if it crowds its barony.
+############################################################
+
+pdxmesh = {
+	name = "patriam_hellenistic_fort_mesh"
+	file = "hellenistic_fort.mesh"
+
+	meshsettings = {
+		name = "pCube119Shape"
+		index = 0
+		texture_diffuse = "hellenistic_fort_diffuse.dds"
+		texture_normal = "hellenistic_fort_normal.dds"
+		texture_specular = "hellenistic_fort_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "fort_plate_stones:fort_plate:polySurfaceShape47"
+		index = 0
+		texture_diffuse = "stone_tiles_diffuse.dds"
+		texture_normal = "stone_tiles_normal.dds"
+		texture_specular = "stone_tiles_material.dds"
+		texture = { file = "hellenistic_fort_mask.dds" index = 3 }
+		shader = "decal_world"
+		shader_file = "gfx/FX/pdxmesh_decal.shader"
+		subpass = "Decals"
+	}
+
+	meshsettings = {
+		name = "pCubeShape4"
+		index = 0
+		texture_diffuse = "hellenistic_building_01_diffuse.dds"
+		texture_normal = "hellenistic_building_01_normal.dds"
+		texture_specular = "hellenistic_fort_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+
+# Imperator fires a sound of its own from this entity, out of an FMOD bank that
+# Crusader Kings III does not carry, so that state is stripped. The castle levels
+# in common/buildings/00_castle_buildings.txt name a sound of this game instead.
+entity = {
+	name = "patriam_hellenistic_fort_entity"
+	pdxmesh = "patriam_hellenistic_fort_mesh"
+	scale = 1.0
+}
