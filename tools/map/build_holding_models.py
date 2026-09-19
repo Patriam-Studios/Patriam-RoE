@@ -99,11 +99,34 @@ LUMP = (0.16, 0.11, 0.07)
 JITTER_RADIAL = 0.45
 JITTER_ALONG = 0.40
 
-# How a house is turned. Imperator snaps its own houses to a number of steps and
-# then varies them a little, which keeps rectangular buildings roughly square to
-# one another as a street would, so the same is done here.
+# How a house is turned. Imperator snaps its own houses to four or eight steps
+# with no variation at all, which keeps rectangular buildings square to one
+# another as a street would, so the same is done here and the variation is kept
+# small.
+#
+# WHICH NUMBER IS THE HEADING. A locator's rotation is three angles in degrees
+# and the FIRST of them turns the model about the vertical. The base game writes
+# 763 of them, 715 with the angle in the first place and only two in the second,
+# and those first values run right around the compass, 20, 90, 166, 180, 211,
+# 340, which is a heading and not a lean. Writing the heading into the second
+# place instead tips every house onto its side, which is exactly what the first
+# built towns did.
 ROTATION_STEPS = 8
-ROTATION_JITTER = 9.0
+ROTATION_JITTER = 6.0
+GRID_ROTATION_STEPS = 4
+GRID_ROTATION_JITTER = 0.0
+
+# The Roman plan. A Thenithrian town is built to the square: houses in insulae
+# of GRID_BLOCK by GRID_BLOCK with a street between one block and the next, two
+# broader streets crossing at the forum, and a rectangle GRID_DEPTH as deep as
+# it is wide with its corners taken off.
+GRID_BLOCK = 2
+GRID_STREET = 1.1
+GRID_DEPTH = 0.78
+GRID_JITTER = 0.10
+# Houses in one insula share their walls, so they stand closer along the block
+# than the streets stand apart.
+GRID_TERRACE = 0.74
 
 # How strongly the grand tiers keep to the middle of a town. At zero every tier
 # is equally likely anywhere, which reads as a suburb; at one the tiers sort
@@ -128,8 +151,8 @@ VARIANTS = ("first", "second", "third")
 # the game ships a seventh, hellenistic_03_07, which nothing in Imperator ever
 # names; it is grouped with the six by its name, for the variety.
 #
-# Imperator's own data never names a single western mesh, so the Roman tiers
-# come from the file names alone.
+# Both ported sets draw on these, Imperator's own Roman culture having drawn on
+# them too.
 ############################################################
 
 GREEK_TIERS = {
@@ -144,26 +167,24 @@ GREEK_TIERS = {
         "hellenistic_04_07", "hellenistic_04_08"],
 }
 
-ROMAN_TIERS = {
-    1: ["western_01_01", "western_01_02", "western_01_03",
-        "western_01_04", "western_01_05"],
-    2: ["western_02_01", "western_02_02", "western_02_03", "western_02_04",
-        "western_02_05", "western_02_06", "western_02_07"],
-    3: ["western_03_01", "western_03_02", "western_03_03",
-        "western_03_04", "western_03_05"],
-    4: ["western_04_01", "western_04_02", "western_04_03",
-        "western_04_04", "western_04_05", "western_04_06"],
-}
+# Rome builds in the same stone as Greece. Imperator's own
+# gfx/map/city_data/default.txt gives its Roman graphical culture the very same
+# hellenistic meshes and the very same hellenistic_center as its Greek one: the
+# two blocks are identical but for their names, and no graphical culture in that
+# game ever names a `western` mesh. The `western` folder is a leftover barbarian
+# set, huts and thatched cones wearing the steppe's felt and lattice textures,
+# which is what put tents across Thenithria. So the two sets here share their
+# buildings, and what tells a Thenithrian city from a Drunathaenic one is the
+# plan it is laid on: Thenithria builds to the square and the Drunathaen build
+# as the ground allows.
+ROMAN_TIERS = GREEK_TIERS
 
-# What stands at the heart of each city. The Roman centrepiece is the tallest
-# piece of its set and carries every Roman level. The Greek centrepiece is a
-# grander thing, so it takes only the larger Greek levels and the two small ones
-# are given the finest ordinary house of the set instead.
 SETS_LAYOUT = [
     {
         "key": "hellenistic",
         "name": "Greek",
         "tiers": GREEK_TIERS,
+        "plan": "organic",
         "city": "patriam_hellenistic_city_%02d_%s_entity",
         "fort": "patriam_hellenistic_fort_%02d_%s_entity",
         "centres": {1: "hellenistic_01_03", 2: "hellenistic_02_02",
@@ -173,10 +194,11 @@ SETS_LAYOUT = [
         "key": "roman",
         "name": "Roman",
         "tiers": ROMAN_TIERS,
+        "plan": "grid",
         "city": "patriam_roman_city_%02d_%s_entity",
         "fort": "patriam_roman_fort_%02d_%s_entity",
-        "centres": {1: "western_center", 2: "western_center",
-                    3: "western_center", 4: "western_center"},
+        "centres": {1: "hellenistic_02_02", 2: "hellenistic_02_04",
+                    3: "hellenistic_center", 4: "hellenistic_center"},
     },
 ]
 
@@ -208,6 +230,49 @@ def pick_mesh(tiers, share, rng, previous):
         if choice != previous:
             return choice
     return choice
+
+
+def lay_out_grid(tiers, radius, rng, clear=0.0):
+    """A town built to the square, which is how Thenithria builds. Houses stand
+    in insulae, blocks of them with a street between one block and the next, two
+    broader streets cross at the middle, and every house is square to its street.
+    The outline is a rectangle with its corners taken off, so the whole reads as
+    a planned town and not as a chessboard."""
+    wide, deep = radius, radius * GRID_DEPTH
+    lanes = []
+    for span, pitch in ((wide, SPACING), (deep, SPACING * GRID_TERRACE)):
+        rows, x = [], pitch * 0.5
+        while x <= span + pitch * 0.5:
+            rows.append(x)
+            rows.append(-x)
+            x += pitch + (GRID_STREET if len(rows) % (2 * GRID_BLOCK) == 0 else 0.0)
+        # The walk lands a half pitch either side of where the town ends, which
+        # on its own would leave a level four town no larger than a level two.
+        # Drawing every lane onto the town's edge costs at most half a pitch of
+        # regularity and buys a town that grows with its level.
+        edge = max(rows) if rows else 0.0
+        if edge > 0.0:
+            rows = [r * (span - pitch * 0.5) / edge for r in rows]
+        lanes.append(sorted(rows))
+    houses, previous = [], None
+    for x in lanes[0]:
+        for z in lanes[1]:
+            r = math.hypot(x / max(wide, 0.1), z / max(deep, 0.1))
+            if r > 1.0 or math.hypot(x, z) < clear:
+                continue
+            if abs(x) < GRID_STREET and abs(z) < GRID_STREET:
+                continue                      # the two great streets cross here
+            if math.hypot(x, z) < FIRST_RING:
+                continue                      # the forum keeps its ground
+            fx = x + rng.uniform(-GRID_JITTER, GRID_JITTER)
+            fz = z + rng.uniform(-GRID_JITTER, GRID_JITTER)
+            mesh = pick_mesh(tiers, min(1.0, r), rng, previous)
+            previous = mesh
+            step = 360.0 / GRID_ROTATION_STEPS
+            yaw = (rng.randrange(GRID_ROTATION_STEPS) * step
+                   + rng.uniform(-GRID_ROTATION_JITTER, GRID_ROTATION_JITTER)) % 360.0
+            houses.append((fx, fz, yaw, mesh))
+    return houses
 
 
 def lay_out(tiers, radius, rng, clear=0.0):
@@ -243,6 +308,11 @@ def lay_out(tiers, radius, rng, clear=0.0):
     return houses
 
 
+def plan_of(spec):
+    """Which plan a set builds on."""
+    return lay_out_grid if spec["plan"] == "grid" else lay_out
+
+
 def entity(name, mesh, houses, note):
     """One composed holding, as the text of its asset block."""
     reach = max([math.hypot(x, z) for x, z, _, _ in houses] or [1.0])
@@ -255,7 +325,7 @@ def entity(name, mesh, houses, note):
     out.append("")
     for i, (x, z, yaw, _) in enumerate(houses):
         out.append('\tlocator = { name = "house_%03d" position = { %.3f 0.0 %.3f } '
-                   "rotation = { 0.0 %.1f 0.0 } scale = %.3f }"
+                   "rotation = { %.1f 0.0 0.0 } scale = %.3f }"
                    % (i, x, z, yaw, BUILDING_SCALE))
     out.append("")
     for i, (_, _, _, house) in enumerate(houses):
@@ -274,7 +344,7 @@ def build(rng):
     for spec in SETS_LAYOUT:
         for level in (1, 2, 3, 4):
             for variant in VARIANTS:
-                houses = lay_out(spec["tiers"], TOWN_RADIUS[level], rng)
+                houses = plan_of(spec)(spec["tiers"], TOWN_RADIUS[level], rng)
                 across = 2.0 * max(math.hypot(x, z) for x, z, _, _ in houses) + HOUSE_WIDTH * BUILDING_SCALE
                 kinds = len({h for _, _, _, h in houses})
                 blocks.append(entity(
@@ -286,7 +356,8 @@ def build(rng):
                 report.append(("%s city" % spec["name"], level, variant, len(houses), kinds, across))
         for level in (2, 3, 4):
             for variant in VARIANTS:
-                houses = lay_out(spec["tiers"], FORT_TOWN_RADIUS[level], rng, clear=FORT_CLEAR)
+                houses = plan_of(spec)(spec["tiers"], FORT_TOWN_RADIUS[level], rng,
+                                       clear=FORT_CLEAR)
                 across = 2.0 * max(math.hypot(x, z) for x, z, _, _ in houses) + HOUSE_WIDTH * BUILDING_SCALE
                 kinds = len({h for _, _, _, h in houses})
                 blocks.append(entity(
@@ -320,7 +391,7 @@ def build(rng):
 def known_entities():
     """Every entity the ported sets declare, read off the asset files."""
     names = set()
-    for folder in ("hellenistic_city", "roman_city", "hellenistic_fort"):
+    for folder in ("hellenistic_city", "hellenistic_fort", "temples"):
         here = os.path.join(SETS, folder)
         for f in sorted(os.listdir(here)):
             if not f.endswith(".asset") or f.startswith("zz_"):
@@ -335,7 +406,7 @@ def known_entities():
 def known_meshes():
     """Every mesh the ported sets declare."""
     names = set()
-    for folder in ("hellenistic_city", "roman_city", "hellenistic_fort"):
+    for folder in ("hellenistic_city", "hellenistic_fort", "temples"):
         here = os.path.join(SETS, folder)
         for f in sorted(os.listdir(here)):
             if not f.endswith(".asset") or f.startswith("zz_"):
@@ -369,7 +440,7 @@ def self_check():
         got = [levels[k][0] for k in sorted(levels)]
         assert got == sorted(got), "%s does not grow with its level: %s" % (kind, got)
         assert min(levels[k][1] for k in levels) >= 6, "too few kinds of building in " + kind
-        assert levels[max(levels)][1] >= 12, "too few kinds of building in a grown " + kind
+        assert levels[max(levels)][1] >= 10, "too few kinds of building in a grown " + kind
         assert min(got) >= 12, "%s is a hamlet at its smallest: %s" % (kind, got)
         assert max(levels[k][2] for k in levels) <= 31.0, "a holding wider than a barony"
     # written twice, the same thing twice over

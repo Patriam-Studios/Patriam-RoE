@@ -446,8 +446,7 @@ Five sets are ported, all under `gfx/models/buildings/imperator`.
 
 | Folder | Set | Meshes | Worn by |
 | --- | --- | --- | --- |
-| `hellenistic_city` | Greek city | 3, 5, 7 and 8 variants over four tiers, plus a centre | `patriam_building_gfx` |
-| `roman_city` | Roman city | 5, 7, 5 and 6 variants over four tiers, plus a centre | `patriam_roman_building_gfx` |
+| `hellenistic_city` | Classical city | 3, 5, 7 and 8 variants over four tiers, plus a centre | both sets |
 | `hellenistic_fort` | Square stone fort | one mesh, bare at the first castle level and villaged above it | both |
 | `temples` | Temple of Jupiter | one mesh, all four temple levels | `patriam_roman_building_gfx` |
 | `temples` | Temples of Zeus and Artemis | two meshes, all four temple levels | `patriam_building_gfx` |
@@ -527,15 +526,31 @@ distinct meshes stand in one town. The centrepiece keeps a square of open ground
 about it, being a civic complex and not a house. The randomness is seeded, so
 the same world is written every time.
 
-The Greek tiers are the ones Imperator's own `city_data/default.txt` names at
-each population tier, except that its third tier lists six meshes where the game
-ships seven, and `hellenistic_03_07`, which nothing in Imperator ever names, is
-grouped with the six for the variety. Imperator's data never names a single
-`western` mesh at all, so the Roman tiers come from the file names alone. The
-Roman centrepiece is `western_center`, which carries every Roman level, and the
-Greek one is `hellenistic_center`, which the base game never used and which
-takes the two larger Greek levels while the smaller pair are given the finest
-ordinary house instead.
+ROME BUILDS IN THE SAME STONE AS GREECE. Imperator's own
+`gfx/map/city_data/default.txt` gives its Roman graphical culture the very same
+`hellenistic_*` meshes and the very same `hellenistic_center` as its Greek one:
+the two blocks are identical but for their names, and no graphical culture in
+that game ever names a `western` mesh. The `western` folder is a leftover
+barbarian set, round huts and thatched cones wearing the steppe's felt and
+lattice textures, and porting it as the Roman city set is what put tents and
+yurts across Thenithria. It is removed.
+
+What tells a Thenithrian city from a Drunathaenic one is therefore the plan and
+not the buildings. Thenithria builds to the square, houses in insulae with a
+street between one block and the next and two broader streets crossing at the
+forum, inside a rectangle with its corners taken off. The Drunathaen build as
+the ground allows, ring by ring under a lumped outline. The tiers are the ones
+Imperator names at each population tier, except that its third tier lists six
+meshes where the game ships seven, and `hellenistic_03_07`, which nothing in
+Imperator ever names, is grouped with the six for the variety.
+
+WHICH NUMBER IN A LOCATOR IS THE HEADING. A locator's `rotation` is three angles
+in degrees and THE FIRST OF THEM turns the model about the vertical. The base
+game writes 763 locator rotations, 715 of them with the angle in the first place
+and two in the second, and those first values run right around the compass, 20,
+90, 166, 180, 211 and 340, which is a heading and not a lean. The first towns
+wrote the heading into the second place, which is the pitch, and every house in
+the world lay on its side.
 
 Every layout number lives in named constants at the head of that tool, and these
 are the ones worth turning.
@@ -564,6 +579,20 @@ Since a holding is drawn at the level of its main building and every holding in
 the world starts at the first, the great seats are raised in province history
 instead of waiting on a lord's purse: `660` Thenithria is given `city_04` and
 `659` Kaeraenis Gralin, the royal seat, is given `castle_03`.
+
+### Tribal holdings
+
+A barony whose holder is tribal is drawn from `tribe_01` or `tribe_02` and not
+from its castle, and the base game's generic tribal asset,
+`building_western_tribal_01_a_mesh`, is a ring of timber stakes. That is what
+put palisades across Southern Kallonia. This world holds no timber palisades, so
+`common/buildings/00_tribal_buildings.txt` is carried across whole like the
+others and both levels are given the same composed towns the cities take, a
+tribal holding being simply a town that has not yet raised walls.
+
+Why there are tribal holders at all is a separate question and an open one: 92
+of the 192 counties carry no holder in history, so the game makes one for each,
+and the cultures carry no innovations, which leaves the world in the tribal era.
 
 ### The forts
 
