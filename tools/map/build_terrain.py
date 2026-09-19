@@ -58,6 +58,83 @@ def noise(shape, cell, rng, octaves=2):
     return np.clip(out / amp, 0.0, 1.0)
 
 
+def reconcile(slots, weights, used, H, W):
+    """Give every texel the four grounds its neighbourhood carries.
+
+    The game point samples detail_index and gathers a neighbouring texel's
+    weight only into a slot whose material matches. A ground a texel does not
+    carry in any of its four slots is therefore dropped rather than blended,
+    which draws a hard seam and, where enough is dropped, leaves the ground
+    barely drawn at all. Vanilla answers this by filling every slot: its four
+    are in use over 100, 99, 67 and 56 per cent of its map, while two slots were
+    all this ever wrote.
+
+    So each texel takes the four grounds that weigh most across its own three by
+    three neighbourhood, and keeps its own weight for each of them, which is
+    nothing for a ground only its neighbours carry. The weights it did carry are
+    unchanged, so the ground it draws is the same; it is only ready to be blended
+    with what stands beside it."""
+    def own_weight(mid):
+        own = np.zeros((H, W), np.float32)
+        for k in range(len(slots)):
+            own += np.where(slots[k] == mid, weights[k], 0).astype(np.float32)
+        return own
+
+    top_w = [np.full((H, W), -1.0, np.float32) for _ in range(4)]
+    top_id = [np.full((H, W), 255, np.uint8) for _ in range(4)]
+    for mid in used:
+        near = ndimage.uniform_filter(own_weight(mid), 3, mode="nearest")
+        for r in range(4):
+            take = near > top_w[r]
+            for q in range(3, r, -1):                  # everything below it moves down one
+                top_w[q] = np.where(take, top_w[q - 1], top_w[q])
+                top_id[q] = np.where(take, top_id[q - 1], top_id[q])
+            top_w[r] = np.where(take, near, top_w[r])
+            top_id[r] = np.where(take, np.uint8(mid), top_id[r])
+            near = np.where(take, np.float32(-1.0), near)     # placed once and no lower
+            del take
+        del near
+    del top_w
+
+    # each slot then takes this texel's own weight for the ground that sits there
+    out_w = [np.zeros((H, W), np.float32) for _ in range(4)]
+    for mid in used:
+        own = own_weight(mid)
+        for r in range(4):
+            out_w[r] = np.where(top_id[r] == mid, own, out_w[r])
+        del own
+    return top_id, out_w
+
+
+def agree(index, used, passes=1):
+    """Make neighbouring texels name the same grounds.
+
+    The game point samples detail_index and gathers each neighbouring texel's
+    weight only into a slot whose material matches, so where two texels side by
+    side name different grounds the weight is dropped instead of blended. That
+    is what draws a hard seam, and where enough of it is dropped the ground is
+    not drawn at all. Taking the vote of each three by three neighbourhood
+    settles the disagreements: a lone texel that names a ground none of its
+    neighbours carry gives way to theirs.
+    """
+    out = index
+    for _ in range(passes):
+        best = None
+        best_id = np.zeros(out.shape, np.uint8)
+        for mid in used:
+            c = ndimage.uniform_filter((out == mid).astype(np.float32), 3, mode="nearest")
+            if best is None:
+                best, best_id[:] = c, np.uint8(mid)
+            else:
+                take = c > best
+                best = np.where(take, c, best)
+                best_id = np.where(take, np.uint8(mid), best_id)
+            del c
+        out = best_id
+        del best
+    return out
+
+
 def blend_partner(primary, used, H, W):
     """For every pixel, which other ground lies around it and how much of the
     neighbourhood it holds. Worked out on a quarter grid and stretched back."""
@@ -159,16 +236,7 @@ def main(prefix, heightmap_path, map_data_dir, out_dir):
     w2[~land] = 0.0
     w2[partner == primary] = 0.0
 
-    # And the two grounds change places at random as the border is crossed, more
-    # and more often the nearer it comes, so that on the line itself it is even.
-    # A border drawn as one hard edge is what reads as pixels when the camera is
-    # close: this leaves the two interlocking in patches a few pixels across.
-    swap = noise((H, W), 10, rng, octaves=1) < w2
-    swap &= land
-    primary, partner = np.where(swap, partner, primary), np.where(swap, primary, partner)
-    print("grounds changed places over %.1f%% of the land, which softens every border"
-          % (swap[land].mean() * 100))
-    del swap, land, grain
+    del land, grain
 
     w1 = np.clip(1.0 - w2 - w3, 0.08, 1.0).astype(np.float32)
     total = w1 + w2 + w3
@@ -178,18 +246,51 @@ def main(prefix, heightmap_path, map_data_dir, out_dir):
     assert (i1.astype(np.int32) + i2 + i3 == 255).all(), "weights must add to 255, as vanilla's do"
     del w1, w2, w3, total
 
+    # Settle the grounds so that neighbouring texels name the same ones, then
+    # measure what is left, since every disagreement is a seam the game draws.
+    used_now = [int(u) for u in np.unique(primary)]
+    primary = agree(primary, used_now)
+    third_used = [int(u) for u in np.unique(third) if u != 255]
+    if third_used:
+        settled = agree(np.where(third == 255, np.uint8(third_used[0]), third), third_used)
+        third = np.where(third == 255, np.uint8(255), settled)
+        del settled
+    disagree = np.zeros((H, W), bool)
+    for dy, dx in ((0, 1), (1, 0)):
+        a = primary[:-dy or None, :-dx or None]
+        b = primary[dy:, dx:]
+        d = np.zeros((H, W), bool)
+        d[:-dy or None, :-dx or None] = a != b
+        disagree |= d
+        del a, b, d
+    print("texels whose neighbour names another ground: %.2f%% (every one of them is a seam)"
+          % (disagree.mean() * 100))
+    del disagree
+
+    slots = [primary, partner, np.where(i3 > 0, third, np.uint8(255))]
+    ids, ws = reconcile(slots, [i1, i2, i3], sorted(set(used_now) | set(third_used)), H, W)
+    del slots, primary, partner, third, i1, i2, i3
+
     index = np.empty((H, W, 4), dtype=np.uint8)
-    index[..., 0] = primary
-    index[..., 1] = partner
-    index[..., 2] = third
-    index[..., 3] = 255
     intensity = np.zeros((H, W, 4), dtype=np.uint8)
-    intensity[..., 0] = i1
-    intensity[..., 1] = i2
-    intensity[..., 2] = i3
-    print("mean weights: ground %.2f, neighbour %.2f, rock or texture %.2f"
-          % (i1.mean() / 255, i2.mean() / 255, i3.mean() / 255))
-    del primary, partner, third, i1, i2, i3
+    total = sum(ws)
+    np.maximum(total, 1.0, out=total)
+    acc = np.zeros((H, W), np.int32)
+    for r in range(4):
+        index[..., r] = ids[r]
+        if r < 3:
+            v = np.round(ws[r] / total * 255.0).astype(np.int32)
+            np.clip(v, 0, 255 - acc, out=v)
+        else:
+            v = 255 - acc
+        intensity[..., r] = v.astype(np.uint8)
+        acc += v
+        del v
+    index[..., 3] = np.where(intensity[..., 3] > 0, ids[3], np.uint8(255))
+    del ids, ws, total, acc
+    for r in range(4):
+        print("   slot %d carries a ground over %5.1f%% of the map" % (r, (index[..., r] != 255).mean() * 100))
+    assert (intensity.astype(np.int32).sum(2) == 255).all(), "weights must add to 255, as vanilla's do"
 
     os.makedirs(out_dir, exist_ok=True)
     Image.fromarray(index, "RGBA").save(os.path.join(out_dir, "detail_index.tga"))  # uncompressed, as vanilla ships it
