@@ -82,6 +82,19 @@ REGION_GROUND = {
 # And where the fire shows through the ash of Vurkia.
 VURKIA_LAVA = ("patriam_lava", "patriam_ash")
 
+# The farming heartland of Southern Kallonia, which the fifteen house tier
+# realms hold: worked fields rather than the grass and standing water of an
+# empty plain, since this is the rich ground that will one day feed the empire
+# of Thenithria. The Mediterranean fields are the ground itself and the
+# northern ones are laid thinly over them, so that a whole province is not one
+# sheet of the same furrows. regions.heartland_mask says where they fall.
+HEARTLAND_GROUND = ("medi_farmlands", "farmland_01")
+# The fields do not take everything in their way. A wood inside the heartland
+# stays a wood, since ploughed furrows under standing trees read as a mistake,
+# and the shore stays sand, since a field does not run into the sea.
+HEARTLAND_KEEPS = ("forest_leaf_01", "forest_pine_01", "forest_jungle_01", "forestfloor",
+                   "beach_02", "beach_02_mediterranean", "beach_02_pebbles")
+
 # Slope and height override the biome where the land itself is steep or high,
 # so cliffs read as rock and summits as snow whatever was painted there.
 STEEP_ROCK = "mountain_02_b"
@@ -180,6 +193,17 @@ def ground_maps(prefix, size, idx, report=True):
             print("  %-12s takes %s over %.2f%% of the map, the calderas and the gullies"
                   % ("vurkia fire", VURKIA_LAVA, lm.mean() * 100))
         del lm, rmap
+    if prefix and os.path.exists(prefix + "_pid.npy"):
+        import regions
+        hm = regions.heartland_mask(prefix, (W, H))
+        hm &= ~np.isin(primary, [idx[m] for m in HEARTLAND_KEEPS])
+        primary[hm] = idx[HEARTLAND_GROUND[0]]
+        overlay[hm] = idx[HEARTLAND_GROUND[1]] if HEARTLAND_GROUND[1] else 255
+        unresolved[hm] = False
+        if report:
+            print("  %-12s takes %s over %.2f%% of the map, the fields of the house tier realms"
+                  % ("heartland", HEARTLAND_GROUND, hm.mean() * 100))
+        del hm
     return primary, overlay, unresolved
 
 
@@ -202,7 +226,7 @@ if __name__ == "__main__":
     for _, ground in SURFACE_RULES:
         for m in (ground or ()):
             assert m is None or m in idx, "surface material %s is not in materials.settings" % m
-    for m in (STEEP_ROCK, HIGH_SNOW) + FALLBACK:
+    for m in (STEEP_ROCK, HIGH_SNOW) + FALLBACK + HEARTLAND_GROUND + HEARTLAND_KEEPS:
         assert m in idx, m
     print("all %d rule materials exist in the game's list of %d" % (len(RULES), len(idx)))
     for name in ("sunflower_plains", "custom: Ebony Forest", "deep_ocean", "windswept_hills",

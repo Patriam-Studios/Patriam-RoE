@@ -14,10 +14,17 @@ Mekanis is the exception: it shares its landmass with Olzhar and Senkaria, so
 it is taken from the mesa and red desert its surface is painted with, closed
 over the canyons cut through it, which are painted as grass at the bottom.
 
+The farming heartland of Southern Kallonia is another: it is not a landmass at
+all but a cluster of realms, so it is read out of the title tree rather than
+off the world map, and grown and feathered at its edge because a field ends
+where the soil does and not on a political line.
+
 usage: python regions.py <export prefix>     writes and reports the masks
 """
+import glob
 import io
 import os
+import re
 import sys
 
 import numpy as np
@@ -31,6 +38,8 @@ import terrain_materials as tm
 Image.MAX_IMAGE_PIXELS = None
 Q = 8                     # export pixels a mask pixel, so 16 blocks
 B = 16.0                  # blocks a mask pixel
+MOD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
+WORLD_BLOCKS_X = 84992.0  # the width of the source world, for the province map scale
 
 # name: (seed x, seed y) in blocks, or a box (x0, y0, x1, y1) for an archipelago
 SEEDS = {
@@ -221,6 +230,101 @@ def sub_mask(out, names, name, part=None):
     return q
 
 
+# The farming heartland of Southern Kallonia: the plains of the fifteen house
+# tier realms, one contiguous cluster in the middle of the region, which is the
+# rich ground that will one day feed the empire of Thenithria. The baronies are
+# read out of the mod's own files rather than listed here, so that the fields
+# follow the title tree wherever it goes.
+HEARTLAND_GROW = 25.0        # blocks the fields carry past the edge of their baronies
+HEARTLAND_FEATHER = 75.0     # and the width they thin away over into ordinary grass
+HEARTLAND_MOTTLE = 150.0     # blocks: how coarsely that thinning is broken up
+QH = 4                       # province pixels a heartland working pixel
+
+
+def heartland_baronies():
+    """The plains baronies of the house tier realms, by province number.
+
+    A house tier realm is one whose title history turns its holder to house
+    government. Its baronies are the province numbers under its block in the de
+    jure tree, and the plains among them are the ones the province terrain
+    leaves at the default. Farmland counts as plains here, so that a second run
+    reads back what the first one wrote instead of finding an empty heartland.
+    """
+    house, current = set(), None
+    for line in io.open(os.path.join(MOD, "history", "titles", "00_patriam_titles.txt"),
+                        encoding="utf-8-sig"):
+        opened = re.match(r"^([ekdcb]_[a-z0-9_]+) = \{", line)
+        if opened:
+            current = opened.group(1)
+        elif "change_government = house_government" in line and current:
+            house.add(current)
+    assert house, "no house tier realm in the title history"
+
+    under = {}                         # title: the province numbers under it
+    for path in sorted(glob.glob(os.path.join(MOD, "common", "landed_titles", "*.txt"))):
+        stack = []
+        for line in io.open(path, encoding="utf-8-sig"):
+            barony = re.search(r"\bprovince = (\d+)", line)
+            if barony:
+                for title in stack:
+                    under.setdefault(title, set()).add(int(barony.group(1)))
+                continue
+            opened = re.match(r"^(\t*)([ekdcb]_[a-z0-9_]+) = \{\s*$", line)
+            if opened:
+                del stack[len(opened.group(1)):]
+                stack.append(opened.group(2))
+
+    terrain = {}
+    for line in io.open(os.path.join(MOD, "common", "province_terrain", "00_province_terrain.txt"),
+                        encoding="utf-8-sig"):
+        written = re.match(r"(\d+)\s*=\s*([a-z_]+)", line.strip())
+        if written:
+            terrain[int(written.group(1))] = written.group(2)
+
+    held = set()
+    for title in house:
+        held |= under.get(title, set())
+    ids = sorted(p for p in held if terrain.get(p, "plains") in ("plains", "farmlands"))
+    assert ids, "the house tier realms hold %d baronies and none of them are plains" % len(held)
+    return ids
+
+
+def smooth_noise(shape, cell, rng):
+    """A smooth random field in 0 to 1, for breaking up anything regular."""
+    small = rng.random((max(2, shape[0] // cell + 2), max(2, shape[1] // cell + 2))).astype(np.float32)
+    up = Image.fromarray(small).resize((shape[1], shape[0]), Image.BICUBIC)
+    return np.clip(np.array(up, dtype=np.float32), 0.0, 1.0)
+
+
+def heartland_mask(prefix, size):
+    """Where the worked fields of the heartland are drawn, over the province map.
+
+    The baronies draw a hard political line, so the mask is carried a little
+    past them and then thinned away over a band, mottled with smooth noise, and
+    the fields interlock with the grass beyond instead of stopping dead on a
+    border. Worked out on a quarter grid, as the terrain blend is."""
+    W, H = size
+    pid = np.load(prefix + "_pid.npy", mmap_mode="r")
+    assert pid.shape == (H, W), "the province numbers are %s, not the province map" % (pid.shape,)
+    assert H % QH == 0 and W % QH == 0, "the province map does not divide by %d" % QH
+    hq, wq = H // QH, W // QH
+    ids = heartland_baronies()
+    core = np.zeros((hq, wq), bool)
+    for y in range(0, H, 1024):                       # in bands, so the whole id map never lands on the heap
+        band = np.isin(np.asarray(pid[y:y + 1024]), ids)
+        rows = band.shape[0] // QH
+        core[y // QH:y // QH + rows] = band[:rows * QH].reshape(rows, QH, wq, QH).any(axis=(1, 3))
+        del band
+    per_pixel = WORLD_BLOCKS_X / W * QH               # blocks a working pixel
+    away = ndimage.distance_transform_edt(~core) * per_pixel      # blocks out from the fields
+    alpha = np.clip((HEARTLAND_GROW + HEARTLAND_FEATHER - away) / HEARTLAND_FEATHER, 0.0, 1.0)
+    del away
+    rng = np.random.default_rng(7726)
+    mottled = alpha > smooth_noise((hq, wq), max(2, int(round(HEARTLAND_MOTTLE / per_pixel))), rng)
+    del alpha
+    return np.array(Image.fromarray(mottled.astype(np.uint8)).resize((W, H), Image.NEAREST)).astype(bool)
+
+
 if __name__ == "__main__":
     prefix = sys.argv[1]
     for f in (prefix + "_regions.png", prefix + "_regions.txt"):
@@ -236,3 +340,6 @@ if __name__ == "__main__":
         ys, xs = np.nonzero(m)
         print("  %-20s blocks x %6d..%6d  y %6d..%6d" % (
             name, xs.min() * B, xs.max() * B, ys.min() * B, ys.max() * B))
+    ids = heartland_baronies()
+    print("heartland: %d plains baronies under the house tier realms, %d to %d"
+          % (len(ids), ids[0], ids[-1]))

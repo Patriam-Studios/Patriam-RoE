@@ -70,6 +70,7 @@ MATERIAL_TINT = {
     "hills_01_rocks": (128, 124, 108),
     "hills_01_rocks_small": (128, 124, 108),
     "farmland_01": (132, 138, 70),
+    "medi_farmlands": (140, 142, 78),       # the worked heartland of Southern Kallonia
 }
 HIGH_GROUND_START, HIGH_GROUND_FULL = 95.0, 160.0   # blocks above the sea
 
