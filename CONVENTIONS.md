@@ -683,6 +683,56 @@ village. Nothing is laid within `FORT_CLEAR` of the middle, and the two forts
 measure 9.0 province pixels across alike, against the 4.9 of the base game's own
 fourth level castle, so one clearance serves both.
 
+### The peoples, as they look
+
+Every culture began on the base game's `mediterranean_byzantine` ethnicity,
+which gave a Drunathaen the olive skin, black hair and brown eyes of a Greek of
+this game's own Earth. `common/ethnicities/00_patriam_ethnicities.txt` holds
+five ethnicities instead, one for each people of Alexander's description.
+
+| Ethnicity | Worn by | Skin | Hair | Eyes |
+| --- | --- | --- | --- | --- |
+| `patriam_drunathaenic` | Thenithrian, Late Drunathaenic | pale and warm | blonde at four heads in five | deep blue or green |
+| `patriam_senkarian` | Akarian | olive to white | black or dark brown | gold or violet |
+| `patriam_kaegonic` | Kaegonic | fair | light brown, dark blonde, ginger | blue or green |
+| `patriam_norkinian` | nothing yet | pale | blonde at every shade, light brown | blue or grey, and nothing else |
+| `patriam_ketanite` | nothing yet | white to light olive | brown, black, blonde | blue, green or gold |
+
+Norkinia is not on this map and Ketan carries no culture of its own, so those
+two wait for one and are written now so that they are ready.
+
+The Drunathaen carry three genes beyond their colours: `gene_height` weighted
+tall, `beards` at seven parts no beard to one, and `gene_age` held to the lower
+part of its range, which together are the youthful, beardless cast they are
+known for. The Kaegonic and the Norkinians carry a heavier `gene_bs_body_type`.
+
+WHERE THE COLOURS COME FROM. A colour gene is a rectangle
+`{ left top right bottom }` of one of three palettes, `skin_palette.dds`,
+`hair_palette.dds` and `eye_palette.dds` under `gfx/portraits`. The hair palette
+runs flaxen at its left to red at its right and pale at its top to black at its
+foot; the eye palette runs brown, amber, green, blue from left to right and
+darkens downwards. Every rectangle in the file was measured off those palettes
+and the colour it yields is named beside it, so nothing there is a guess.
+
+VIOLET IS NOT IN THIS GAME. There is no violet anywhere in the eye palette. No
+people of Patriam looks out of brown eyes, so the whole brown band at the left
+is free ground, and `tools/portraits/make_eye_palette.py` repaints it violet,
+pale lilac at the top to deep violet at the foot, taking its lightness from how
+far down the palette a pixel lies so that it shades as the rest of the palette
+does. Amber, green and blue are untouched. The file is 256 by 256 of
+uncompressed colour with no mip levels, so its own header is reused and only the
+pixels change. The one consequence to know: any culture that still carried a
+vanilla ethnicity would find its brown eyes turned violet, and this world holds
+no such culture.
+
+A BOOKMARK PORTRAIT IS A STORED FACE. `common/bookmark_portraits` holds a full
+set of genes dumped from a running game by the console command
+`dump_bookmark_portraits`, so it does not follow an ethnicity that changes
+afterwards. Hythaerion's was dumped while he was still Byzantine, and his stored
+brown eyes would have read as violet once the palette changed, so his four
+colour and height genes are set by hand to a Drunathaen's. Dumping the portrait
+again from a running game overwrites them with the same sort of values.
+
 ### The armies on the map
 
 Four soldiers are ported, all under `gfx/models/units/imperator`.
