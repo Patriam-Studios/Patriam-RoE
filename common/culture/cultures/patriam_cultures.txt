@@ -32,8 +32,10 @@ thenithrian = {
 	# The Roman legionary from Imperator: Rome.
 	unit_gfx = { patriam_roman_unit_gfx }
 
+	# Pale and warm skinned, blonde almost to a people, blue or green eyed,
+	# tall and beardless by custom.
 	ethnicities = {
-		100 = mediterranean_byzantine
+		100 = patriam_drunathaenic
 	}
 }
 
@@ -63,8 +65,10 @@ late_drunathaenic = {
 	# The Greek hoplite from Imperator: Rome.
 	unit_gfx = { patriam_unit_gfx }
 
+	# Pale and warm skinned, blonde almost to a people, blue or green eyed,
+	# tall and beardless by custom.
 	ethnicities = {
-		100 = mediterranean_byzantine
+		100 = patriam_drunathaenic
 	}
 }
 
@@ -94,8 +98,10 @@ kaegonic = {
 	clothing_gfx = { western_clothing_gfx }
 	unit_gfx = { western_unit_gfx }
 
+	# White skinned, light brown to dark blonde to ginger haired, blue or
+	# green eyed, and heavier built.
 	ethnicities = {
-		100 = mediterranean_byzantine
+		100 = patriam_kaegonic
 	}
 }
 
@@ -127,7 +133,8 @@ akarian = {
 	# tier and an armoured soldier at the two above it.
 	unit_gfx = { patriam_persian_unit_gfx }
 
+	# Olive to white skinned, dark haired, and eyed in gold or in violet.
 	ethnicities = {
-		100 = mediterranean_byzantine
+		100 = patriam_senkarian
 	}
 }

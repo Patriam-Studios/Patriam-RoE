@@ -1,0 +1,253 @@
+﻿############################################################
+# The peoples of Patriam, as they look.
+#
+# Every colour below is a rectangle of the game's own palettes, which are
+# gfx/portraits/skin_palette.dds, hair_palette.dds and eye_palette.dds, each
+# read as { left top right bottom } in the range nought to one. The rectangles
+# here were measured off those palettes rather than guessed, and the colour each
+# one yields is named in the comment beside it.
+#
+# The hair palette runs from flaxen at its left to red at its right, and from
+# pale at its top to black at its foot. The eye palette runs from violet at its
+# left, through amber and green, to blue at its right, and darkens downwards.
+# Violet is not the base game's: there is no violet anywhere in its palette, so
+# the whole brown band at the left, which no people of this world looks out of,
+# is repainted by tools/portraits/make_eye_palette.py.
+#
+# Slavery, seamanship and the rest of what marks these peoples apart are matters
+# for their cultures and their laws rather than for their faces, and none of it
+# belongs in this file.
+############################################################
+
+############################################################
+# The Drunathaen of Southern Kallonia, worn by Thenithrian and by Late
+# Drunathaenic alike. Pale yet warm skinned, blonde almost to a people, blue or
+# green eyed, tall, and beardless by custom, which together with the slow
+# ageing of their line gives them the youthful cast they are known for.
+############################################################
+patriam_drunathaenic = {
+	visible = no
+	template = "ethnicity_template"
+	using = "caucasian"
+
+	skin_color = {
+		# pale and warm
+		60 = { 0.10 0.06 0.32 0.26 }
+		# porcelain
+		25 = { 0.02 0.02 0.18 0.16 }
+		# fair
+		15 = { 0.22 0.16 0.42 0.34 }
+	}
+	eye_color = {
+		# deep blue
+		55 = { 0.72 0.22 1.00 0.62 }
+		# green
+		45 = { 0.42 0.22 0.62 0.60 }
+	}
+	hair_color = {
+		# golden blonde
+		66 = { 0.10 0.08 0.34 0.28 }
+		# flaxen, near to white
+		14 = { 0.00 0.03 0.14 0.16 }
+		# dark blonde
+		16 = { 0.26 0.22 0.48 0.40 }
+		# light brown, the rare head in a fair people
+		4 = { 0.40 0.36 0.64 0.54 }
+	}
+
+	# Taller than other peoples, which is half of what marks a Drunathaen out.
+	gene_height = {
+		10 = { name = normal_height  range = { 0.50 0.58 } }
+		45 = { name = normal_height  range = { 0.58 0.68 } }
+		35 = { name = normal_height  range = { 0.68 0.78 } }
+		10 = { name = normal_height  range = { 0.78 0.88 } }
+	}
+
+	# Few wear a beard, which is custom and not blood.
+	beards = {
+		88 = { name = no_beard   range = { 0.0 1.0 } }
+		12 = { name = all_beards range = { 0.0 1.0 } }
+	}
+
+	# A face that wears its years lightly.
+	gene_age = {
+		10 = { name = old_1  range = { 0.0 0.35 } }
+		10 = { name = old_2  range = { 0.0 0.35 } }
+		10 = { name = old_3  range = { 0.0 0.35 } }
+		10 = { name = old_4  range = { 0.0 0.35 } }
+	}
+}
+
+############################################################
+# The Senkarians, of whom the Akarians are the westernmost. Drunathaen stock
+# mixed with the nomads of the desert heartlands some thousands of years back,
+# so olive to white skinned and dark haired, and famous for eyes of gold or of
+# violet.
+############################################################
+patriam_senkarian = {
+	visible = no
+	template = "ethnicity_template"
+	using = "mediterranean"
+
+	skin_color = {
+		# light olive
+		45 = { 0.38 0.24 0.58 0.42 }
+		# olive
+		30 = { 0.50 0.32 0.70 0.52 }
+		# fair, from the Drunathaen side of the line
+		25 = { 0.22 0.16 0.42 0.34 }
+	}
+	eye_color = {
+		# gold
+		55 = { 0.27 0.08 0.40 0.32 }
+		# violet
+		45 = { 0.04 0.10 0.24 0.55 }
+	}
+	hair_color = {
+		# black
+		55 = { 0.00 0.88 0.50 1.00 }
+		# dark brown
+		40 = { 0.62 0.48 0.88 0.76 }
+		# brown
+		5 = { 0.40 0.36 0.64 0.54 }
+	}
+}
+
+############################################################
+# The Kaegonic of Northern Kallonia. A hardy people of the Germanic cast: white
+# skinned, light brown to dark blonde to ginger haired, blue or green eyed, and
+# heavier built than the Drunathaen they border.
+############################################################
+patriam_kaegonic = {
+	visible = no
+	template = "ethnicity_template"
+	using = "caucasian"
+
+	skin_color = {
+		# fair
+		55 = { 0.22 0.16 0.42 0.34 }
+		# porcelain
+		25 = { 0.02 0.02 0.18 0.16 }
+		# pale and warm
+		20 = { 0.10 0.06 0.32 0.26 }
+	}
+	eye_color = {
+		# blue
+		55 = { 0.72 0.18 1.00 0.60 }
+		# green
+		45 = { 0.42 0.20 0.62 0.60 }
+	}
+	hair_color = {
+		# light brown
+		38 = { 0.40 0.36 0.64 0.54 }
+		# dark blonde
+		30 = { 0.26 0.22 0.48 0.40 }
+		# ginger
+		32 = { 0.80 0.05 1.00 0.45 }
+	}
+
+	# Strong of build, as a people of warriors, hunters and builders is.
+	gene_height = {
+		20 = { name = normal_height  range = { 0.45 0.52 } }
+		50 = { name = normal_height  range = { 0.52 0.62 } }
+		30 = { name = normal_height  range = { 0.62 0.72 } }
+	}
+	gene_bs_body_type = {
+		10 = { name = body_fat_head_fat_medium   range = { 0.45 0.55 } }
+		45 = { name = body_fat_head_fat_full     range = { 0.45 0.58 } }
+		45 = { name = body_fat_head_fat_full     range = { 0.55 0.68 } }
+	}
+}
+
+############################################################
+# The Norkinians, distant cousins to the Thenithrians out of the Nuokaenian and
+# the Drunathaen both. Pale, tall and strong, blonde at every shade from dark to
+# near white or else light brown, and blue or grey eyed and nothing else.
+#
+# No province of this map is Norkinian yet, the mod holding only Southern
+# Kallonia, so nothing carries this ethnicity until Norkinia is on the map.
+############################################################
+patriam_norkinian = {
+	visible = no
+	template = "ethnicity_template"
+	using = "caucasian"
+
+	skin_color = {
+		# pale and warm
+		45 = { 0.10 0.06 0.32 0.26 }
+		# porcelain
+		40 = { 0.02 0.02 0.18 0.16 }
+		# fair
+		15 = { 0.22 0.16 0.42 0.34 }
+	}
+	eye_color = {
+		# blue
+		65 = { 0.72 0.18 1.00 0.62 }
+		# grey, which is the palest reach of the blue
+		35 = { 0.70 0.02 0.90 0.12 }
+	}
+	hair_color = {
+		# golden blonde
+		36 = { 0.10 0.08 0.34 0.28 }
+		# flaxen, near to white
+		22 = { 0.00 0.03 0.14 0.16 }
+		# dark blonde
+		22 = { 0.26 0.22 0.48 0.40 }
+		# light brown
+		20 = { 0.40 0.36 0.64 0.54 }
+	}
+
+	gene_height = {
+		10 = { name = normal_height  range = { 0.50 0.58 } }
+		45 = { name = normal_height  range = { 0.58 0.68 } }
+		35 = { name = normal_height  range = { 0.68 0.78 } }
+		10 = { name = normal_height  range = { 0.78 0.88 } }
+	}
+	gene_bs_body_type = {
+		15 = { name = body_fat_head_fat_medium   range = { 0.45 0.55 } }
+		45 = { name = body_fat_head_fat_full     range = { 0.45 0.58 } }
+		40 = { name = body_fat_head_fat_full     range = { 0.55 0.68 } }
+	}
+}
+
+############################################################
+# The Ketanites of the Ketanite Isles, Drunathaen stock with a thousand years of
+# trade in their blood, from Mekanis and Senkaria to both Kallonias and Norkinia.
+# White or light olive skinned, brown, blonde or black haired, and blue, green or
+# golden eyed, which is the whole of that shared ancestry read off one face.
+#
+# Ketan holds one barony of this map and carries no culture of its own yet, so
+# nothing wears this ethnicity until the Ketanite culture is written.
+############################################################
+patriam_ketanite = {
+	visible = no
+	template = "ethnicity_template"
+	using = "caucasian"
+
+	skin_color = {
+		# fair
+		45 = { 0.22 0.16 0.42 0.34 }
+		# light olive
+		35 = { 0.38 0.24 0.58 0.42 }
+		# porcelain
+		20 = { 0.02 0.02 0.18 0.16 }
+	}
+	eye_color = {
+		# blue
+		35 = { 0.72 0.18 1.00 0.60 }
+		# green
+		30 = { 0.42 0.20 0.62 0.60 }
+		# gold
+		35 = { 0.27 0.08 0.40 0.32 }
+	}
+	hair_color = {
+		# brown
+		35 = { 0.62 0.48 0.88 0.76 }
+		# black
+		30 = { 0.00 0.88 0.50 1.00 }
+		# golden blonde
+		20 = { 0.10 0.08 0.34 0.28 }
+		# dark blonde
+		15 = { 0.26 0.22 0.48 0.40 }
+	}
+}

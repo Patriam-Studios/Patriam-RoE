@@ -1,13 +1,18 @@
-﻿# Auto generated file, do not edit manually. Created using console command dump_bookmark_portraits
+﻿# Auto generated file, created using console command dump_bookmark_portraits.
+# The four colour and height genes were set by hand afterwards, since the
+# portrait was dumped when every culture still wore the base game's Byzantine
+# ethnicity and Hythaerion came out black haired, olive skinned and brown eyed.
+# Dumping it again from a running game will read the Drunathaenic ethnicity and
+# overwrite these with the same sort of values.
 # History database id:6001
 bookmark_patriam_hythaerion={
 	type=boy
 	id=51
 	random_seed=1894391931
 	age=0.170000
-	genes={ 		hair_color={ 69 242 5 248 }
- 		skin_color={ 171 117 162 115 }
- 		eye_color={ 19 141 60 183 }
+	genes={ 		hair_color={ 56 46 20 26 }
+ 		skin_color={ 51 38 46 33 }
+ 		eye_color={ 219 102 133 107 }
  		gene_chin_forward={ "chin_forward_neg" 121 "chin_forward_neg" 105 }
  		gene_chin_height={ "chin_height_pos" 138 "chin_height_pos" 136 }
  		gene_chin_width={ "chin_width_neg" 121 "chin_width_pos" 130 }
@@ -96,7 +101,7 @@ bookmark_patriam_hythaerion={
  		expression_forehead_wrinkles={ "forehead_wrinkles_01" 9 "forehead_wrinkles_01" 48 }
  		expression_other={ "cheek_wrinkles_both_01" 0 "cheek_wrinkles_both_01" 0 }
  		complexion={ "complexion_3" 233 "complexion_3" 230 }
- 		gene_height={ "normal_height" 137 "normal_height" 126 }
+ 		gene_height={ "normal_height" 179 "normal_height" 168 }
  		gene_bs_body_type={ "body_fat_head_fat_full" 90 "body_fat_head_fat_full" 102 }
  		gene_bs_body_shape={ "body_shape_triangle_half" 95 "body_shape_average" 2 }
  		gene_bs_bust={ "bust_clothes" 91 "bust_shape_1_half" 126 }
