@@ -135,14 +135,16 @@ def main(prefix):
         print("dry run, nothing written")
         return
     os.makedirs(ASSET_DIR, exist_ok=True)
-    shutil.copyfile(os.path.join(GAME, "gfx", "models", "mapitems", "lakes", "lake.mesh"),
-                    os.path.join(ASSET_DIR, "lake.mesh"))
-    shutil.copyfile(os.path.join(MOD, "gfx", "map", "terrain", "patriam_lava_diffuse.dds"),
-                    os.path.join(ASSET_DIR, "patriam_lava_diffuse.dds"))
-    io.open(os.path.join(ASSET_DIR, "patriam_lava_lake.asset"), "w",
-            encoding="utf-8-sig", newline="\n").write(ASSET)
-    io.open(OUT, "w", encoding="utf-8-sig", newline="\n").write(body)
-    print("wrote %s and the mesh beside it" % os.path.basename(OUT))
+    # The lake object is left out for now. The base game's lake mesh is a square
+    # plane, so a caldera came out as an orange rectangle lying across the crater
+    # rather than filling it, and under an ordinary mesh shader it does not move.
+    # The painted ground carries the lava until a round mesh exists to lay on it.
+    for stale in (OUT, os.path.join(ASSET_DIR, "lake.mesh"),
+                  os.path.join(ASSET_DIR, "patriam_lava_lake.asset"),
+                  os.path.join(ASSET_DIR, "patriam_lava_diffuse.dds")):
+        if os.path.exists(stale):
+            os.remove(stale)
+    print("the %d widest craters are painted rather than laid with a mesh, which is square" % kept)
 
     islands, _, _ = rg.vurkia_parts(prefix)
     rows = smoke(lava, islands, PW, PH, np.random.default_rng(6355))

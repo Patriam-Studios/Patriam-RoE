@@ -106,8 +106,12 @@ def vurkia_lava(prefix):
     h = np.array(Image.open(prefix + "_height.png"))[::Q, ::Q].astype(np.float32) / 64.0 + np.float32(hs.MIN_BLOCK)
     hollow = ndimage.gaussian_filter(h, 6) - h          # how far below its surroundings a pixel lies
     del h
-    cut = np.percentile(hollow[islands], 92) if islands.any() else 1e9
-    channels = islands & (hollow > cut)
+    # Only the deepest few channels, and only where they run out of a crater, so
+    # the fire reads as flows leaving the volcanoes rather than as a rash over
+    # the whole archipelago.
+    cut = np.percentile(hollow[islands], 99.2) if islands.any() else 1e9
+    near_crater = ndimage.binary_dilation(calderas, iterations=6)
+    channels = islands & (hollow > cut) & near_crater
     return calderas | channels, calderas, filled
 
 

@@ -35,6 +35,7 @@ usage: python build_canvas.py [--write]
 import io
 import json
 import os
+import shutil
 import sys
 import time
 from collections import deque
@@ -603,8 +604,9 @@ open(os.path.join(MD, "adjacencies.csv"), "w", newline="", encoding="utf-8").wri
 open(os.path.join(MD, "island_region.txt"), "w", encoding="utf-8", newline="\n").write(
     "# Island regions, meaning no land path to the mainland.\n# The game uses these to shorten path finding.\n"
     "# Filled in once the counties of the offshore islands are named.\n")
-open(os.path.join(MD, "seasons.txt"), "w", encoding="utf-8", newline="\n").write(
-    "winter = {\n\tstart_date=00.12.01\n\tend_date=00.02.31\n}\n\nspring = {\n\tstart_date=00.03.01\n\tend_date=00.05.31\n}\n\n"
-    "summer = {\n\tstart_date=00.06.01\n\tend_date=00.08.31\n}\n\nautumn = {\n\tstart_date=00.09.01\n\tend_date=00.11.30\n}\n")
+# The seasons are not a property of this world's shape, and map_data is replaced
+# whole, so the base game's own file is carried across rather than invented. The
+# shortened one written here before left out the eight tree seasons it declares.
+shutil.copyfile(os.path.join(GAME, "map_data", "seasons.txt"), os.path.join(MD, "seasons.txt"))
 say("wrote default.map, adjacencies, island_region, seasons")
 say("done; next: refine_heightmap.py --from-export %s/canvas_blocks.png, then pack, nodes, masks, textures, terrain, locators" % OUT)

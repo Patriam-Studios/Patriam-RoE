@@ -55,7 +55,7 @@ MATERIAL_TINT = {
     "mountain_02_desert_c": (172, 122, 86),
     "patriam_terracotta": (176, 96, 64),        # the mesa of Mekanis
     "patriam_terracotta_rock": (132, 92, 76),
-    "patriam_ash": (40, 38, 40),                # the burnt ground of Vurkia
+    "patriam_ash": (96, 90, 86),                # the burnt ground of Vurkia
     "patriam_lava": (196, 74, 18),
     "snow": (228, 232, 236),
     "mountain_02_b": (76, 68, 64),          # the ash and dark rock of Vurkia

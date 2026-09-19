@@ -40,7 +40,7 @@ SNOW_FULL_BLOCKS = 215.0
 ROCK_SLOPE_START = 3.8
 ROCK_SLOPE_FULL = 9.5
 Q = 4                    # province pixels a blending pixel
-BLEND_SIGMA = 1.6        # blending pixels, so about 33 blocks of softened join
+BLEND_SIGMA = 2.4        # blending pixels, so about 50 blocks of softened join
 MAX_BLEND = 0.46         # the ground of the pixel itself always keeps the most weight
 
 
@@ -158,7 +158,17 @@ def main(prefix, heightmap_path, map_data_dir, out_dir):
     np.clip(w2, 0.0, MAX_BLEND, out=w2)
     w2[~land] = 0.0
     w2[partner == primary] = 0.0
-    del land, grain
+
+    # And the two grounds change places at random as the border is crossed, more
+    # and more often the nearer it comes, so that on the line itself it is even.
+    # A border drawn as one hard edge is what reads as pixels when the camera is
+    # close: this leaves the two interlocking in patches a few pixels across.
+    swap = noise((H, W), 10, rng, octaves=1) < w2
+    swap &= land
+    primary, partner = np.where(swap, partner, primary), np.where(swap, primary, partner)
+    print("grounds changed places over %.1f%% of the land, which softens every border"
+          % (swap[land].mean() * 100))
+    del swap, land, grain
 
     w1 = np.clip(1.0 - w2 - w3, 0.08, 1.0).astype(np.float32)
     total = w1 + w2 + w3
