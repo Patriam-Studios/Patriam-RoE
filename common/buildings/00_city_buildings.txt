@@ -52,7 +52,7 @@ city_01 = {
 			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the Persian cities of Imperator: Rome ###
@@ -680,7 +680,7 @@ city_02 = {
 			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the Persian cities of Imperator: Rome ###
@@ -1284,7 +1284,7 @@ city_03 = {
 			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the Persian cities of Imperator: Rome ###
@@ -1872,7 +1872,7 @@ city_04 = {
 			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 3 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the Persian cities of Imperator: Rome ###

@@ -483,7 +483,11 @@ Drunathaenic takes the Greek one with
 `building_gfx = { patriam_building_gfx byzantine_building_gfx }`, and Akarian
 takes the Persian one with
 `building_gfx = { patriam_persian_building_gfx byzantine_building_gfx }`. The
-second entry in each pair covers the holdings the port does not reach yet.
+second entry in each pair covers the holdings the port does not reach yet, and
+NO asset block of ours may name it, for the reason set out under the towns.
+Kaegonic carries `western_building_gfx` and `western_unit_gfx` alone, being of
+the Anglo Saxon cast, which is exactly what the base game's own `english`
+culture carries, so nothing was ported for it.
 
 WHY AKARIA HAS NO TEMPLE OF ITS OWN CULT. Imperator ships no Persian temple:
 its Persian city set is houses and a civic centre with nothing sacred among
@@ -615,15 +619,20 @@ are the ones worth turning.
   being touched. `LANE` and `RING_STEP` are how crowded the result is.
 * `VARIANTS` is how many towns each level offers the game.
 
-The asset blocks name the Roman set before the Greek one at every level, because
-Thenithrian carries both `patriam_roman_building_gfx` and, after it,
-`byzantine_building_gfx`, and the Greek block answers to that second tag as
-well. That fallback is deliberate: it means any culture carrying
-`byzantine_building_gfx` alone is given the Greek face rather than the base
-game's medieval one, and no holding anywhere in Southern Kallonia falls back to
-a timber palisade. The Persian blocks sit after the Greek ones at every level
-and answer to `patriam_persian_building_gfx` alone, which is first in Akaria's
-own list, so Akaria takes them and nothing else does.
+WHICH ASSET A CULTURE PICKS, PROVEN IN GAME. When two asset blocks both answer
+to a culture, the one written FIRST IN THE FILE wins, and the order of the tags
+in the culture's own `building_gfx` list counts for nothing. This was paid for:
+Akaria carries `patriam_persian_building_gfx` first and `byzantine_building_gfx`
+after it, the Greek block used to answer to that second tag as a fallback, and
+the Greek block stands before the Persian one, so Akaria was given Greek cities,
+Greek forts and a Greek temple while its soldiers were Persian.
+
+The rule that follows is simple and is now kept: NO PATRIAM ASSET BLOCK MAY NAME
+`byzantine_building_gfx`. Each block answers to its own culture's tag alone, so
+no two blocks ever answer to the same culture and file order never decides
+anything. The cultures still carry `byzantine_building_gfx` as their second tag,
+which covers the holdings the port does not reach, and vanilla's own blocks
+answer to it far down the file where nothing of ours can be reached first.
 
 Since a holding is drawn at the level of its main building and every holding in
 the world starts at the first, the great seats are raised in province history

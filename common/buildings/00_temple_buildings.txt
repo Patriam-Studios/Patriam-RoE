@@ -47,7 +47,7 @@ temple_01 = {
 			}
 			illustration = @illustration_generic_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the Mausoleum of Halicarnassus of Imperator: Rome, which is the one monument that game raises in the eastern manner ###
@@ -1096,7 +1096,7 @@ temple_02 = {
 			}
 			illustration = @illustration_generic_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the Mausoleum of Halicarnassus of Imperator: Rome, which is the one monument that game raises in the eastern manner ###
@@ -1981,7 +1981,7 @@ temple_03 = {
 			}
 			illustration = @illustration_generic_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the Mausoleum of Halicarnassus of Imperator: Rome, which is the one monument that game raises in the eastern manner ###
@@ -2854,7 +2854,7 @@ temple_04 = {
 			}
 			illustration = @illustration_generic_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/generic_temple" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the Mausoleum of Halicarnassus of Imperator: Rome, which is the one monument that game raises in the eastern manner ###

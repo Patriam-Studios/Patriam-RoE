@@ -43,7 +43,7 @@ tribe_01 = {
 			}
 			illustration = @holding_illustration_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: a Persian town, Akaria building in mudbrick before it builds walls ###
@@ -234,7 +234,7 @@ tribe_02 = {
 			}
 			illustration = @holding_illustration_grass
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 1 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: a Persian town, Akaria building in mudbrick before it builds walls ###

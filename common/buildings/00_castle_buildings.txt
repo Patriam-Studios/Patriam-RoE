@@ -44,7 +44,7 @@ castle_01 = {
 			name = "patriam_hellenistic_fort_mesh"
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 0 } }
-			graphical_cultures = { patriam_building_gfx patriam_roman_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx patriam_roman_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the eastern fort of Imperator: Rome, standing bare, which is the same holding at the same level in Akarian stone ###
@@ -624,7 +624,7 @@ castle_02 = {
 			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 1 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the eastern fort with a Persian village grown at its gate ###
@@ -1149,7 +1149,7 @@ castle_03 = {
 			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 2 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the eastern fort with a Persian village grown at its gate ###
@@ -1671,7 +1671,7 @@ castle_04 = {
 			}
 			illustration = @holding_illustration_mediterranean
 			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/mediterranean_castle" soundparameter = { "Tier" = 3 } }
-			graphical_cultures = { patriam_building_gfx byzantine_building_gfx }
+			graphical_cultures = { patriam_building_gfx }
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
 		}
 		### Patriam: the eastern fort with a Persian village grown at its gate ###
