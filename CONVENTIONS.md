@@ -182,6 +182,18 @@ places objects, which is twelve of them, and leaves alone both the layer
 definitions every object names and the files this mod writes for itself. Run it
 again after a game update, in case Paradox adds another.
 
+### Surf
+
+The base game declares three foam emitters and places not one of them: its own
+coast_foam.txt carries count zero on all three, so the white water in its own
+game comes from the water itself. `tools/map/build_coast_foam.py` gives this
+world surf the base game never had, laid only on shores with open water in front
+of them and never in a sheltered channel, sized by how open that water is and
+turned to face the land. Density is the thing to watch, since every instance is
+a particle emitter and the base game places about seven hundred of all kinds
+across its whole map: a continuous line of surf here would need seventy
+thousand, so the spacing keeps it near five.
+
 ### Rivers
 
 The game draws rivers from `map_data/rivers.png`, not from the heightmap, so a
