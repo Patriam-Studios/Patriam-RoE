@@ -1,0 +1,3 @@
+﻿# Patriam: Rise of Empires. The base game places rock cliffs on its own Earth by
+# coordinate, which lands them at random on this world. A file of this name
+# overrides it, so nothing is placed. Written by tools/map/clear_vanilla_objects.py.

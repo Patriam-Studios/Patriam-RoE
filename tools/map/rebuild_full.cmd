@@ -43,6 +43,9 @@ popd
 echo === 7b. the fires of Vurkia
 python "%HERE%build_vurkia.py" "%FULL%\full" --write || goto :fail
 
+echo === 7c. take the base game's own map objects off this world
+python "%HERE%clear_vanilla_objects.py" --write || goto :fail
+
 echo === 8. trees from the WorldPainter tree layers
 if exist "%FULL%\full_trees.png" (
     python "%HERE%build_trees.py" "%FULL%\full" --write || goto :fail

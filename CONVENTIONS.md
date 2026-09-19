@@ -171,6 +171,17 @@ ground itself is ash, with lava showing in the calderas and along the gullies
 the land drains down, and nine hundred plumes of smoke rise from the rims and
 the fissures, using the base game's own city smoke.
 
+### The base game's own map objects
+
+Every object the base game lays on its map is placed by coordinate: its lakes,
+its animals, its bridges and its cliffs, the sprawl of Constantinople, Hadrian's
+Wall and the pyramids of Giza. Those coordinates mean something only on its own
+Earth, so on this world they scatter at random.
+`tools/map/clear_vanilla_objects.py` writes an empty file over each one that
+places objects, which is twelve of them, and leaves alone both the layer
+definitions every object names and the files this mod writes for itself. Run it
+again after a game update, in case Paradox adds another.
+
 ### Rivers
 
 The game draws rivers from `map_data/rivers.png`, not from the heightmap, so a
